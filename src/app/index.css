@@ -27,7 +27,7 @@ body{
 }
 @media (min-width: 320px) and (max-width: 768px){    /* CSS for smartphones */
       .inputbar{
-        width: 320px !important;
+        width: 220px !important;
         
       }
       .description{
