@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { IoArrowDown } from "react-icons/io5";
-import JSZip from "jszip";
+import jszip from "jszip";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -106,7 +106,7 @@ function Posts() {
         return response.blob();
       })
       .then((blob) => {
-        return JSZip.loadAsync(blob);
+        return jszip.loadAsync(blob);
       })
       .then((zip) => {
         const srtFile = zip.file(/\.srt$/i); // Look for files with .srt extension (case-insensitive)
