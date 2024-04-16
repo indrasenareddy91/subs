@@ -4,7 +4,6 @@ import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import axios from "axios";
 import "./index.css";
 import Link from "next/link";
-import { title } from "process";
 
 const TMDB_API_KEY = process.env.NEXT_PUBLIC_TM;
 const SearchBar = () => {
@@ -104,6 +103,7 @@ const SearchBar = () => {
     <div style={style} className="backdrop">
       {randomMovie && (
         <div
+          className="random"
           style={{
             position: "absolute",
             top: "8%",
@@ -150,8 +150,9 @@ const SearchBar = () => {
         </span>
       </div>
       <div
+        className="inputContaineron"
         style={{
-          minHeight: "45vh",
+          minHeight: "50vh",
           display: "flex",
           justifyContent: "end",
           alignItems: "center",
@@ -159,7 +160,10 @@ const SearchBar = () => {
           boxSizing: "border-box",
         }}
       >
-        <div style={{ marginBottom: "20px", fontSize: "26px" }}>
+        <div
+          className="description"
+          style={{ marginBottom: "20px", fontSize: "26px" }}
+        >
           Find perfect subtitles for any movie{" "}
         </div>
         <form onSubmit={handleSearch} style={{}}>
