@@ -11,7 +11,7 @@
     color:black!important;
     background: #f1c40f !important;
 }
-@media only screen and (max-width: 576px) {
+@media (min-width: 320px) and (max-width: 768px){    /* CSS for smartphones */
     /* CSS for smartphones */
    
     .subsinputbar{
