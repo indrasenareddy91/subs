@@ -1,0 +1,70 @@
+.inputcontainer{
+    z-index: 1;
+}
+.logo{
+    z-index: 1;
+}
+.infoContainer{
+    position:  relative !important;
+}
+.sublinks:hover{
+    color:black!important;
+    background: #f1c40f !important;
+}
+@media only screen and (max-width: 576px) {
+    /* CSS for smartphones */
+   
+    .subsinputbar{
+    width: 80% !important;
+        
+    }
+    .inputcontainer{
+        left:unset;
+        padding: 2%;
+        top: 2% !important;
+        width: 100% !important;
+        justify-content: start !important;
+        align-items: unset !important;
+        transform:unset;
+        box-sizing: border-box !important;
+        z-index: 4 !important;
+
+    }
+        .backdrop{
+            background-position: center;
+        }
+       
+       
+        .logo{
+            display: none;
+        }
+        .searchbtn{
+           width: 20% !important;
+        }
+       .infoContainer{
+        gap:20px !important;
+        margin-top: -150px !important;
+        padding-left: 20px;
+        position: relative;
+        margin-left: unset !important;
+       }
+       .moviename{
+        margin-top: 10px  !important;
+       }
+       .dontShowIthereInMobile{
+        display: none !important;
+       }
+     .ShowIthereInMobile{
+        display: block !important;
+        padding-left: 20px;
+        padding-top: 20px;
+     }
+     .subsinpage{
+        background: none;
+        outline: none;
+        border: none;
+        padding: 10px;
+        padding-left: 0px;
+        text-align: justify;
+     }
+  }

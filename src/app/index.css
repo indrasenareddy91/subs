@@ -1,0 +1,33 @@
+input:focus{
+    outline: none;
+}
+.subs{
+    display: block;
+    width: fit-content;
+    font-size: 16px;
+    padding: 5px;
+    margin-top: 10px;
+    background:none;
+    border: none;
+
+} 
+
+  
+
+.sublinks:hover{
+    color:black!important;
+    background: #f1c40f !important;
+}
+body{
+    background-color: rgb(20, 24,28) !important;
+}
+
+.subs:hover{
+    color: #f1c40f;
+}
+@media only screen and (max-width: 576px) {
+    /* CSS for smartphones */
+    .inputbar{
+        width:400px !important;
+    }
+  }

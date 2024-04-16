@@ -1,0 +1,35 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.12",
+    "archiver": "^7.0.1",
+    "axios": "^1.6.8",
+    "bestzip": "^2.2.1",
+    "decompress": "^4.2.1",
+    "decompress-zip": "^0.3.3",
+    "from": "^0.1.7",
+    "import": "^0.0.6",
+    "jszip": "^3.10.1",
+    "JSZip": "npm:jszip@^3.10.1",
+    "next": "14.1.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^5.0.1",
+    "swr": "^2.2.5",
+    "yauzl": "^3.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "20.12.4",
+    "@types/react": "18.2.74",
+    "typescript": "5.4.4"
+  }
+}
