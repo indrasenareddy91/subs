@@ -219,7 +219,7 @@ function Posts() {
                       handleSearch(e);
                     }
                   }}
-                  placeholder="Search for a  movie..."
+                  placeholder="Search for an  movie..."
                 />
                 <button
                   type="submit"
