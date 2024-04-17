@@ -18,6 +18,12 @@
     width: 80% !important;
         
     }
+    .moviename{
+        font-size: 1.6rem;
+    }
+    .year{
+        font: 0.9rem;
+    }
     .inputcontainer{
         left:unset;
         padding: 2%;
@@ -29,6 +35,9 @@
         box-sizing: border-box !important;
         z-index: 4 !important;
 
+    }
+    .notfound{
+        margin-top: -200px;
     }
         .backdrop{
             background-position: center;

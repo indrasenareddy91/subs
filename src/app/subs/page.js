@@ -328,6 +328,7 @@ function Posts() {
                     fontWeight: "bold",
                     fontSize: "1.6rem",
                   }}
+                  className="year"
                 >
                   {subs.release_date.split("-")[0]}
                 </div>
@@ -440,6 +441,7 @@ function Posts() {
               src="/notfound.png"
               alt="notfound"
               width={330}
+              className="not found"
               height={330}
               style={{
                 marginTop: "-100px",
@@ -449,6 +451,7 @@ function Posts() {
             <h2
               style={{
                 color: "black",
+                textAlign: "center",
               }}
             >
               Sorry there are no subtitles available for this film yet!
