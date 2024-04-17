@@ -19,10 +19,10 @@
         
     }
     .moviename{
-        font-size: 1.6rem;
+        font-size: 1.6rem !important;
     }
     .year{
-        font: 0.9rem;
+        font: 0.9rem !important;
     }
     .inputcontainer{
         left:unset;

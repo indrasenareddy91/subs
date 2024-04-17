@@ -190,7 +190,7 @@ const SearchBar = () => {
                 handleSearch(e);
               }
             }}
-            placeholder="Search movies..."
+            placeholder="Search for a movie..."
           />
           <button
             type="submit"
