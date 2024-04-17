@@ -152,7 +152,7 @@ const SearchBar = () => {
       <div
         className="inputContaineron"
         style={{
-          minHeight: "50vh",
+          minHeight: "45vh",
           display: "flex",
           justifyContent: "end",
           alignItems: "center",
@@ -166,7 +166,7 @@ const SearchBar = () => {
         >
           Find perfect subtitles for any movie{" "}
         </div>
-        <form onSubmit={handleSearch} style={{}}>
+        <form className="formContainer" onSubmit={handleSearch}>
           <input
             className="inputbar"
             type="text"
@@ -194,6 +194,7 @@ const SearchBar = () => {
           />
           <button
             type="submit"
+            className="btnf"
             style={{
               padding: "7px",
               border: "none",
@@ -220,7 +221,7 @@ const SearchBar = () => {
             display: "flex",
             alignItems: "center",
             flexDirection: "column",
-            paddingTop: "10px",
+            padding: "10px",
             boxSizing: "border-box",
           }}
         >
