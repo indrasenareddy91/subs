@@ -1,0 +1,339 @@
+{
+    "quotes": [
+      {
+        "movie": "The Secret Life of Walter Mitty",
+        "quote": "To see the world, things dangerous to come to, to see behind the walls, to drive oneself to the edge and know it is good to be alive."
+      },
+      {
+        "movie": "Hacksaw Ridge",
+        "quote": "I'm not here to kill. I'm here to rescue."
+      },
+      {
+        "movie": "Dallas Buyers Club",
+        "quote": "We all got somethin' to live for."
+      },
+      {
+        "movie": "Whiplash",
+        "quote": "Are you sure you're giving 110%?"
+      },
+      {
+        "movie": "Schindler's List",
+        "quote": "Whoever saves one life, saves the world entire."
+      },
+      {
+        "movie": "Forrest Gump",
+        "quote": "Mama always said life was like a box of chocolates. You never know what you're gonna get."
+      },
+      {
+        "movie": "Breaking Bad",
+        "quote": "I am the one who knocks!"
+      },
+      {
+        "movie": "The Godfather",
+        "quote": "I'm gonna make him an offer he can't refuse."
+      },
+      {
+        "movie": "The Shawshank Redemption",
+        "quote": "Hope is a good thing, maybe the best of things, and no good thing ever dies."
+      },
+      {
+        "movie": "The Dark Knight",
+        "quote": "Why so serious?"
+      },
+     
+      {
+        "movie": "Inception",
+        "quote": "You're extracting information from my subconscious?"
+      },
+      {
+        "movie": "Good Will Hunting",
+        "quote": "So if I asked you about art, you'd probably give me the answer about Kant. But you wouldn't know anything about Kant, you'd just know what you read about him on Wikipedia."
+      },
+      {
+        "movie": "The Matrix",
+        "quote": "What if I told you that I could show you something incredible?"
+      },
+      {
+        "movie": "The Lord of the Rings: The Fellowship of the Ring",
+        "quote": "One Ring to rule them all, One Ring to find them, One Ring to bring them all, and in the darkness bind them."
+      },
+      {
+        "movie": "Star Wars: Episode V - The Empire Strikes Back",
+        "quote": "I am your father."
+      },
+      {
+        "movie": "The Shining",
+        "quote": "Here's Johnny!"
+      },
+      {
+        "movie": "Fight Club",
+        "quote": "The first rule of Fight Club is: you do not talk about Fight Club."
+      }
+,
+      {
+        "movie": "The Secret Life of Walter Mitty",
+        "quote": "The most courageous act is still to speak from your heart in a world that will try to silence it."
+      },
+      {
+        "movie": "Hacksaw Ridge",
+        "quote": "Sometimes the bravest thing you can do is surrender."
+      },
+      {
+        "movie": "Dallas Buyers Club",
+        "quote": "If you don't try, you'll never know."
+      },
+      {
+        "movie": "Whiplash",
+        "quote": "Not quite my tempo.  A little slower, please. Hit me."
+      },
+      {
+        "movie": "Schindler's List",
+        "quote": "The list is life."
+      },
+      {
+        "movie": "Forrest Gump",
+        "quote": "Run, Forrest, run!"
+      },
+      {
+        "movie": "Breaking Bad",
+        "quote": "A man provides for his family."
+      },
+      {
+        "movie": "The Godfather Part II",
+        "quote": "Just when I thought I was out, they pull me back in."
+      },
+      {
+        "movie": "The Silence of the Lambs",
+        "quote": "I do wish Clarice would stop calling me Buffalo Bill. It's rude."
+      },
+      {
+        "movie": "12 Angry Men",
+        "quote": "When you're dealing with the way a man is made, you sometimes gotta crawl around a bit to get to the truth."
+      },
+      {
+        "movie": "Casablanca",
+        "quote": "Here's looking at you, kid."
+      },
+      {
+        "movie": "Gone With the Wind",
+        "quote": "Frankly, my dear, I don't give a damn."
+      },
+      {
+        "movie": "2001: A Space Odyssey",
+        "quote": "My God, it's full of stars!"
+      },
+      {
+        "movie": "Raiders of the Lost Ark",
+        "quote": "Why'd it have to be snakes?"
+      },
+      {
+        "movie": "Back to the Future",
+        "quote": "Great Scott!"
+      },
+      {
+        "movie": "Terminator 2: Judgment Day",
+        "quote": "I'll be back."
+      },
+      {
+        "movie": "Jurassic Park",
+        "quote": "Life finds a way."
+      },
+      {
+        "movie": "Schindler's List (again)",
+        "quote": "It is a sin to kill a man. But is it less a sin to let a man die?"
+      },
+      {
+        "movie": "The Princess Bride",
+        "quote": "As you wish."
+      }
+,
+      {
+        "movie": "The Secret Life of Walter Mitty",
+        "quote": "If you never try, you'll never know what you're capable of."
+      },
+      {
+        "movie": "Hacksaw Ridge",
+        "quote": "War isn't about winning. It's about survival."
+      },
+      {
+        "movie": "Dallas Buyers Club",
+        "quote": "We gotta live life on our own terms."
+      },
+      {
+        "movie": "Whiplash",
+        "quote": "Are you bleeding? You haven't begun to bleed."
+      },
+      {
+        "movie": "Forrest Gump",
+        "quote": "Life is a box of chocolates. You never know what you're gonna get."
+      },
+      {
+        "movie": "Breaking Bad",
+        "quote": "I am the danger."
+      },
+      {
+        "movie": "The Lord of the Rings: The Two Towers",
+        "quote": "You have my sword."
+      },
+      {
+        "movie": "Star Wars: Episode VII - The Force Awakens",
+        "quote": "The Force is strong with this one."
+      },
+      {
+        "movie": "Singin' in the Rain",
+        "quote": "Make 'em laugh!"
+      },
+      {
+        "movie": "The Big Lebowski",
+        "quote": "That rug really tied the room together."
+      },
+      {
+        "movie": "Kill Bill: Vol. 2",
+        "quote": "The Bride doesn't need a reason."
+      },
+      {
+        "movie": "The Lord of the Rings: The Return of the King",
+        "quote": "Fly, you fools!"
+      },
+      {
+        "movie": "The Dark Knight",
+        "quote": "Why do we fall? So we can learn to pick ourselves up."
+      },
+      {
+        "movie": "The Lion King",
+        "quote": "Can you feel the love tonight?"
+      },
+      {
+        "movie": "The Social Network",
+        "quote": "You're not making friends. You're making enemies with benefits."
+      },
+      {
+        "movie": "The Breakfast Club",
+        "quote": "Afraid of what they'll see."
+      },
+      {
+        "movie": "The Matrix",
+        "quote": "Ignorance is bliss."
+      },
+      {
+        "movie": "The Lord of the Rings: The Fellowship of the Ring",
+        "quote": "Speak friend and enter."
+      },
+      {
+        "movie": "Star Wars: Episode IV - A New Hope",
+        "quote": "These are not the droids you're looking for."
+      },
+      {
+        "movie": "The Shining",
+        "quote": "Winter. Spring. Summer. Fall. And winter again."
+      }
+    ,
+          {
+            "movie": "Fight Club",
+            "quote": "It's not about how hard you hit. It's about how hard you can get hit and keep moving forward."
+          },
+          {
+            "movie": "The Shawshank Redemption",
+            "quote": "Hope is a good thing, maybe the best of things, and no good thing ever dies." 
+          },
+          {
+            "movie": "Casablanca",
+            "quote": "We'll always have Paris."
+          },
+          {
+            "movie": "Gone With the Wind",
+            "quote": "Tomorrow is another day."
+          },
+          {
+            "movie": "2001: A Space Odyssey",
+            "quote": "I'm sorry, Dave. I can't do that."
+          },
+          {
+            "movie": "Raiders of the Lost Ark",
+            "quote": "Top men."
+          },
+          {
+            "movie": "Back to the Future",
+            "quote": "Wax on, wax off."
+          },
+          {
+            "movie": "Terminator 2: Judgment Day",
+            "quote": "Hasta la vista, baby."
+          },
+          {
+            "movie": "Jurassic Park",
+            "quote": "Clever girl."
+          },
+          {
+            "movie": "Schindler's List",
+            "quote": "Power is death."
+          },
+          {
+            "movie": "The Princess Bride",
+            "quote": "Inconceivable!"
+          },
+          {
+            "movie": "Pulp Fiction",
+            "quote": "The truth is the truth."
+          },
+          {
+            "movie": "Kill Bill: Vol. 1",
+            "quote": "I never miss."
+          },
+          {
+            "movie": "The Lord of the Rings: The Return of the King",
+            "quote": "My friends, you bow to no one."
+          },
+          {
+            "movie": "Star Wars: Episode VI - Return of the Jedi",
+            "quote": "It is your destiny."
+          },
+          {
+            "movie": "The Shining",
+            "quote": "Hello, darling."
+          },
+          {
+            "movie": "Fight Club",
+            "quote": "The first rule of Fight Club is: you do not talk about Fight Club." 
+          },
+          {
+            "movie": "The Shawshank Redemption",
+            "quote": "Get busy livin', or get busy dyin'."
+          },
+          {
+            "movie": "Casablanca",
+            "quote": "Of all the gin joints, in all the towns, in all the world, she walks into mine."
+          },
+          {
+            "movie": "Gone With the Wind",
+            "quote": "As God is my witness, I'll never be hungry again."
+          },
+          {
+            "movie": "2001: A Space Odyssey",
+            "quote": "Dave, my mind is going. I can feel it."
+          },
+               
+          {
+            "movie": "Back to the Future",
+            "quote": "Doc, we need to go back!"
+          },
+          {
+            "movie": "Terminator 2: Judgment Day",
+            "quote": "I'll be back." 
+          },
+          {
+            "movie": "Jurassic Park",
+            "quote": "Welcome to Jurassic Park."
+          },
+          {
+            "movie": "Schindler's List",
+            "quote": "Whoever saves one life, saves the world entire." 
+          },
+          {
+            "movie": "The Princess Bride",
+            "quote": "Miracle Max! ... There's a great shortage of princesses!"
+          }
+        
+    ]
+    }
+   
