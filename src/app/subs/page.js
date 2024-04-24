@@ -467,18 +467,11 @@ function Subtitles() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "100vh",
+            height: "90svh",
           }}
         >
           {text && (
             <div class="quote-container">
-              <div class="box">
-                <span>S</span>
-                <span>U</span>
-                <span>B</span>
-                <span>S</span>
-                <span>!</span>
-              </div>
               <p class="quote">“{text.quote}”</p>
               <p class="movie-name">{text.movie}.</p>
             </div>
