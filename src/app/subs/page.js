@@ -244,7 +244,6 @@ function Subtitles() {
                     Search
                   </button>
                 </form>
-                {isLoading && <p>Loading...</p>}
                 {error && <p>Error: {error.message}</p>}
                 {searchResults.length > 0 && (
                   <>
