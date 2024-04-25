@@ -13,6 +13,12 @@ input:focus{
 
 } 
 
+
+.subs:hover{
+  color:black!important;
+  background: #f1c40f !important;
+}
+
   
 
 .sublinks:hover{
