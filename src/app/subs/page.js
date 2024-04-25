@@ -254,6 +254,7 @@ function Subtitles() {
                           style={{
                             width: "100%",
                             padding: "10px",
+                            boxSizing: "border-box",
                             background: "white",
                             color: "black",
                             marginBottom: "5px",
@@ -263,16 +264,9 @@ function Subtitles() {
                           href={`/subs?q=${movie.id}`}
                         >
                           {" "}
-                          {movie.title}{" "}
-                          <div
-                            style={{
-                              fontSize: "0.8REM",
-                              textAlign: "end",
-                            }}
-                          >
-                            {" "}
-                            {randomMovie.year.split("-")[0]}
-                          </div>
+                          {console.log(movie)}
+                          {movie.title + " "} (
+                          {movie?.release_date?.split("-")[0] || ""})
                         </Link>
                       </>
                     ))}
