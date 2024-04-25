@@ -420,7 +420,14 @@ function Subtitles() {
                           }}
                         />
                       </span>
-                      <span> {sub.release_name} </span>
+                      <span
+                        style={{
+                          color: "white",
+                        }}
+                      >
+                        {" "}
+                        {sub.release_name}{" "}
+                      </span>
                     </button>
                   ))}
                 </div>
