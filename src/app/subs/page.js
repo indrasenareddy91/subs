@@ -264,6 +264,15 @@ function Subtitles() {
                         >
                           {" "}
                           {movie.title}{" "}
+                          <div
+                            style={{
+                              fontSize: "0.8REM",
+                              textAlign: "end",
+                            }}
+                          >
+                            {" "}
+                            {randomMovie.year.split("-")[0]}
+                          </div>
                         </Link>
                       </>
                     ))}
