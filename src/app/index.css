@@ -5,6 +5,7 @@ input:focus{
     display: block;
     width: fit-content;
     font-size: 16px;
+    color: white !important;
     padding: 5px;
     margin-top: 10px;
     background:none;
