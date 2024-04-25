@@ -140,6 +140,9 @@ body{
         padding-top: 20px;
         color: white !important;
      }
+     .subs{
+      color: white;
+     }
      .subsinpage{
         background: none;
         outline: none;
