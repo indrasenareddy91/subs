@@ -141,7 +141,7 @@ body{
         color: white !important;
      }
      .subs{
-      color: white;
+      color: white !important;
      }
      .subsinpage{
         background: none;
