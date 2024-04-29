@@ -198,6 +198,52 @@ function Subtitles() {
                   boxSizing: "border-box",
                 }}
               >
+                <form onSubmit={handleSearch} style={{}}>
+                  <input
+                    className="subsinputbar"
+                    type="text"
+                    style={{
+                      padding: "7px",
+                      fontSize: "16px",
+                      borderTopRightRadius: "0px",
+                      borderBottomRightRadius: "0px",
+                      outline: "nine",
+                      background: "white",
+                      color: "black",
+                      border: "0px solid white",
+                      marginBottom: "10px",
+                      width: "500px", // Adjust width as needed
+                    }}
+                    value={searchQuery}
+                    onChange={handleSearch}
+                    onKeyDown={(e) => {
+                      if (e.key == "Enter") {
+                        e.preventDefault();
+                        handleSearch(e);
+                      }
+                    }}
+                    placeholder="Search for a  movie..."
+                  />
+                  <button
+                    type="submit"
+                    className="searchbtn"
+                    style={{
+                      padding: "7px",
+                      border: "none",
+                      fontSize: "16PX",
+                      width: "80px",
+                      background: "#f1c40f",
+                      color: "black",
+                      fontWeight: "bold",
+                    }}
+                    onClick={async (e) => {
+                      e.preventDefault();
+                      await fetchMovies(searchQuery);
+                    }}
+                  >
+                    Search
+                  </button>
+                </form>
                 {error && <p>Error: {error.message}</p>}
                 {searchResults.length > 0 && (
                   <>
