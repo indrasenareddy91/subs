@@ -152,7 +152,7 @@ const SearchBar = () => {
       <div
         className="inputContaineron"
         style={{
-          minHeight: "45vh",
+          minHeight: "45svh",
           display: "flex",
           justifyContent: "end",
           alignItems: "center",
