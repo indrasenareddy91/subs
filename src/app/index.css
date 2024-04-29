@@ -39,7 +39,7 @@ body{
       padding: 10px;
      }
      .inputContaineron{
-      min-height: 40svh !important;
+      height: 40svh !important;
      }
       .inputbar{
         width: 80% !important;
