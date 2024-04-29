@@ -39,8 +39,7 @@ body{
       padding: 10px;
      }
      .inputContaineron{
-      max-height: 40svh !important;
-      background-color: red;
+      min-height: 40svh !important;
      }
       .inputbar{
         width: 80% !important;
