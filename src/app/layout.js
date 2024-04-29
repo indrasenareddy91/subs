@@ -10,12 +10,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      style={{
+        height: "100%",
+      }}
+    >
       <body
         style={{
           margin: "0px",
           padding: "0px",
-          position: "fixed",
           height: "100%",
         }}
         className={inter.className}
