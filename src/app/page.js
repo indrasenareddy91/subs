@@ -4,6 +4,7 @@ import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import axios from "axios";
 import "./index.css";
 import Link from "next/link";
+import Image from "next/image";
 
 const TMDB_API_KEY = process.env.NEXT_PUBLIC_TM;
 const SearchBar = () => {
@@ -94,157 +95,169 @@ const SearchBar = () => {
   };
 
   const style = {
-    backgroundImage: `linear-gradient(to right,transparent, transparent,rgb(20,24,28)), url(https://image.tmdb.org/t/p/original${randomMovie?.poster})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    minHeight: "100svh",
+    height: "100svh",
+    width: "100%",
+    position: "absolute",
+    top: "0",
+    bottom: "0",
+    left: "0",
+    right: "0",
+    objectFit: "cover",
   };
   return (
-    <div style={style} className="backdrop">
+    <>
       {randomMovie && (
-        <div
-          className="random"
-          style={{
-            position: "absolute",
-            top: "8%",
-            right: "3%",
-            fontWeight: "bold",
-            fontSize: "1.1rem",
-          }}
-        >
-          {randomMovie.title}
-          <div
-            style={{
-              fontSize: "0.8REM",
-              textAlign: "end",
-            }}
-          >
-            {" "}
-            {randomMovie.year.split("-")[0]}
-          </div>
-        </div>
+        <img
+          src={`https://image.tmdb.org/t/p/original${randomMovie?.poster}`}
+          style={style}
+        />
       )}
-      <div
-        style={{
-          position: "absolute",
-          top: "0",
-          left: "5%",
-          width: "75px",
-          height: "140px",
-          background: "#f1c40f",
-        }}
-      >
-        <span
-          style={{
-            position: "absolute",
-            color: "black",
-            bottom: "0",
-            fontWeight: "bold",
-            left: "50%",
-            transform: "translateX(-50%)",
-            fontSize: "22PX",
-            zIndex: "20",
-          }}
-        >
-          SUBS
-        </span>
-      </div>
-      <div
-        className="inputContaineron"
-        style={{
-          minHeight: "45vh",
-          display: "flex",
-          justifyContent: "end",
-          alignItems: "center",
-          flexDirection: "column",
-          boxSizing: "border-box",
-        }}
-      >
-        <div
-          className="description"
-          style={{ marginBottom: "20px", fontSize: "26px" }}
-        >
-          Find perfect subtitles for any movie{" "}
-        </div>
-        <form className="formContainer" onSubmit={handleSearch}>
-          <input
-            className="inputbar"
-            type="text"
+      <div style={style} className="backdrop">
+        {randomMovie && (
+          <div
+            className="random"
             style={{
-              padding: "7px",
-              fontSize: "16px",
-              borderTopRightRadius: "0px",
-              borderBottomRightRadius: "0px",
-              outline: "nine",
-              background: "white",
-              color: "black",
-              border: "0px solid white",
-              width: "500px", // Adjust width as needed
-            }}
-            required
-            value={searchQuery}
-            onChange={handleSearch}
-            onKeyDown={(e) => {
-              if (e.key == "Enter") {
-                e.preventDefault();
-                handleSearch(e);
-              }
-            }}
-            placeholder="Search for a movie..."
-          />
-          <button
-            type="submit"
-            className="btnf"
-            style={{
-              padding: "7px",
-              border: "none",
-              fontSize: "16PX",
-              width: "80px",
-              background: "#f1c40f",
-              color: "black",
+              position: "absolute",
+              top: "8%",
+              right: "3%",
               fontWeight: "bold",
-            }}
-            onClick={async (e) => {
-              e.preventDefault();
-              await fetchMovies(searchQuery);
+              fontSize: "1.1rem",
             }}
           >
-            Search
-          </button>
-        </form>
-      </div>
-      {isLoading && <p></p>}
-      {error && <p>Error: {error.message}</p>}
-      {searchResults.length > 0 && (
+            {randomMovie.title}
+            <div
+              style={{
+                fontSize: "0.8REM",
+                textAlign: "end",
+              }}
+            >
+              {" "}
+              {randomMovie.year.split("-")[0]}
+            </div>
+          </div>
+        )}
         <div
           style={{
+            position: "absolute",
+            top: "0",
+            left: "5%",
+            width: "75px",
+            height: "140px",
+            background: "#f1c40f",
+          }}
+        >
+          <span
+            style={{
+              position: "absolute",
+              color: "black",
+              bottom: "0",
+              fontWeight: "bold",
+              left: "50%",
+              transform: "translateX(-50%)",
+              fontSize: "22PX",
+              zIndex: "20",
+            }}
+          >
+            SUBS
+          </span>
+        </div>
+        <div
+          className="inputContaineron"
+          style={{
+            minHeight: "45vh",
             display: "flex",
+            justifyContent: "end",
             alignItems: "center",
             flexDirection: "column",
-            padding: "10px",
             boxSizing: "border-box",
           }}
         >
-          {searchResults.map((movie, index) => (
-            <Link
-              className="sublinks"
+          <div
+            className="description"
+            style={{ marginBottom: "20px", fontSize: "26px" }}
+          >
+            Find perfect subtitles for any movie{" "}
+          </div>
+          <form className="formContainer" onSubmit={handleSearch}>
+            <input
+              className="inputbar"
+              type="text"
               style={{
-                width: "580px",
-                padding: "10px",
-                boxSizing: "border-box",
+                padding: "7px",
+                fontSize: "16px",
+                borderTopRightRadius: "0px",
+                borderBottomRightRadius: "0px",
+                outline: "nine",
                 background: "white",
                 color: "black",
-                margin: "5px",
+                border: "0px solid white",
+                width: "500px", // Adjust width as needed
               }}
-              key={index}
-              href={`/subs?q=${movie.id}`}
+              required
+              value={searchQuery}
+              onChange={handleSearch}
+              onKeyDown={(e) => {
+                if (e.key == "Enter") {
+                  e.preventDefault();
+                  handleSearch(e);
+                }
+              }}
+              placeholder="Search for a movie..."
+            />
+            <button
+              type="submit"
+              className="btnf"
+              style={{
+                padding: "7px",
+                border: "none",
+                fontSize: "16PX",
+                width: "80px",
+                background: "#f1c40f",
+                color: "black",
+                fontWeight: "bold",
+              }}
+              onClick={async (e) => {
+                e.preventDefault();
+                await fetchMovies(searchQuery);
+              }}
             >
-              {movie.title} ({movie?.release_date?.split("-")[0] || ""})
-            </Link>
-          ))}
+              Search
+            </button>
+          </form>
         </div>
-      )}
-    </div>
+        {isLoading && <p></p>}
+        {error && <p>Error: {error.message}</p>}
+        {searchResults.length > 0 && (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "column",
+              padding: "10px",
+              boxSizing: "border-box",
+            }}
+          >
+            {searchResults.map((movie, index) => (
+              <Link
+                className="sublinks"
+                style={{
+                  width: "580px",
+                  padding: "10px",
+                  boxSizing: "border-box",
+                  background: "white",
+                  color: "black",
+                  margin: "5px",
+                }}
+                key={index}
+                href={`/subs?q=${movie.id}`}
+              >
+                {movie.title} ({movie?.release_date?.split("-")[0] || ""})
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

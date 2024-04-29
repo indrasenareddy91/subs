@@ -263,16 +263,7 @@ function Subtitles() {
                           href={`/subs?q=${movie.id}`}
                         >
                           {" "}
-                          {movie.title}{" "}
-                          <div
-                            style={{
-                              fontSize: "0.8REM",
-                              textAlign: "end",
-                            }}
-                          >
-                            {" "}
-                            {randomMovie.year.split("-")[0]}
-                          </div>
+                          {movie?.title} ({movie?.release_date?.split("-")[0]})
                         </Link>
                       </>
                     ))}
