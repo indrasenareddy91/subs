@@ -97,7 +97,7 @@ const SearchBar = () => {
     backgroundImage: `linear-gradient(to right,transparent, transparent,rgb(20,24,28)), url(https://image.tmdb.org/t/p/original${randomMovie?.poster})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
-    minHeight: "100svh",
+    height: "100svh",
   };
   return (
     <div style={style} className="backdrop">
@@ -152,7 +152,7 @@ const SearchBar = () => {
       <div
         className="inputContaineron"
         style={{
-          minHeight: "45svh",
+          minHeight: "45vh",
           display: "flex",
           justifyContent: "end",
           alignItems: "center",

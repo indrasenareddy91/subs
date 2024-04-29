@@ -40,6 +40,7 @@ body{
      }
      .inputContaineron{
       height: 40svh !important;
+      background-color: red;
      }
       .inputbar{
         width: 80% !important;
