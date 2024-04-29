@@ -97,7 +97,7 @@ const SearchBar = () => {
     backgroundImage: `linear-gradient(to right,transparent, transparent,rgb(20,24,28)), url(https://image.tmdb.org/t/p/original${randomMovie?.poster})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
-    height: "100dvh",
+    height: "100lvh",
   };
   return (
     <div style={style} className="backdrop">
