@@ -158,7 +158,6 @@ function Subtitles() {
       {realdata && (
         <Head>
           <title>{title} subtitles</title>
-          <meta name="description" content={`Downloa`} />
         </Head>
       )}{" "}
       <div>
