@@ -9,8 +9,12 @@ import toast, { Toaster } from "react-hot-toast";
 import useSWR from "swr";
 import dailog from "./movies.json";
 import Image from "next/image";
+import Head from "next/head";
+
 import "../index.css";
 import "./page.css";
+import { title } from "process";
+
 function Subtitles() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -77,7 +81,7 @@ function Subtitles() {
     isLoading: subtitlesLoading,
   } = useSWR(
     movieId
-      ? `https://api.subdl.com/api/v1/subtitles?api_key=${api_key}&type=movie&tmdb_id=${movieId}&subs_per_page=30&languages=en`
+      ? `https://api.subdl.com/api/v1/subtitles?api_key=${api_key}&type=movie&tmdb_id=${movieId}&subs_per_page=30&languages=en `
       : null,
     fetcher
   );
@@ -85,13 +89,16 @@ function Subtitles() {
   // Handle errors and loading states
   let realdata;
   // Combine data and display
+  console.log(subtitlesData);
   if (movieData && subtitlesData) {
-    const { backdrop_path, poster_path, release_date } = movieData;
+    console.log(subtitlesData);
+    const { backdrop_path, poster_path, release_date, title } = movieData;
     realdata = {
       data: subtitlesData,
       backdrop_path,
       poster_path,
       release_date,
+      title,
     };
   }
 
@@ -145,9 +152,15 @@ function Subtitles() {
       })
       .catch((error) => console.error(error));
   }
+
   return (
     <>
-      {" "}
+      {realdata && (
+        <Head>
+          <title>{title} subtitles</title>
+          <meta name="description" content={`Downloa`} />
+        </Head>
+      )}{" "}
       <div>
         <Toaster />
       </div>
@@ -478,9 +491,9 @@ function Subtitles() {
           }}
         >
           {text && (
-            <div class="quote-container">
-              <p class="quote">“{text.quote}”</p>
-              <p class="movie-name">{text.movie}.</p>
+            <div className="quote-container">
+              <p className="quote">“{text.quote}”</p>
+              <p className="movie-name">{text.movie}.</p>
             </div>
           )}
         </div>
