@@ -102,6 +102,12 @@ function Subtitles() {
     };
   }
 
+  useEffect(() => {
+    document.title = `${realdata?.title || "Subs"} ${
+      realdata?.release_date?.split("-")[0]
+    }  download subtiles`;
+  }, [realdata]);
+
   function downloadSrtFromZip(url) {
     toast("Downloading", {
       duration: 1000,
@@ -155,6 +161,7 @@ function Subtitles() {
 
   return (
     <>
+      {console.log(realdata)}
       {realdata && (
         <Head>
           <title>{title} subtitles</title>
