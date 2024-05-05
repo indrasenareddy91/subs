@@ -87,9 +87,8 @@ function Subtitles() {
   );
 
   let realdata;
-  console.log(subtitlesData);
+
   if (movieData && subtitlesData) {
-    console.log(subtitlesData);
     const { backdrop_path, poster_path, release_date, title } = movieData;
     realdata = {
       data: subtitlesData,
@@ -163,7 +162,6 @@ function Subtitles() {
 
   return (
     <>
-      {console.log(realdata)}
       {realdata && (
         <Head>
           <title>{title} subtitles</title>
@@ -499,7 +497,17 @@ function Subtitles() {
           }}
         >
           {text && (
-            <div className="quote-container">
+            <div
+              className="quote-container"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+              }}
+            >
+              {" "}
+              <div class="spinner"></div>
               <p className="quote">“{text.quote}”</p>
               <p className="movie-name">{text.movie}.</p>
             </div>
