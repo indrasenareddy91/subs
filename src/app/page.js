@@ -18,14 +18,13 @@ const SearchBar = () => {
 
   const updateQueryParam = (key, value) => {
     router.push({
-      pathname: router.pathname, // Preserve current path
+      pathname: router.pathname, 
       query: {
-        ...router.query, // Spread existing query params
-        [key]: value, // Update specific query param
+        ...router.query,
+        [key]: value, 
       },
     });
   };
-  // Get initial search term from URL if present
   useEffect(() => {
     const initialQuery = searchParams?.get("q") || "";
     if (initialQuery) {
@@ -36,15 +35,13 @@ const SearchBar = () => {
   useEffect(() => {
     const fetchRandomMovie = async () => {
       try {
-        // Generate a random movie ID between 1 and 5000
         const randomMovieId = Math.floor(Math.random() * 2000) + 1;
 
-        // Fetch details of the random movie
         const movieDetailsResponse = await fetch(
           `https://api.themoviedb.org/3/movie/popular?api_key=${TMDB_API_KEY}&append_to_response=images&page=2`
         );
         1;
-        // Set the random movie state
+      
         const movieData = await movieDetailsResponse.json();
         const rand = Math.floor(Math.random() * 19) + 1;
         const randomMovieData = {
@@ -90,7 +87,7 @@ const SearchBar = () => {
     }
 
     replace(`${pathname}?${params.toString()}`);
-    await fetchMovies(query); // Fetch movies on search submission
+    await fetchMovies(query); 
   };
 
   const style = {
@@ -99,6 +96,9 @@ const SearchBar = () => {
     backgroundPosition: "center",
     height: "100dvh",
   };
+
+
+  
   return (
     <div style={style} className="backdrop">
       {randomMovie && (
@@ -179,7 +179,7 @@ const SearchBar = () => {
               background: "white",
               color: "black",
               border: "0px solid white",
-              width: "500px", // Adjust width as needed
+              width: "500px",
             }}
             required
             value={searchQuery}

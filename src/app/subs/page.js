@@ -54,7 +54,7 @@ function Subtitles() {
     const query = event.target.value;
     setSearchQuery(query);
 
-    await fetchMovies(query); // Fetch movies on search submission
+    await fetchMovies(query);
   };
   const fetcher = async (url) => {
     const response = await fetch(url);
@@ -86,9 +86,7 @@ function Subtitles() {
     fetcher
   );
 
-  // Handle errors and loading states
   let realdata;
-  // Combine data and display
   console.log(subtitlesData);
   if (movieData && subtitlesData) {
     console.log(subtitlesData);
@@ -125,22 +123,19 @@ function Subtitles() {
         return jszip.loadAsync(blob);
       })
       .then((zip) => {
-        const srtFile = zip.file(/\.srt$/i); // Look for files with .srt extension (case-insensitive)
+        const srtFile = zip.file(/\.srt$/i);
         if (srtFile) {
           const srtContent = srtFile[0].async("text");
           srtContent.then((content) => {
-            const filename = srtFile[0].name; // Get the filename
-
-            // Create a Blob object with the SRT content
+            const filename = srtFile[0].name;
             const srtBlob = new Blob([content], {
               type: "text/plain;charset=utf-8",
             });
 
-            // Create a download link
             const downloadLink = document.createElement("a");
             downloadLink.href = URL.createObjectURL(srtBlob);
             downloadLink.download = filename;
-            downloadLink.style.display = "none"; // Hide the link
+            downloadLink.style.display = "none";
             document.body.appendChild(downloadLink);
             downloadLink.click();
 
@@ -156,7 +151,14 @@ function Subtitles() {
           console.error("No SRT file found in the zip");
         }
       })
-      .catch((error) => console.error(error));
+      .catch((error) =>
+        toast.error("Oh shoott! try another subtitle", {
+          style: {
+            backgroundColor: "#f1c40f",
+            color: "black",
+          },
+        })
+      );
   }
 
   return (
@@ -231,7 +233,7 @@ function Subtitles() {
                       color: "black",
                       border: "0px solid white",
                       marginBottom: "10px",
-                      width: "500px", // Adjust width as needed
+                      width: "500px",
                     }}
                     value={searchQuery}
                     onChange={handleSearch}
