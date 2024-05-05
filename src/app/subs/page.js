@@ -151,7 +151,7 @@ function Subtitles() {
         }
       })
       .catch((error) =>
-        toast.error("Oh shoott! try another subtitle", {
+        toast.error("Oh shott! try another subtitle", {
           style: {
             backgroundColor: "#f1c40f",
             color: "black",
