@@ -28,10 +28,7 @@
         "movie": "Breaking Bad",
         "quote": "I am the one who knocks!"
       },
-      {
-        "movie": "The Godfather",
-        "quote": "I'm gonna make him an offer he can't refuse."
-      },
+      
       {
         "movie": "The Shawshank Redemption",
         "quote": "Hope is a good thing, maybe the best of things, and no good thing ever dies."
@@ -46,19 +43,9 @@
         "quote": "You're extracting information from my subconscious?"
       },
       
-      {
-        "movie": "The Matrix",
-        "quote": "What if I told you that I could show you something incredible?"
-      },
+    
       
-      {
-        "movie": "Star Wars: Episode V - The Empire Strikes Back",
-        "quote": "I am your father."
-      },
-      {
-        "movie": "The Shining",
-        "quote": "Here's Johnny!"
-      },
+   
       {
         "movie": "Fight Club",
         "quote": "The first rule of Fight Club is: you do not talk about Fight Club."
@@ -88,50 +75,15 @@
         "movie": "Forrest Gump",
         "quote": "Run, Forrest, run!"
       },
-      {
-        "movie": "Breaking Bad",
-        "quote": "A man provides for his family."
-      },
-      {
-        "movie": "The Godfather Part II",
-        "quote": "Just when I thought I was out, they pull me back in."
-      },
-      {
-        "movie": "The Silence of the Lambs",
-        "quote": "I do wish Clarice would stop calling me Buffalo Bill. It's rude."
-      },
-      {
-        "movie": "12 Angry Men",
-        "quote": "When you're dealing with the way a man is made, you sometimes gotta crawl around a bit to get to the truth."
-      },
-      {
-        "movie": "Casablanca",
-        "quote": "Here's looking at you, kid."
-      },
-      {
-        "movie": "Gone With the Wind",
-        "quote": "Frankly, my dear, I don't give a damn."
-      },
-      {
-        "movie": "2001: A Space Odyssey",
-        "quote": "My God, it's full of stars!"
-      },
-      {
-        "movie": "Raiders of the Lost Ark",
-        "quote": "Why'd it have to be snakes?"
-      },
-      {
-        "movie": "Back to the Future",
-        "quote": "Great Scott!"
-      },
+    
+    
+      
+    
       {
         "movie": "Terminator 2: Judgment Day",
         "quote": "I'll be back."
       },
-      {
-        "movie": "Jurassic Park",
-        "quote": "Life finds a way."
-      },
+    
       {
         "movie": "Schindler's List (again)",
         "quote": "It is a sin to kill a man. But is it less a sin to let a man die?"
@@ -165,18 +117,8 @@
         "movie": "Breaking Bad",
         "quote": "I am the danger."
       },
-      {
-        "movie": "The Lord of the Rings: The Two Towers",
-        "quote": "You have my sword."
-      },
-      {
-        "movie": "Star Wars: Episode VII - The Force Awakens",
-        "quote": "The Force is strong with this one."
-      },
-      {
-        "movie": "Singin' in the Rain",
-        "quote": "Make 'em laugh!"
-      },
+      
+    
       {
         "movie": "The Big Lebowski",
         "quote": "That rug really tied the room together."
@@ -185,10 +127,8 @@
         "movie": "Kill Bill: Vol. 2",
         "quote": "The Bride doesn't need a reason."
       },
-      {
-        "movie": "The Lord of the Rings: The Return of the King",
-        "quote": "Fly, you fools!"
-      },
+      
+     
       {
         "movie": "The Dark Knight",
         "quote": "Why do we fall? So we can learn to pick ourselves up."

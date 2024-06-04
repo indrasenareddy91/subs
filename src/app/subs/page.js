@@ -81,7 +81,7 @@ function Subtitles() {
     isLoading: subtitlesLoading,
   } = useSWR(
     movieId
-      ? `https://api.subdl.com/api/v1/subtitles?api_key=${api_key}&type=movie&tmdb_id=${movieId}&subs_per_page=30&languages=en `
+      ? `https://api.subdl.com/api/v1/subtitles?api_key=${api_key}&type=movie&tmdb_id=${movieId}&subs_per_page=30&languages=EN `
       : null,
     fetcher
   );
@@ -90,6 +90,7 @@ function Subtitles() {
 
   if (movieData && subtitlesData) {
     const { backdrop_path, poster_path, release_date, title } = movieData;
+    console.log(subtitlesData);
     realdata = {
       data: subtitlesData,
       backdrop_path,
@@ -322,7 +323,7 @@ function Subtitles() {
                   display: "flex",
                   gap: "30px",
                   boxSizing: "border-box",
-                  marginTop: "-120px",
+                  marginTop: "-70px",
                   marginLeft: "19%",
                 }}
               >
@@ -507,7 +508,7 @@ function Subtitles() {
               }}
             >
               {" "}
-              <div class="spinner"></div>
+              <div className="spinner"></div>
               <p className="quote">“{text.quote}”</p>
               <p className="movie-name">{text.movie}.</p>
             </div>
