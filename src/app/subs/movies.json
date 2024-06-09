@@ -1,10 +1,6 @@
 {
     "quotes": [
       {
-        "movie": "The Secret Life of Walter Mitty",
-        "quote": "To see the world, things dangerous to come to, to see behind the walls, to drive oneself to the edge and know it is good to be alive."
-      },
-      {
         "movie": "Hacksaw Ridge",
         "quote": "I'm not here to kill. I'm here to rescue."
       },
@@ -88,11 +84,7 @@
         "movie": "Schindler's List (again)",
         "quote": "It is a sin to kill a man. But is it less a sin to let a man die?"
       },
-      {
-        "movie": "The Princess Bride",
-        "quote": "As you wish."
-      }
-,
+    
       {
         "movie": "The Secret Life of Walter Mitty",
         "quote": "If you never try, you'll never know what you're capable of."
@@ -141,22 +133,13 @@
         "movie": "The Social Network",
         "quote": "You're not making friends. You're making enemies with benefits."
       },
-      {
-        "movie": "The Breakfast Club",
-        "quote": "Afraid of what they'll see."
-      },
+      
       {
         "movie": "The Matrix",
         "quote": "Ignorance is bliss."
       },
-      {
-        "movie": "The Lord of the Rings: The Fellowship of the Ring",
-        "quote": "Speak friend and enter."
-      },
-      {
-        "movie": "Star Wars: Episode IV - A New Hope",
-        "quote": "These are not the droids you're looking for."
-      },
+      
+     
       {
         "movie": "The Shining",
         "quote": "Winter. Spring. Summer. Fall. And winter again."
@@ -170,58 +153,14 @@
             "movie": "The Shawshank Redemption",
             "quote": "Hope is a good thing, maybe the best of things, and no good thing ever dies." 
           },
-          {
-            "movie": "Casablanca",
-            "quote": "We'll always have Paris."
-          },
-          {
-            "movie": "Gone With the Wind",
-            "quote": "Tomorrow is another day."
-          },
-          {
-            "movie": "2001: A Space Odyssey",
-            "quote": "I'm sorry, Dave. I can't do that."
-          },
-          {
-            "movie": "Raiders of the Lost Ark",
-            "quote": "Top men."
-          },
-          {
-            "movie": "Back to the Future",
-            "quote": "Wax on, wax off."
-          },
-          {
-            "movie": "Terminator 2: Judgment Day",
-            "quote": "Hasta la vista, baby."
-          },
-          {
-            "movie": "Jurassic Park",
-            "quote": "Clever girl."
-          },
+          
+        
+        
           {
             "movie": "Schindler's List",
             "quote": "Power is death."
           },
-          {
-            "movie": "The Princess Bride",
-            "quote": "Inconceivable!"
-          },
-          {
-            "movie": "Pulp Fiction",
-            "quote": "The truth is the truth."
-          },
-          {
-            "movie": "Kill Bill: Vol. 1",
-            "quote": "I never miss."
-          },
-          {
-            "movie": "The Lord of the Rings: The Return of the King",
-            "quote": "My friends, you bow to no one."
-          },
-          {
-            "movie": "Star Wars: Episode VI - Return of the Jedi",
-            "quote": "It is your destiny."
-          },
+         
           {
             "movie": "The Shining",
             "quote": "Hello, darling."
@@ -234,18 +173,7 @@
             "movie": "The Shawshank Redemption",
             "quote": "Get busy livin', or get busy dyin'."
           },
-          {
-            "movie": "Casablanca",
-            "quote": "Of all the gin joints, in all the towns, in all the world, she walks into mine."
-          },
-          {
-            "movie": "Gone With the Wind",
-            "quote": "As God is my witness, I'll never be hungry again."
-          },
-          {
-            "movie": "2001: A Space Odyssey",
-            "quote": "Dave, my mind is going. I can feel it."
-          },
+          
                
           {
             "movie": "Back to the Future",
@@ -262,11 +190,8 @@
           {
             "movie": "Schindler's List",
             "quote": "Whoever saves one life, saves the world entire." 
-          },
-          {
-            "movie": "The Princess Bride",
-            "quote": "Miracle Max! ... There's a great shortage of princesses!"
           }
+         
         
     ]
     }

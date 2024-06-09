@@ -1,38 +1,43 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Link from "next/link";
 import { IoArrowDown } from "react-icons/io5";
 import jszip from "jszip";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
-import useSWR from "swr";
 import dailog from "./movies.json";
-import Image from "next/image";
-import Head from "next/head";
-
+import Subswap from "./Subswap";
 import "../index.css";
 import "./page.css";
-import { title } from "process";
-
+import SwapLoader from "./SwapLoader";
+import NotAvailable from "./NotAvailable";
 function Subtitles() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [text, setText] = useState("");
-
+  const [realdata, setRealData] = useState(false);
+  const [lang, setLang] = useState({
+    code: "EN",
+    language: "English",
+  });
+  const [movieData, setMovieData] = useState(null);
+  const [subtitlesLoading, setSubsLoading] = useState(false);
+  const [subtitlesData, setSubsData] = useState(null);
   const searchParams = useSearchParams();
   const q = searchParams.get("q");
 
   const TMDB_API_KEY = process.env.NEXT_PUBLIC_TM;
 
   const api_key = process.env.NEXT_PUBLIC_api_key;
-
+  console.log(lang);
   useEffect(() => {
     const randquote = Math.floor(Math.random() * 83) + 1;
     setText(dailog.quotes[randquote]);
   }, []);
+  console.log(text);
   const fetchMovies = async (query) => {
     setSearchResults("");
     setIsLoading(true);
@@ -64,110 +69,90 @@ function Subtitles() {
     return response.json();
   };
   const movieId = q;
-  const {
-    data: movieData,
-    error: movieError,
-    isLoading: movieLoading,
-  } = useSWR(
-    movieId
-      ? `https://api.themoviedb.org/3/movie/${q}?api_key=${TMDB_API_KEY}`
-      : null,
-    fetcher
-  );
-
-  const {
-    data: subtitlesData,
-    error: subtitlesError,
-    isLoading: subtitlesLoading,
-  } = useSWR(
-    movieId
-      ? `https://api.subdl.com/api/v1/subtitles?api_key=${api_key}&type=movie&tmdb_id=${movieId}&subs_per_page=30&languages=EN `
-      : null,
-    fetcher
-  );
-
-  let realdata;
-
-  if (movieData && subtitlesData) {
-    const { backdrop_path, poster_path, release_date, title } = movieData;
-    console.log(subtitlesData);
-    realdata = {
-      data: subtitlesData,
-      backdrop_path,
-      poster_path,
-      release_date,
-      title,
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const movieResponse = await fetch(
+          movieId
+            ? `https://api.themoviedb.org/3/movie/${q}?api_key=${TMDB_API_KEY}`
+            : null
+        );
+        const data = await movieResponse.json();
+        setMovieData(data);
+      } catch (error) {
+      } finally {
+      }
     };
-  }
+    fetchData();
+  }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      // Fetch movie data
+      // Fetch subtitles data
+      setSubsLoading(true);
+      try {
+        const subtitlesResponse = await fetch(
+          `https://api.subdl.com/api/v1/subtitles?api_key=${api_key}&type=movie&tmdb_id=${movieId}&subs_per_page=30&languages=${lang.code}`
+        );
+        var subtitlesData = await subtitlesResponse.json();
+
+        setSubsData(subtitlesData);
+        setSubsLoading(false);
+      } catch (error) {
+        // Handle error
+      } finally {
+      }
+    };
+
+    fetchData();
+  }, [lang]);
 
   useEffect(() => {
     document.title = `${realdata?.title || "Subs"} ${
-      realdata?.release_date?.split("-")[0]
+      realdata?.release_date?.split("-")[0] || ""
     }  download subtiles`;
   }, [realdata]);
 
-  function downloadSrtFromZip(url) {
-    toast("Downloading", {
-      duration: 1000,
-      style: {
-        backgroundColor: "#f1c40f",
-        color: "black",
-      },
-    });
+  const languages = {
+    EN: "English",
 
-    fetch(url)
-      .then((response) => {
-        return response.blob();
-      })
-      .then((blob) => {
-        return jszip.loadAsync(blob);
-      })
-      .then((zip) => {
-        const srtFile = zip.file(/\.srt$/i);
-        if (srtFile) {
-          const srtContent = srtFile[0].async("text");
-          srtContent.then((content) => {
-            const filename = srtFile[0].name;
-            const srtBlob = new Blob([content], {
-              type: "text/plain;charset=utf-8",
-            });
+    FR: "French",
 
-            const downloadLink = document.createElement("a");
-            downloadLink.href = URL.createObjectURL(srtBlob);
-            downloadLink.download = filename;
-            downloadLink.style.display = "none";
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
+    IT: "Italian",
 
-            document.body.removeChild(downloadLink);
-            toast.success("Downloaded!", {
-              style: {
-                backgroundColor: "#f1c40f",
-                color: "black",
-              },
-            });
-          });
-        } else {
-          console.error("No SRT file found in the zip");
-        }
-      })
-      .catch((error) =>
-        toast.error("Oh shoot! try another subtitle.", {
-          style: {
-            backgroundColor: "#f1c40f",
-            color: "black",
-          },
-        })
-      );
-  }
+    ES: "Spanish",
 
+    ZH: "Chinese",
+
+    DE: "German",
+
+    JA: "Japanese",
+
+    KO: "Korean",
+
+    RU: "Russian",
+  };
+
+  useEffect(() => {
+    if (!subtitlesData) return;
+
+    if (movieData && subtitlesData) {
+      const { backdrop_path, poster_path, release_date, title } = movieData;
+      var realdata = {
+        data: subtitlesData,
+        backdrop_path,
+        poster_path,
+        release_date,
+        title,
+        lang,
+      };
+      console.log("hello");
+      setRealData(realdata);
+    }
+  }, [subtitlesData, movieData]);
+  console.log(realdata);
   return (
     <>
-      {realdata && (
-        <Head>
-          <title>{title} subtitles</title>
-        </Head>
-      )}{" "}
       <div>
         <Toaster />
       </div>
@@ -177,7 +162,7 @@ function Subtitles() {
             backgroundColor: "rgb(20,24,28)",
           }}
         >
-          {realdata && realdata.data?.subtitles?.length > 0 && (
+          {realdata && (
             <>
               <div
                 className="logo"
@@ -323,7 +308,7 @@ function Subtitles() {
                   display: "flex",
                   gap: "30px",
                   boxSizing: "border-box",
-                  marginTop: "-70px",
+                  marginTop: "-100px",
                   marginLeft: "19%",
                 }}
               >
@@ -360,39 +345,38 @@ function Subtitles() {
                       marginTop: "10px",
                     }}
                   >
-                    <span
-                      style={{
-                        background: "#f1c40f",
-                        color: "black",
-                        fontWeight: "bold",
-                        fontSize: "15px",
-                        padding: "3px 12px 3px 12px",
-                        marginLeft: "5px",
-                      }}
-                    >
-                      English
-                    </span>
-                    {realdata.data.subtitles.map((sub, index) => (
-                      <>
-                        {" "}
-                        <button
-                          onClick={() =>
-                            downloadSrtFromZip(`https://dl.subdl.com${sub.url}`)
-                          }
-                          className="subs"
-                          key={index}
+                    <div className="lang-keys">
+                      {Object.entries(languages).map(([code, lang]) => (
+                        <span
+                          key={code}
+                          className="language-details"
+                          onClick={() => {
+                            setLang({ code: code, language: lang });
+                          }}
                         >
-                          <IoArrowDown
-                            style={{
-                              marginBottom: "-2.2px",
-                              marginRight: "4px",
-                            }}
-                          />
-
-                          {sub.release_name}
-                        </button>
-                      </>
-                    ))}
+                          {lang}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="subsholder">
+                      {subtitlesLoading ? (
+                        <SwapLoader {...text} />
+                      ) : (
+                        <>
+                          {realdata.data.subtitles.map((sub, index, text) => (
+                            <Subswap
+                              key={index}
+                              {...sub}
+                              index={index}
+                              text={text}
+                            />
+                          ))}
+                          {!realdata?.data?.subtitles.length > 0 && (
+                            <NotAvailable {...lang} />
+                          )}
+                        </>
+                      )}
+                    </div>
                   </div>
                 </span>
               </div>
@@ -402,90 +386,41 @@ function Subtitles() {
                   display: "none",
                 }}
               >
-                <span
-                  style={{
-                    background: "#f1c40f",
-                    color: "black",
-                    fontWeight: "bold",
-                    fontSize: "15px",
-                    padding: "3px 12px 3px 12px",
-                  }}
-                >
-                  English
-                </span>
-                <div
-                  style={{
-                    marginTop: "10px",
-                  }}
-                >
-                  {" "}
-                  {realdata.data.subtitles.map((sub, index) => (
-                    <button
-                      onClick={() =>
-                        downloadSrtFromZip(`https://dl.subdl.com${sub.url}`)
-                      }
-                      className="subsinpage"
-                      key={index}
+                <div className="lang-keys">
+                  {Object.entries(languages).map(([code, lang]) => (
+                    <span
+                      key={code}
+                      className="language-details"
+                      onClick={() => {
+                        setLang({ code: code, language: lang });
+                      }}
                     >
-                      <span
-                        style={{
-                          display: "none",
-                        }}
-                      >
-                        {" "}
-                        <IoArrowDown
-                          style={{
-                            marginBottom: "-2.2px",
-                            marginRight: "4px",
-                          }}
-                        />
-                      </span>
-                      <span
-                        style={{
-                          color: "white",
-                        }}
-                      >
-                        {" "}
-                        {sub.release_name}{" "}
-                      </span>
-                    </button>
+                      {lang}
+                    </span>
                   ))}
+                </div>
+                <div className="subsholder">
+                  {subtitlesLoading ? (
+                    <SwapLoader {...text} />
+                  ) : (
+                    <>
+                      {realdata.data.subtitles.length > 0 ? (
+                        realdata.data.subtitles?.map((sub, index, text) => (
+                          <Subswap
+                            key={index}
+                            {...sub}
+                            index={index}
+                            text={text}
+                          />
+                        ))
+                      ) : (
+                        <NotAvailable {...lang} />
+                      )}
+                    </>
+                  )}
                 </div>
               </div>
             </>
-          )}
-          {realdata && !realdata.data?.subtitles?.length > 0 && (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                flexDirection: "column",
-                height: "100vh",
-                gap: "30px",
-                background: "rgb(235,179,39)",
-              }}
-            >
-              <Image
-                src="/notfound.png"
-                alt="notfound"
-                width={330}
-                className="not found"
-                height={330}
-                style={{
-                  marginTop: "-100px",
-                  transform: "rotate(30deg)",
-                }}
-              />
-              <h2
-                style={{
-                  color: "black",
-                  textAlign: "center",
-                }}
-              >
-                Sorry there are no subtitles available for this film yet!
-              </h2>
-            </div>
           )}
         </div>
       ) : (

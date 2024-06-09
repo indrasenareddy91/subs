@@ -34,13 +34,33 @@ body{
   transform: rotate(60deg);
 }
 
+.language-details{
+  background-color: #f1c40f;
+  color: black;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 3px 12px 3px 12px;
+  margin-right: 5px;
+}
+.lang-keys span:last-child {
+  margin-right: 0px;
+}
+.dontShowIthereInMobile{
+
+  max-width: 780px;
+}
+.language-details:hover{
+  background-color: white;
+  color: black ;
+  cursor: pointer;
+}
 @keyframes spinner-d3o0rx {
   100% {
      transform: rotate(1turn);
   }
 }
 .quote-container {
-   
     padding: 20px;
     margin: 10px;
   }
@@ -79,6 +99,7 @@ body{
     text-align: center;
     margin-bottom: 10px ;
   }
+  
   .box span{
     position: relative;
     top: 5px;
@@ -127,6 +148,10 @@ body{
     .year{
         font: 0.9rem !important;
     }
+    .lang-keys{
+      overflow: scroll !important;
+      padding-bottom: 2px;
+    }
     .inputcontainer{
         left:unset;
         padding: 2%;
@@ -155,7 +180,7 @@ body{
         }
        .infoContainer{
         gap:20px !important;
-        margin-top: -150px !important;
+        margin-top: -200px !important;
         padding-left: 20px;
         position: relative;
         margin-left: unset !important;
@@ -176,6 +201,7 @@ body{
      .subs{
       color: white;
      }
+     
      .subsinpage{
         background: none;
         outline: none;
