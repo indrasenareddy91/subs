@@ -278,7 +278,7 @@ function Subtitles() {
     const fetchData = async () => {
       // Fetch movie data
       // Fetch subtitles data
-      setSubsLoading(true);
+      setSubsData(false);
       try {
         const subtitlesResponse = await fetch(
           `https://api.subdl.com/api/v1/subtitles?api_key=${api_key}&type=movie&tmdb_id=${movieId}&subs_per_page=30&languages=${lang.code}`
@@ -286,7 +286,6 @@ function Subtitles() {
         var subtitlesData = await subtitlesResponse.json();
 
         setSubsData(subtitlesData);
-        setSubsLoading(false);
       } catch (error) {
         // Handle error
       } finally {
@@ -571,9 +570,7 @@ function Subtitles() {
                       ))}
                     </div>
                     <div className="subsholder">
-                      {subtitlesLoading ? (
-                        <SwapLoader {...text} />
-                      ) : (
+                      {subtitlesData ? (
                         <>
                           {realdata.data.subtitles.map((sub, index, text) => (
                             <Subswap
@@ -583,10 +580,13 @@ function Subtitles() {
                               text={text}
                             />
                           ))}
+
                           {!realdata?.data?.subtitles.length > 0 && (
                             <NotAvailable {...lang} />
                           )}
                         </>
+                      ) : (
+                        <SwapLoader {...text} />
                       )}
                     </div>
                   </div>
