@@ -451,7 +451,27 @@ function Subtitles() {
         </div>
       )}
 
-      {realdata && !realdata?.data?.status && <div>movie not available</div>}
+      {realdata && !realdata?.data?.status && (
+        <div
+          className="quote-container"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+          }}
+        >
+          <div
+            className="quote"
+            style={{
+              marginTop: "20px",
+              fontSize: "1.2rem",
+            }}
+          >
+            Sorry the movies subtitiles not available yet!
+          </div>
+        </div>
+      )}
     </>
   );
 }
