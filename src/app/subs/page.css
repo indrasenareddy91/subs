@@ -212,13 +212,6 @@ body{
      .backdrop{
       height: 45vh !important;
      }
-     .moviename{
-      display: flex;
-      align-items: center;
-     }
-     .poster{
-      height: 210px !important;
-      width: 150px !important;
-     }
-
+     
+   
   }

@@ -60,13 +60,7 @@ function Subtitles() {
 
     await fetchMovies(query);
   };
-  const fetcher = async (url) => {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error("Error fetching data");
-    }
-    return response.json();
-  };
+
   const movieId = q;
   useEffect(() => {
     const fetchData = async () => {
