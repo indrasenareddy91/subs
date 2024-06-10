@@ -143,7 +143,6 @@ function Subtitles() {
       setRealData(realdata);
     }
   }, [subtitlesData, movieData]);
-  console.log(realdata);
   return (
     <>
       {!realdata && (
@@ -462,7 +461,7 @@ function Subtitles() {
               fontSize: "1.2rem",
             }}
           >
-            Sorry the movies subtitiles not available yet!
+            Sorry subtitiles not available for this movie yet!
           </div>
         </div>
       )}
