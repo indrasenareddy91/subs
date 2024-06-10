@@ -2,8 +2,10 @@ input:focus{
     outline: none;
 }
 .subs{
+  text-align: start !important;
+}
+.subs{
     display: block;
-    width: fit-content;
     font-size: 16px;
     color: white !important;
     padding: 5px;
@@ -38,6 +40,7 @@ body{
       width: 100% !important;
       padding: 10px;
      }
+     
      .inputContaineron{
       height: 40vh !important;
      }
@@ -49,7 +52,7 @@ body{
         width: 20% !important;
       }
       .description{
-        text-align: center;
+        background-color: red;
         font-size: 18px !important;
       }
       .random{
@@ -57,5 +60,8 @@ body{
       }
       .sublinks{
         width: 100% !important;
+      }
+      .subs{
+        text-align: start !important;
       }
   }

@@ -96,7 +96,6 @@ body{
     font-size: 15PX;
     font-family: "TmonMonsori";
     color: #aaa;
-    text-align: center;
     margin-bottom: 10px ;
   }
   
@@ -181,7 +180,7 @@ body{
        .infoContainer{
         gap:20px !important;
         margin-top: -200px !important;
-        padding-left: 20px;
+        padding-left: 10px;
         position: relative;
         margin-left: unset !important;
         color: white !important;
@@ -194,7 +193,7 @@ body{
        }
      .ShowIthereInMobile{
         display: block !important;
-        padding-left: 20px;
+        padding-left: 10px;
         padding-top: 20px;
         color: white !important;
      }
@@ -209,6 +208,18 @@ body{
         padding: 10px;
         padding-left: 0px;
         color: white !important;
-        text-align: justify;
      }
+     .backdrop{
+      height: 45vh !important;
+     }
+     .moviename{
+      display: flex;
+      align-items: center;
+      background-color: red !important;
+     }
+     .poster{
+      height: 210px !important;
+      width: 150px !important;
+     }
+
   }

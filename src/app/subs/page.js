@@ -3,7 +3,6 @@ import { useSearchParams } from "next/navigation";
 import { use, useEffect, useState } from "react";
 import Link from "next/link";
 import { IoArrowDown } from "react-icons/io5";
-import jszip from "jszip";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import dailog from "./movies.json";
@@ -153,10 +152,37 @@ function Subtitles() {
   console.log(realdata);
   return (
     <>
+      {!realdata && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "90svh",
+          }}
+        >
+          {text && (
+            <div
+              className="quote-container"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+              }}
+            >
+              {" "}
+              <div className="spinner"></div>
+              <p className="quote">“{text.quote}”</p>
+              <p className="movie-name">{text.movie}.</p>
+            </div>
+          )}
+        </div>
+      )}
       <div>
         <Toaster />
       </div>
-      {realdata ? (
+      {realdata && realdata?.data?.status && (
         <div
           style={{
             backgroundColor: "rgb(20,24,28)",
@@ -423,33 +449,9 @@ function Subtitles() {
             </>
           )}
         </div>
-      ) : (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "90svh",
-          }}
-        >
-          {text && (
-            <div
-              className="quote-container"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                flexDirection: "column",
-              }}
-            >
-              {" "}
-              <div className="spinner"></div>
-              <p className="quote">“{text.quote}”</p>
-              <p className="movie-name">{text.movie}.</p>
-            </div>
-          )}
-        </div>
-      )}{" "}
+      )}
+
+      {realdata && !realdata?.data?.status && <div>movie not available</div>}
     </>
   );
 }

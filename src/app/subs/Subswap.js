@@ -70,13 +70,18 @@ export default function Sunswap(sub, index, text) {
         className="subs"
         key={index}
       >
-        <IoArrowDown
+        <div
           style={{
-            marginBottom: "-2.2px",
-            marginRight: "4px",
+            display: "flex",
           }}
-        />
-        {sub.release_name}
+        >
+          <IoArrowDown
+            style={{
+              marginRight: "4px",
+            }}
+          />
+          <span>{sub.release_name}</span>
+        </div>
       </button>
     </>
   );
