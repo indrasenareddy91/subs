@@ -31,12 +31,10 @@ function Subtitles() {
   const TMDB_API_KEY = process.env.NEXT_PUBLIC_TM;
 
   const api_key = process.env.NEXT_PUBLIC_api_key;
-  console.log(lang);
   useEffect(() => {
     const randquote = Math.floor(Math.random() * 83) + 1;
     setText(dailog.quotes[randquote]);
   }, []);
-  console.log(text);
   const fetchMovies = async (query) => {
     setSearchResults("");
     setIsLoading(true);
@@ -139,7 +137,6 @@ function Subtitles() {
         title,
         lang,
       };
-      console.log("hello");
       setRealData(realdata);
     }
   }, [subtitlesData, movieData]);
@@ -154,6 +151,7 @@ function Subtitles() {
             height: "90svh",
           }}
         >
+          {console.log("im in")}
           {text && (
             <div
               className="quote-container"
