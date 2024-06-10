@@ -215,7 +215,6 @@ body{
      .moviename{
       display: flex;
       align-items: center;
-      background-color: red !important;
      }
      .poster{
       height: 210px !important;
