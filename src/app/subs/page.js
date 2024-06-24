@@ -323,7 +323,6 @@ function Subtitles() {
 
   useEffect(() => {
     if (!subtitlesData) return;
-      const moviedetailsolog
     if (movieData && subtitlesData) {
       const { backdrop_path, poster_path, release_date, title } = movieData;
       var realdata = {
