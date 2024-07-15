@@ -31,6 +31,7 @@ function Subtitles() {
   const TMDB_API_KEY = process.env.NEXT_PUBLIC_TM;
 
   const api_key = process.env.NEXT_PUBLIC_api_key;
+
   const dailog = {
     quotes: [
       {
@@ -231,7 +232,6 @@ function Subtitles() {
     }
     dailogg(text);
   }, []);
-  console.log(text);
 
   const fetchMovies = async (query) => {
     setSearchResults("");
@@ -557,15 +557,20 @@ function Subtitles() {
                     }}
                   >
                     <div className="lang-keys">
-                      {Object.entries(languages).map(([code, lang]) => (
+                      {Object.entries(languages).map(([code, langu]) => (
                         <span
                           key={code}
                           className="language-details"
+                          style={{
+                            backgroundColor:
+                              langu == lang.language ? "white" : "#f1c40f",
+                            color: langu == lang.language ? "black" : "black",
+                          }}
                           onClick={() => {
-                            setLang({ code: code, language: lang });
+                            setLang({ code: code, language: langu });
                           }}
                         >
-                          {lang}
+                          {langu}
                         </span>
                       ))}
                     </div>
@@ -598,15 +603,20 @@ function Subtitles() {
                 }}
               >
                 <div className="lang-keys">
-                  {Object.entries(languages).map(([code, lang]) => (
+                  {Object.entries(languages).map(([code, langu]) => (
                     <span
                       key={code}
                       className="language-details"
+                      style={{
+                        backgroundColor:
+                          langu == lang.language ? "white" : "#f1c40f",
+                        color: langu == lang.language ? "black" : "black",
+                      }}
                       onClick={() => {
-                        setLang({ code: code, language: lang });
+                        setLang({ code: code, language: langu });
                       }}
                     >
-                      {lang}
+                      {langu}
                     </span>
                   ))}
                 </div>
