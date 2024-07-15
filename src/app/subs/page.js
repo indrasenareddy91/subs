@@ -2,10 +2,8 @@
 import { useSearchParams } from "next/navigation";
 import { use, useEffect, useState } from "react";
 import Link from "next/link";
-import { IoArrowDown } from "react-icons/io5";
 import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
-import dailog from "./movies.json";
+import { Toaster } from "react-hot-toast";
 import Subswap from "./Subswap";
 import "../index.css";
 import "./page.css";
