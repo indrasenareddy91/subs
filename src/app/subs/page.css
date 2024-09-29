@@ -6,16 +6,17 @@ body{
     background-color: rgb(20, 24,28) !important;
 }
 
-.hide-scrollbar::-webkit-scrollbar {
-  display: none !important;
-}
+
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .hide-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
+  display: none !important;
   scrollbar-width: none !important;  /* Firefox */
 }
-
+.hide-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
 .spinner {
   width: 35px;
   height: 35px;
