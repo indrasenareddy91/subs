@@ -63,7 +63,7 @@ export default function Sunswap(sub, index, text) {
   }
 
   return (
-    <>
+    <div className="hide-scrollbar">
       {" "}
       <button
         onClick={() => downloadSrtFromZip(`https://dl.subdl.com${sub.url}`)}
@@ -83,6 +83,6 @@ export default function Sunswap(sub, index, text) {
           <span>{sub.release_name}</span>
         </div>
       </button>
-    </>
+    </div>
   );
 }

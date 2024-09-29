@@ -545,7 +545,7 @@ function Subtitles() {
                         </span>
                       ))}
                     </div>
-                    <div className="subsholder">
+                    <div className="subsholder hide-scrollbar">
                       {subtitlesLoading ? (
                         <SwapLoader {...text} />
                       ) : (

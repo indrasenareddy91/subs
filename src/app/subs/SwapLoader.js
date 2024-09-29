@@ -3,7 +3,7 @@ import "../index.css";
 import "./swapLoader.css";
 export default function SwapLoader(text) {
   return (
-    <div className="swapLoader">
+    <div className="swapLoader hide-scrollbar">
       {text && (
         <div
           className="quote-container"
