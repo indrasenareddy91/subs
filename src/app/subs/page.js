@@ -8,6 +8,8 @@ import Subswap from "./Subswap";
 import "../index.css";
 import "./page.css";
 import SwapLoader from "./SwapLoader";
+import { searchMovies, findSubs } from "../actions/actions";
+
 import NotAvailable from "./NotAvailable";
 function Subtitles() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -20,15 +22,14 @@ function Subtitles() {
     code: "EN",
     language: "English",
   });
-  const [movieData, setMovieData] = useState(null);
   const [subtitlesLoading, setSubsLoading] = useState(false);
   const [subtitlesData, setSubsData] = useState(null);
   const searchParams = useSearchParams();
   const q = searchParams.get("q");
-
-  const TMDB_API_KEY = process.env.NEXT_PUBLIC_TM;
-
-  const api_key = process.env.NEXT_PUBLIC_api_key;
+  const poster = searchParams.get("p");
+  const backdrop = searchParams.get("bg");
+  const title = searchParams.get("t");
+  const year = searchParams.get("y");
 
   const dailog = {
     quotes: [
@@ -231,15 +232,16 @@ function Subtitles() {
     dailogg(text);
   }, []);
 
-  const fetchMovies = async (query) => {
+  const handleSearch = async (event) => {
+    event.preventDefault();
+    const query = event.target.value;
+    setSearchQuery(query);
     setSearchResults("");
     setIsLoading(true);
     setError(null);
 
     try {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&query=${query}&page=1`
-      );
+      const response = await searchMovies(query);
       setSearchResults(response.data.results.slice(0, 5));
     } catch (error) {
       setError(error);
@@ -247,41 +249,16 @@ function Subtitles() {
       setIsLoading(false);
     }
   };
-  const handleSearch = async (event) => {
-    event.preventDefault();
-    const query = event.target.value;
-    setSearchQuery(query);
-
-    await fetchMovies(query);
-  };
 
   const movieId = q;
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const movieResponse = await fetch(
-          movieId
-            ? `https://api.themoviedb.org/3/movie/${q}?api_key=${TMDB_API_KEY}`
-            : null
-        );
-        const data = await movieResponse.json();
-        setMovieData(data);
-      } catch (error) {
-      } finally {
-      }
-    };
-    fetchData();
-  }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       // Fetch movie data
       // Fetch subtitles data
       setSubsLoading(true);
       try {
-        const subtitlesResponse = await fetch(
-          `https://api.subdl.com/api/v1/subtitles?api_key=${api_key}&type=movie&tmdb_id=${movieId}&subs_per_page=30&languages=${lang.code}`
-        );
-        var subtitlesData = await subtitlesResponse.json();
+        const subtitlesData = await findSubs(movieId, lang);
 
         setSubsData(subtitlesData);
         setSubsLoading(false);
@@ -293,12 +270,6 @@ function Subtitles() {
 
     fetchData();
   }, [lang]);
-
-  useEffect(() => {
-    document.title = `${realdata?.title || "Subs"} ${
-      realdata?.release_date?.split("-")[0] || ""
-    }  download subtiles`;
-  }, [realdata]);
 
   const languages = {
     EN: "English",
@@ -322,13 +293,12 @@ function Subtitles() {
 
   useEffect(() => {
     if (!subtitlesData) return;
-    if (movieData && subtitlesData) {
-      const { backdrop_path, poster_path, release_date, title } = movieData;
+    if (subtitlesData) {
       var realdata = {
         data: subtitlesData,
-        backdrop_path,
-        poster_path,
-        release_date,
+        backdrop_path: backdrop,
+        poster_path: poster,
+        year,
         title,
         lang,
       };
@@ -474,7 +444,11 @@ function Subtitles() {
                           }}
                           key={index}
                           target="_blank"
-                          href={`/subs?q=${movie.id}`}
+                          href={`/subs?q=${movie.id}&bg=${
+                            movie.backdrop_path
+                          }&y=${movie?.release_date?.split("-")[0] || ""}&p=${
+                            movie.poster_path
+                          }&t=${movie.title}`}
                         >
                           {" "}
                           {movie?.title} ({movie?.release_date?.split("-")[0]})
@@ -546,7 +520,7 @@ function Subtitles() {
                     }}
                     className="year"
                   >
-                    {realdata.release_date.split("-")[0]}
+                    {realdata.year}
                   </div>
                   <div
                     className="dontShowIthereInMobile"
