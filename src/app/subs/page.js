@@ -19,13 +19,12 @@ function Subtitles() {
   const [isLoading, setIsLoading] = useState(false);
   const [text, setText] = useState("");
   const [error, setError] = useState(null);
-  const [realdata, setRealData] = useState(false);
   const [lang, setLang] = useState({
     code: "EN",
     language: "English",
   });
   const [subtitlesLoading, setSubsLoading] = useState(false);
-  const [subtitlesData, setSubsData] = useState(null);
+  const [realdata, setSubsData] = useState(null);
   const searchParams = useSearchParams();
   const q = searchParams.get("q");
   const poster = searchParams.get("p");
@@ -258,11 +257,17 @@ function Subtitles() {
     const fetchData = async () => {
       // Fetch movie data
       // Fetch subtitles data
-      setSubsLoading(true);
       try {
         const subtitlesData = await findSubs(movieId, lang);
 
-        setSubsData(subtitlesData);
+        setSubsData({
+          data: subtitlesData,
+          poster_path: poster,
+          backdrop_path: backdrop,
+          title,
+          year,
+          lang,
+        });
         setSubsLoading(false);
       } catch (error) {
         // Handle error
@@ -293,20 +298,6 @@ function Subtitles() {
     RU: "Russian",
   };
 
-  useEffect(() => {
-    if (!subtitlesData) return;
-    if (subtitlesData) {
-      var realdata = {
-        data: subtitlesData,
-        backdrop_path: backdrop,
-        poster_path: poster,
-        year,
-        title,
-        lang,
-      };
-      setRealData(realdata);
-    }
-  }, [subtitlesData]);
   return (
     <>
       {!realdata && (
@@ -587,6 +578,8 @@ function Subtitles() {
                         color: langu == lang.language ? "black" : "black",
                       }}
                       onClick={() => {
+                        setSubsLoading(true);
+
                         setLang({ code: code, language: langu });
                       }}
                     >
