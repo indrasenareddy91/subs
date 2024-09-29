@@ -67,6 +67,7 @@ const SearchBar = () => {
       const response = await axios.get(
         `https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&query=${query}&page=1`
       );
+      console.log(response.data)
       setSearchResults(response.data.results.slice(0, 5));
     } catch (error) {
       setError(error);
