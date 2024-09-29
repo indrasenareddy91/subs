@@ -1,5 +1,7 @@
 "use server";
 
+import { cache } from "react";
+
 const TMBD_API_KEY = process.env.TMBD_API_KEY;
 const SUBDL_API_KEY = process.env.SUBDL_API_KEY;
 
@@ -7,12 +9,18 @@ export async function fetchRandomMovie() {
   const url = `https://api.themoviedb.org/3/movie/popular?api_key=${TMBD_API_KEY}&append_to_response=images&page=2`;
 
   try {
-    const response = await fetch(url, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
+    const response = await fetch(
+      url,
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+        },
       },
-    });
+      {
+        cache: "no-store",
+      }
+    );
     console.log("opafhiadfi");
     console.log(response);
     if (!response.ok) {
@@ -21,6 +29,7 @@ export async function fetchRandomMovie() {
 
     const movieData = await response.json();
     const rand = Math.floor(Math.random() * 19) + 1;
+    console.log(rand);
     return {
       poster: movieData.results[rand]?.backdrop_path,
       title: movieData.results[rand]?.title,

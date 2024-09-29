@@ -535,7 +535,8 @@ function Subtitles() {
                             color: langu == lang.language ? "black" : "black",
                           }}
                           onClick={() => {
-                            setSubtitlesLoading(true);
+                            setSubsLoading(true);
+
                             setLang({ code: code, language: langu });
                           }}
                         >
