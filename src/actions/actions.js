@@ -13,6 +13,7 @@ export async function fetchRandomMovie() {
         Accept: "application/json",
       },
     });
+    console.log("opafhiadfi");
     console.log(response);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -34,7 +35,7 @@ export async function fetchRandomMovie() {
 export async function searchMovies(query) {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&query=${query}&page=1`
+      `https://api.themoviedb.org/3/search/movie?api_key=${TMBD_API_KEY}&query=${query}&page=1`
     );
 
     if (!response.ok) {
