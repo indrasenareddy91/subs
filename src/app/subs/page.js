@@ -302,7 +302,7 @@ function Subtitles() {
   };
 
   return (
-    <>
+    <div className="hide-scrollbar">
       {!realdata && (
         <div
           style={{
@@ -639,7 +639,7 @@ function Subtitles() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
