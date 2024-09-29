@@ -237,17 +237,20 @@ function Subtitles() {
     event.preventDefault();
     const query = event.target.value;
     setSearchQuery(query);
-    setSearchResults("");
-    setIsLoading(true);
-    setError(null);
 
-    try {
-      const response = await searchMovies(query);
-      setSearchResults(response.data.results.slice(0, 5));
-    } catch (error) {
-      setError(error);
-    } finally {
-      setIsLoading(false);
+    if (query) {
+      setIsLoading(true);
+      try {
+        const results = await searchMovies(query);
+
+        setSearchResults(results.slice(0, 5));
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    } else {
+      setSearchResults([]);
     }
   };
 
@@ -255,7 +258,6 @@ function Subtitles() {
 
   useEffect(() => {
     const fetchData = async () => {
-      // Fetch movie data
       // Fetch subtitles data
       try {
         const subtitlesData = await findSubs(movieId, lang);
@@ -270,6 +272,7 @@ function Subtitles() {
         });
         setSubsLoading(false);
       } catch (error) {
+        console.log(error);
         // Handle error
       } finally {
       }
