@@ -333,6 +333,7 @@ function Subtitles() {
       </div>
       {realdata && realdata?.data?.status && (
         <div
+          className="hide-scrollbar"
           style={{
             backgroundColor: "rgb(20,24,28)",
           }}
@@ -519,7 +520,7 @@ function Subtitles() {
                     {realdata.year}
                   </div>
                   <div
-                    className="dontShowIthereInMobile"
+                    className="dontShowIthereInMobile hide-scrollbar"
                     style={{
                       marginTop: "10px",
                     }}
@@ -567,7 +568,7 @@ function Subtitles() {
                 </span>
               </div>
               <div
-                className="ShowIthereInMobile"
+                className="ShowIthereInMobile hide-scrollbar"
                 style={{
                   display: "none",
                 }}
@@ -620,7 +621,7 @@ function Subtitles() {
 
       {realdata && !realdata?.data?.status && (
         <div
-          className="quote-container"
+          className="quote-container hide-scrollbar"
           style={{
             display: "flex",
             justifyContent: "center",
