@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { searchMovies } from "../actions/actions";
+import "./index.css";
+import "./globals.css";
 const SearchBar = ({ initialRandomMovie }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -162,7 +164,6 @@ const SearchBar = ({ initialRandomMovie }) => {
           </button>
         </form>
       </div>
-      {isLoading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       {searchResults.length > 0 && (
         <div

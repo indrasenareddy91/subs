@@ -306,7 +306,7 @@ function Subtitles() {
       };
       setRealData(realdata);
     }
-  }, [subtitlesData, movieData]);
+  }, [subtitlesData]);
   return (
     <>
       {!realdata && (
