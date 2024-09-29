@@ -7,7 +7,7 @@ export async function fetchRandomMovie() {
   const url = `https://api.themoviedb.org/3/movie/popular?api_key=${TMBD_API_KEY}&append_to_response=images&page=2`;
 
   try {
-    const response = await fetch(tesurl, {
+    const response = await fetch(url, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -60,3 +60,5 @@ const findSubs = async (movieId, lang) => {
     throw new Error("Failed to search movies");
   }
 };
+
+export { findSubs };
