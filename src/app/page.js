@@ -1,4 +1,4 @@
-import SearchBar from "./SearchBar";
+import SearchBar from "../app/Searchbar";
 import { fetchRandomMovie } from "../actions/actions";
 export default async function Home() {
   const initialRandomMovie = await fetchRandomMovie();
