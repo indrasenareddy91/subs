@@ -157,7 +157,7 @@ const SearchBar = ({ initialRandomMovie }) => {
             }}
             onClick={async (e) => {
               e.preventDefault();
-              await handleSearch({ target: { value: searchQuery } });
+              await handleSearch(e);
             }}
           >
             Search
