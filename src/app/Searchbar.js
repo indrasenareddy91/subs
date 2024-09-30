@@ -157,8 +157,9 @@ const SearchBar = ({ initialRandomMovie }) => {
             }}
             onClick={async (e) => {
               console.log(e);
-              e.preventDefault();
-              await handleSearch({ target: { value: searchQuery } });
+              console.log("ejofbadf");
+              console.log("searching");
+              await handleSearch(e);
             }}
           >
             Search
