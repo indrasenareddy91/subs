@@ -156,8 +156,9 @@ const SearchBar = ({ initialRandomMovie }) => {
               fontWeight: "bold",
             }}
             onClick={async (e) => {
+              console.log(e);
               e.preventDefault();
-              await handleSearch(e);
+              await handleSearch({ target: { value: searchQuery } });
             }}
           >
             Search
