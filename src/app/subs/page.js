@@ -525,7 +525,7 @@ function Subtitles() {
                       marginTop: "10px",
                     }}
                   >
-                    <div className="lang-keys">
+                    <div className="lang-keys hide-scrollbar">
                       {Object.entries(languages).map(([code, langu]) => (
                         <span
                           key={code}
@@ -573,7 +573,7 @@ function Subtitles() {
                   display: "none",
                 }}
               >
-                <div className="lang-keys">
+                <div className="lang-keys hide-scrollbar">
                   {Object.entries(languages).map(([code, langu]) => (
                     <span
                       key={code}
