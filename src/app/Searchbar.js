@@ -13,6 +13,8 @@ const SearchBar = ({ initialRandomMovie }) => {
   const [error, setError] = useState(null);
   const [randomMovie, setRandomMovie] = useState(initialRandomMovie);
 
+  const abortControllerRef = useRef(null);
+
   const debounce = (func, delay) => {
     let timeoutId;
     return (...args) => {
