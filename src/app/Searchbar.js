@@ -1,45 +1,64 @@
-// SearchBar.js
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { searchMovies } from "../actions/actions";
 import "./index.css";
 import "./globals.css";
+
 const SearchBar = ({ initialRandomMovie }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [randomMovie, setRandomMovie] = useState(initialRandomMovie);
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { replace } = useRouter();
 
-  useEffect(() => {
-    const initialQuery = searchParams?.get("q") || "";
-    if (initialQuery) {
-      setSearchQuery(initialQuery);
-    }
-  }, [searchParams]);
+  const debounce = (func, delay) => {
+    let timeoutId;
+    return (...args) => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => func(...args), delay);
+    };
+  };
 
-  const handleSearch = async (event) => {
-    event.preventDefault();
+  const handleSearch = useCallback(
+    debounce(async (query) => {
+      if (query) {
+        setIsLoading(true);
+        // Cancel any ongoing request
+        if (abortControllerRef.current) {
+          abortControllerRef.current.abort();
+        }
+        // Create a new AbortController for this request
+        abortControllerRef.current = new AbortController();
+
+        try {
+          const results = await searchMovies(
+            query,
+            abortControllerRef.current.signal
+          );
+          setSearchResults(results.slice(0, 5));
+        } catch (error) {
+          if (error.name !== "AbortError") {
+            setError(error.message);
+          }
+        } finally {
+          setIsLoading(false);
+        }
+      } else {
+        setSearchResults([]);
+      }
+    }, 300),
+    []
+  );
+
+  const handleInputChange = (event) => {
     const query = event.target.value;
     setSearchQuery(query);
-
-    if (query) {
-      setIsLoading(true);
-      try {
-        const results = await searchMovies(query);
-        setSearchResults(results.slice(0, 5));
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    } else {
+    if (query.length === 0) {
       setSearchResults([]);
+    } else {
+      handleSearch(query);
     }
   };
 
@@ -118,7 +137,7 @@ const SearchBar = ({ initialRandomMovie }) => {
         >
           Find perfect subtitles for any movie{" "}
         </div>
-        <form className="formContainer" onSubmit={handleSearch}>
+        <form className="formContainer" onSubmit={(e) => e.preventDefault()}>
           <input
             className="inputbar"
             type="text"
@@ -135,14 +154,14 @@ const SearchBar = ({ initialRandomMovie }) => {
             }}
             required
             value={searchQuery}
-            onChange={handleSearch}
+            onChange={handleInputChange}
             onKeyDown={(e) => {
-              if (e.key == "Backspace" && searchQuery.length == 0) {
-                setSearchResults(0);
-              }
-              if (e.key == "Enter") {
-                e.preventDefault();
-                handleSearch(e);
+              if (e.key === "Backspace" && searchQuery.length === 1) {
+                setSearchResults([]);
+                // Cancel ongoing request when clearing the search
+                if (abortControllerRef.current) {
+                  abortControllerRef.current.abort();
+                }
               }
             }}
             placeholder="Search for a movie..."
@@ -159,9 +178,7 @@ const SearchBar = ({ initialRandomMovie }) => {
               color: "black",
               fontWeight: "bold",
             }}
-            onClick={async (e) => {
-              e.preventDefault();
-            }}
+            onClick={(e) => e.preventDefault()}
           >
             Search
           </button>
