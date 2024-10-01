@@ -15,6 +15,7 @@ export default function RootLayout({ children }) {
         style={{
           margin: "0px",
           padding: "0px",
+          width:" 100%", 
           height: "100vh",
           scrollbarWidth: "none",
         }}
