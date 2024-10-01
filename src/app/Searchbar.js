@@ -51,7 +51,7 @@ const SearchBar = ({ initialRandomMovie }) => {
   };
 
   return (
-    <div style={style} className="backdrop">
+    <div style={style}>
       {randomMovie && (
         <div
           className="random"
