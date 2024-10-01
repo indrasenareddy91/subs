@@ -48,7 +48,7 @@ const SearchBar = ({ initialRandomMovie }) => {
     backgroundSize: "cover",
     backgroundPosition: "center",
     height: "100%",
-    width : "100%"
+    width: "100%",
   };
 
   return (
@@ -137,6 +137,9 @@ const SearchBar = ({ initialRandomMovie }) => {
             value={searchQuery}
             onChange={handleSearch}
             onKeyDown={(e) => {
+              if (e.key == "Backspace" && searchQuery.length == 0) {
+                setSearchResults(0);
+              }
               if (e.key == "Enter") {
                 e.preventDefault();
                 handleSearch(e);
