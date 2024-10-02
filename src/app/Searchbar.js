@@ -40,6 +40,7 @@ const SearchBar = ({ initialRandomMovie }) => {
             query,
             abortControllerRef.current.signal
           );
+          console.log("on my shit");
           console.log(results);
           setSearchResults(results.slice(0, 5));
         } catch (error) {
