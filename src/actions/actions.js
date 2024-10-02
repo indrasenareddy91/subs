@@ -47,7 +47,7 @@ export async function searchMovies(query, signal) {
       `https://api.themoviedb.org/3/search/movie?api_key=${TMBD_API_KEY}&query=${query}&page=1`,
       { signal }
     );
-
+    console.log(response);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
