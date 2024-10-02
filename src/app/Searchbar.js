@@ -43,7 +43,8 @@ const SearchBar = ({ initialRandomMovie }) => {
           console.log(results);
           setSearchResults(results.slice(0, 5));
         } catch (error) {
-          if (error.name !== "AbortError") {
+          if (error) {
+            console.log(error);
             setError(error.message);
           }
         } finally {
