@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
           margin: "0px",
           padding: "0px",
           width:" 100%", 
-          height: "100%",
+          height: "100dvh",
           scrollbarWidth: "none",
         }}
         className={inter.className}
