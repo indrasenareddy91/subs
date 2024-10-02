@@ -35,10 +35,12 @@ const SearchBar = ({ initialRandomMovie }) => {
         abortControllerRef.current = new AbortController();
 
         try {
+          console.log("helllo");
           const results = await searchMovies(
             query,
             abortControllerRef.current.signal
           );
+          console.log(results);
           setSearchResults(results.slice(0, 5));
         } catch (error) {
           if (error.name !== "AbortError") {
