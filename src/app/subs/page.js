@@ -513,7 +513,8 @@ function Subtitles() {
                   <div
                     style={{
                       fontWeight: "bold",
-                      fontSize: "1.6rem",
+                      fontSize: "1.4rem",
+                      color: "lightgray",
                     }}
                     className="year"
                   >
