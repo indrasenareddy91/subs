@@ -1,6 +1,7 @@
 import React from "react";
 import "../index.css";
 import "./swapLoader.css";
+import "./page.css";
 export default function SwapLoader(text) {
   return (
     <div className="swapLoader hide-scrollbar">
