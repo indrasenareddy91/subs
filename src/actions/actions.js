@@ -41,14 +41,11 @@ export async function fetchRandomMovie() {
   }
 }
 
-export async function searchMovies(query, signal) {
+export async function searchMovies(query) {
   console.log("hello");
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${TMBD_API_KEY}&query=${query}&page=1`,
-      {
-        signal,
-      }
+      `https://api.themoviedb.org/3/search/movie?api_key=${TMBD_API_KEY}&query=${query}&page=1`
     );
     console.log(response);
     if (!response.ok) {

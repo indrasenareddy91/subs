@@ -1,8 +1,7 @@
-"use client";
-import React, { useState, useEffect, useCallback, useRef } from "react";
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
+"use client"; // Needed for client-side interactions
+import React, { useState, useCallback, useRef } from "react";
 import Link from "next/link";
-import { searchMovies } from "../actions/actions";
+import { searchMovies } from "../actions/actions"; // Assuming this is a server action
 import "./index.css";
 import "./globals.css";
 
@@ -27,24 +26,22 @@ const SearchBar = ({ initialRandomMovie }) => {
     debounce(async (query) => {
       if (query) {
         setIsLoading(true);
-        // Cancel any ongoing request
+
+        // Cancel the ongoing request if exists
         if (abortControllerRef.current) {
           abortControllerRef.current.abort();
         }
-        // Create a new AbortController for this request
+
+        // Create a new AbortController for the current request
         abortControllerRef.current = new AbortController();
 
         try {
-          console.log("helllo");
-          const results = await searchMovies(
-            query,
-            abortControllerRef.current.signal
-          );
-          console.log("on my shit");
-          console.log(results);
-          setSearchResults(results.slice(0, 5));
+          const results = await searchMovies(query);
+          setSearchResults(results.slice(0, 5)); // Take only 5 results
         } catch (error) {
-          if (error) {
+          if (error.name === "AbortError") {
+            console.log("Request was aborted");
+          } else {
             console.log(error);
             setError(error.message);
           }
@@ -61,6 +58,7 @@ const SearchBar = ({ initialRandomMovie }) => {
   const handleInputChange = (event) => {
     const query = event.target.value;
     setSearchQuery(query);
+
     if (query.length === 0) {
       setSearchResults([]);
     } else {
@@ -96,7 +94,6 @@ const SearchBar = ({ initialRandomMovie }) => {
               textAlign: "end",
             }}
           >
-            {" "}
             {randomMovie.year.split("-")[0]}
           </div>
         </div>
@@ -164,9 +161,8 @@ const SearchBar = ({ initialRandomMovie }) => {
             onKeyDown={(e) => {
               if (e.key === "Backspace" && searchQuery.length === 1) {
                 setSearchResults([]);
-                // Cancel ongoing request when clearing the search
                 if (abortControllerRef.current) {
-                  abortControllerRef.current.abort();
+                  abortControllerRef.current.abort(); // Abort the fetch
                 }
               }
             }}
