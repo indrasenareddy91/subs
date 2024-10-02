@@ -5,7 +5,7 @@ export default async function Home() {
   const initialRandomMovie = await fetchRandomMovie();
   console.log(initialRandomMovie);
   return (
-    <main style={{height:"100dvh"}}>
+    <main style={{height:"100%"}}>
       <SearchBar initialRandomMovie={initialRandomMovie} />
     </main>
   );
