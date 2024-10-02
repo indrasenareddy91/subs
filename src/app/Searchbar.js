@@ -61,7 +61,9 @@ const SearchBar = ({ initialRandomMovie }) => {
 
     if (query.length === 0) {
       setSearchResults([]);
+      setdontshowdata(true);
     } else {
+      setdontshowdata(false);
       handleSearch(query);
     }
   };
