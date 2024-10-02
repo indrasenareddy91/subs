@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" style={{ scrollbarWidth: "none" , height:"100vh"}}>
+    <html lang="en" style={{ scrollbarWidth: "none"}}>
       <body
         style={{
           margin: "0px",
