@@ -11,7 +11,7 @@ const SearchBar = ({ initialRandomMovie }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [randomMovie, setRandomMovie] = useState(initialRandomMovie);
-
+  const [dontshowdata, setdontshowdata] = useState(false);
   const abortControllerRef = useRef(null);
 
   const debounce = (func, delay) => {
@@ -159,8 +159,9 @@ const SearchBar = ({ initialRandomMovie }) => {
             value={searchQuery}
             onChange={handleInputChange}
             onKeyDown={(e) => {
-              if (e.key === "Backspace" && searchQuery.length === 1) {
+              if (e.key === "Backspace" && searchQuery.length === 0) {
                 setSearchResults([]);
+                setdontshowdata(true);
                 if (abortControllerRef.current) {
                   abortControllerRef.current.abort(); // Abort the fetch
                 }
@@ -187,7 +188,7 @@ const SearchBar = ({ initialRandomMovie }) => {
         </form>
       </div>
       {error && <p>Error: {error}</p>}
-      {searchResults.length > 0 && (
+      {searchResults.length > 0 && !dontshowdata && (
         <div
           style={{
             display: "flex",
