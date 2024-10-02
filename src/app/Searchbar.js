@@ -36,10 +36,7 @@ const SearchBar = ({ initialRandomMovie }) => {
 
         try {
           console.log("helllo");
-          const results = await searchMovies(
-            query,
-            abortControllerRef.current.signal
-          );
+          const results = await searchMovies(query);
           console.log("on my shit");
           console.log(results);
           setSearchResults(results.slice(0, 5));
