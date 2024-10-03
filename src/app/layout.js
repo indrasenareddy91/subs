@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -10,18 +10,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" style={{ scrollbarWidth: "none" , height:"100vh"}}>
+    <html lang="en" style={{ scrollbarWidth: "none", height: "100vh" }}>
       <body
         style={{
           margin: "0px",
           padding: "0px",
-          width:" 100%", 
+          width: " 100%",
           height: "100vh",
           scrollbarWidth: "none",
         }}
         className={inter.className}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
