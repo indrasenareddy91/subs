@@ -73,7 +73,7 @@ const SearchBar = ({ initialRandomMovie }) => {
     backgroundSize: "cover",
     backgroundPosition: "center",
     height: "100%",
-    width: "100%",
+    
   };
 
   return (

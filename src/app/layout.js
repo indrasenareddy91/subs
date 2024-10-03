@@ -10,13 +10,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" style={{ scrollbarWidth: "none", height: "100vh" }}>
+    <html lang="en" style={{ scrollbarWidth: "none" }}>
       <body
         style={{
           margin: "0px",
           padding: "0px",
           width: " 100%",
-          height: "100vh",
+          height: "100dvh",
           scrollbarWidth: "none",
         }}
         className={inter.className}
