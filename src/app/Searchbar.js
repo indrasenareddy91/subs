@@ -73,7 +73,6 @@ const SearchBar = ({ initialRandomMovie }) => {
     backgroundSize: "cover",
     backgroundPosition: "center",
     height: "100%",
-    
   };
 
   return (
@@ -212,9 +211,11 @@ const SearchBar = ({ initialRandomMovie }) => {
                 margin: "5px",
               }}
               key={index}
-              href={`/subs?q=${movie.id}&bg=${movie.backdrop_path}&y=${
-                movie?.release_date?.split("-")[0] || ""
-              }&p=${movie.poster_path}&t=${movie.title}`}
+              href={`/subs?q=${movie.id}&bg=${
+                movie.backdrop_path.split("/")[1].split(".jpg")[0]
+              }&y=${movie?.release_date?.split("-")[0] || ""}&p=${
+                movie.poster_path.split("/")[1].split(".jpg")[0]
+              }&t=${movie.title}`}
             >
               {movie.title} ({movie?.release_date?.split("-")[0] || ""})
             </Link>

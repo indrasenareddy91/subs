@@ -8,6 +8,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 export default function Sunswap(sub, index, text, moviename) {
   function downloadSrtFromZip(url) {
+    console.log(moviename);
     toast("Downloading", {
       duration: 1000,
       style: {
