@@ -6,9 +6,9 @@ import "./page.css";
 import jszip from "jszip";
 import toast, { Toaster } from "react-hot-toast";
 
-export default function Sunswap(sub, index, text, moviename) {
+export default function Sunswap(sub, index, text, title) {
   function downloadSrtFromZip(url) {
-    console.log(moviename);
+    console.log(title);
     toast("Downloading", {
       duration: 1000,
       style: {
@@ -54,7 +54,7 @@ export default function Sunswap(sub, index, text, moviename) {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
-                moviename: moviename,
+                title,
               }),
             });
           });

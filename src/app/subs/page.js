@@ -557,7 +557,7 @@ function Subtitles() {
                             <Subswap
                               key={index}
                               {...sub}
-                              moviename={title}
+                              title={realdata.title}
                               index={index}
                               text={text}
                             />
@@ -607,7 +607,7 @@ function Subtitles() {
                           <Subswap
                             key={index}
                             {...sub}
-                            moviename={title}
+                            title={realdata.title}
                             index={index}
                             text={text}
                           />
