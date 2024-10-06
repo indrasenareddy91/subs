@@ -284,6 +284,8 @@ function Subtitles() {
   const languages = {
     EN: "English",
 
+    ID: "Indonesia",
+
     FR: "French",
 
     IT: "Italian",
