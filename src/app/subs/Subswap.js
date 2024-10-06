@@ -6,7 +6,7 @@ import "./page.css";
 import jszip from "jszip";
 import toast, { Toaster } from "react-hot-toast";
 
-export default function Sunswap(sub, index, text, title) {
+export default function Subswap(sub, index, text, title) {
   function downloadSrtFromZip(url) {
     console.log(title);
     toast("Downloading", {

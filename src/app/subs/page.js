@@ -4,12 +4,11 @@ import { use, useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
-import Subswap from "./Subswap";
 import "../index.css";
 import "./page.css";
 import SwapLoader from "./SwapLoader";
 import NotAvailable from "./NotAvailable";
-
+import Subswap from "./subswap";
 import { searchMovies, findSubs } from "../../actions/actions";
 
 /******  32c72582-66fc-4b4b-9047-ffde2ed80740  *******/
@@ -270,6 +269,7 @@ function Subtitles() {
           year,
           lang,
         });
+
         setSubsLoading(false);
       } catch (error) {
         console.log(error);
@@ -553,6 +553,7 @@ function Subtitles() {
                         <SwapLoader {...text} />
                       ) : (
                         <>
+                          {console.log(realdata.title)}
                           {realdata.data.subtitles.map((sub, index, text) => (
                             <Subswap
                               key={index}
