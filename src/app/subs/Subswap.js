@@ -6,7 +6,7 @@ import "./page.css";
 import jszip from "jszip";
 import toast, { Toaster } from "react-hot-toast";
 
-export default function Sunswap(sub, index, text) {
+export default function Sunswap(sub, index, text, moviename) {
   function downloadSrtFromZip(url) {
     toast("Downloading", {
       duration: 1000,
@@ -47,13 +47,22 @@ export default function Sunswap(sub, index, text) {
                 color: "black",
               },
             });
+            fetch("/api/tracker", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                moviename: moviename,
+              }),
+            });
           });
         } else {
           console.error("No SRT file found in the zip");
         }
       })
       .catch((error) =>
-        toast.error("Oh shoot! try another subtitle.", {
+        toast.error("Oh shoot! try another subtitle file.", {
           style: {
             backgroundColor: "#f1c40f",
             color: "black",

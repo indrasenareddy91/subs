@@ -557,6 +557,7 @@ function Subtitles() {
                             <Subswap
                               key={index}
                               {...sub}
+                              moviename={title}
                               index={index}
                               text={text}
                             />
