@@ -1,13 +1,12 @@
 
 
-import { NextApiRequest, NextApiResponse } from 'next';
 
-export async function POST(request:NextApiRequest, response:NextApiResponse) {
+export async function POST(request:Request , response:Response) {   
 
-    const { moviename } = request.body;
+    const body = await request.json();
+    console.log(body);
+    console.log(body.moviename)
 
-     console.log(moviename)
-     
-     return response.json({ status: 'ok' });
+    return new Response("OK");
     
 }
