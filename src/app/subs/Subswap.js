@@ -2,11 +2,10 @@ import React from "react";
 import { IoArrowDown } from "react-icons/io5";
 import "../index.css";
 import "./page.css";
-
 import jszip from "jszip";
 import toast, { Toaster } from "react-hot-toast";
 
-export default function Subswap(sub, index, text, title) {
+export default function Subswap({ index, sub, title }) {
   function downloadSrtFromZip(url, title) {
     console.log(title);
     toast("Downloading", {
@@ -68,7 +67,6 @@ export default function Subswap(sub, index, text, title) {
 
   return (
     <div className="hide-scrollbar">
-      {" "}
       <button
         onClick={() =>
           downloadSrtFromZip(`https://dl.subdl.com${sub.url}`, title)
