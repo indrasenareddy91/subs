@@ -556,7 +556,7 @@ function Subtitles() {
                           {realdata.data.subtitles.map((sub, index, text) => (
                             <Subswap
                               key={index}
-                              {...sub}
+                              sub={sub}
                               title={realdata.data.results[0].name}
                               index={index}
                               text={text}
@@ -606,7 +606,7 @@ function Subtitles() {
                         realdata.data.subtitles?.map((sub, index, text) => (
                           <Subswap
                             key={index}
-                            {...sub}
+                            sub={sub}
                             title={realdata.data.results[0].name}
                             index={index}
                             text={text}
