@@ -10,6 +10,7 @@ import SwapLoader from "./SwapLoader";
 import NotAvailable from "./NotAvailable";
 import { searchMovies, findSubs } from "../../actions/actions";
 import Subswap from "./subshit";
+/******  32c72582-66fc-4b4b-9047-ffde2ed80740  *******/
 function Subtitles() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -555,7 +556,7 @@ function Subtitles() {
                             <Subswap
                               key={index}
                               {...sub}
-                              title={realdata.data.results[0].name}
+                              title={"hi"}
                               index={index}
                               text={text}
                             />
@@ -605,7 +606,7 @@ function Subtitles() {
                           <Subswap
                             key={index}
                             {...sub}
-                            title={realdata.data.results[0].name}
+                            title={"hi"}
                             index={index}
                             text={text}
                           />
