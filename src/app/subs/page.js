@@ -240,7 +240,7 @@ function Subtitles() {
       setIsLoading(true);
       try {
         const results = await searchMovies(query);
-
+        console.log(results);
         setSearchResults(results.slice(0, 5));
       } catch (error) {
         setError(error.message);
@@ -556,7 +556,7 @@ function Subtitles() {
                             <Subswap
                               key={index}
                               {...sub}
-                              title={"hi"}
+                              title={realdata.data.results[0].name}
                               index={index}
                               text={text}
                             />
@@ -606,7 +606,7 @@ function Subtitles() {
                           <Subswap
                             key={index}
                             {...sub}
-                            title={"hi"}
+                            title={realdata.data.results[0].name}
                             index={index}
                             text={text}
                           />
