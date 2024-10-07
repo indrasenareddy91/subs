@@ -213,7 +213,7 @@ const SearchBar = ({ initialRandomMovie }) => {
               key={index}
               href={`/subs?q=${movie.id}&bg=${movie.backdrop_path}&y=${
                 movie?.release_date?.split("-")[0] || ""
-              }&p=${movie.poster_path}&t=${movie.title}`}
+              }&p=${movie.poster_path}`}
             >
               {movie.title} ({movie?.release_date?.split("-")[0] || ""})
             </Link>

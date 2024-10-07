@@ -48,14 +48,8 @@ export default function Subswap(sub, index, text, title) {
                 color: "black",
               },
             });
-            fetch("/api/tracker", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                title,
-              }),
+            fetch(`/download/${title}`, {
+              method: "GET",
             });
           });
         } else {

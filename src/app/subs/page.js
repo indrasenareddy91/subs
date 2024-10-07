@@ -28,7 +28,7 @@ function Subtitles() {
   const q = searchParams.get("q");
   const poster = searchParams.get("p");
   const backdrop = searchParams.get("bg");
-  const title = searchParams.get("t");
+
   const year = searchParams.get("y");
 
   const dailog = {
@@ -265,7 +265,7 @@ function Subtitles() {
           data: subtitlesData,
           poster_path: poster,
           backdrop_path: backdrop,
-          title,
+
           year,
           lang,
         });
@@ -447,7 +447,7 @@ function Subtitles() {
                             movie.backdrop_path
                           }&y=${movie?.release_date?.split("-")[0] || ""}&p=${
                             movie.poster_path
-                          }&t=${movie.title}`}
+                          }`}
                         >
                           {" "}
                           {movie?.title} ({movie?.release_date?.split("-")[0]})
@@ -553,12 +553,11 @@ function Subtitles() {
                         <SwapLoader {...text} />
                       ) : (
                         <>
-                          {console.log(realdata.title)}
                           {realdata.data.subtitles.map((sub, index, text) => (
                             <Subswap
                               key={index}
                               {...sub}
-                              title={realdata.title}
+                              title={realdata.data.results[0].name}
                               index={index}
                               text={text}
                             />
@@ -608,7 +607,7 @@ function Subtitles() {
                           <Subswap
                             key={index}
                             {...sub}
-                            title={realdata.title}
+                            title={realdata.data.results[0].name}
                             index={index}
                             text={text}
                           />
