@@ -85,7 +85,7 @@ export default function Subswap({ index, sub, title }) {
               marginRight: "4px",
             }}
           />
-          <span>{"hi"}</span>
+          <span>{sub.release_name}</span>
         </div>
       </button>
     </div>
