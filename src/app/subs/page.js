@@ -8,10 +8,8 @@ import "../index.css";
 import "./page.css";
 import SwapLoader from "./SwapLoader";
 import NotAvailable from "./NotAvailable";
-import Subswap from "./subswap";
 import { searchMovies, findSubs } from "../../actions/actions";
-
-/******  32c72582-66fc-4b4b-9047-ffde2ed80740  *******/
+import Subswap from "./subshit";
 function Subtitles() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
