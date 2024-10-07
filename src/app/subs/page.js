@@ -8,8 +8,9 @@ import "../index.css";
 import "./page.css";
 import SwapLoader from "./SwapLoader";
 import NotAvailable from "./NotAvailable";
-import { searchMovies, findSubs } from "../../actions/actions";
 import Subswap from "./subshit";
+import { searchMovies, findSubs } from "../../actions/actions";
+
 /******  32c72582-66fc-4b4b-9047-ffde2ed80740  *******/
 function Subtitles() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -240,7 +241,7 @@ function Subtitles() {
       setIsLoading(true);
       try {
         const results = await searchMovies(query);
-        console.log(results);
+
         setSearchResults(results.slice(0, 5));
       } catch (error) {
         setError(error.message);

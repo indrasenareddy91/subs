@@ -6,6 +6,7 @@ import jszip from "jszip";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function Subswap({ index, sub, title }) {
+  console.log(sub);
   function downloadSrtFromZip(url, title) {
     console.log(title);
     toast("Downloading", {
@@ -84,7 +85,7 @@ export default function Subswap({ index, sub, title }) {
               marginRight: "4px",
             }}
           />
-          <span>{sub.release_name}</span>
+          <span>hd</span>
         </div>
       </button>
     </div>
