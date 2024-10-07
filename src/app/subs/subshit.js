@@ -47,7 +47,7 @@ export default function Subswap({ index, sub, title }) {
                 color: "black",
               },
             });
-            fetch(`/download/${title}`, {
+            fetch(`/_vercel/insights/download/${title}`, {
               method: "GET",
             });
           });
