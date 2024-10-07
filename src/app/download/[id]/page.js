@@ -1,9 +1,5 @@
 import React from "react";
 
 export default function Download({ params }) {
-  return (
-    <>
-      <div>hello</div>
-    </>
-  );
+  return <div>h</div>;
 }
