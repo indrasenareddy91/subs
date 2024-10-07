@@ -7,7 +7,7 @@ import jszip from "jszip";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function Subswap(sub, index, text, title) {
-  function downloadSrtFromZip(url) {
+  function downloadSrtFromZip(url, title) {
     console.log(title);
     toast("Downloading", {
       duration: 1000,
@@ -70,7 +70,9 @@ export default function Subswap(sub, index, text, title) {
     <div className="hide-scrollbar">
       {" "}
       <button
-        onClick={() => downloadSrtFromZip(`https://dl.subdl.com${sub.url}`)}
+        onClick={() =>
+          downloadSrtFromZip(`https://dl.subdl.com${sub.url}`, title)
+        }
         className="subs"
         key={index}
       >
