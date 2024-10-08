@@ -19,7 +19,7 @@ const MovieTable = async () => {
         style={{
           background: "white",
           borderRadius: "3px",
-          width: "80%",
+          width: "auto",
           borderCollapse: "collapse",
           border: "2px solid white",
         }}
@@ -66,7 +66,7 @@ const MovieTable = async () => {
         <tbody>
           {rows.map((row) => (
             <tr
-              key={row.id}
+              key={row.movie_id}
               style={{
                 background: "white",
                 color: "black",
@@ -78,7 +78,7 @@ const MovieTable = async () => {
                   border: "1px solid #ddd",
                 }}
               >
-                {row.id}
+                {row.movie_id}
               </td>
               <td
                 style={{
