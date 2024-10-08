@@ -8,8 +8,9 @@ import toast, { Toaster } from "react-hot-toast";
 export default function Subswap({ index, sub, title }) {
   function downloadSrtFromZip(url, title) {
     console.log(title);
-    toast("Downloading", {
-      duration: 1000,
+
+    // Create a toast ID to manage the loading state
+    const toastId = toast.loading("Downloading", {
       style: {
         backgroundColor: "#f1c40f",
         color: "black",
@@ -41,31 +42,48 @@ export default function Subswap({ index, sub, title }) {
             downloadLink.click();
 
             document.body.removeChild(downloadLink);
+
+            // Dismiss the loading toast and show success
+            toast.dismiss(toastId);
             toast.success("Downloaded!", {
               style: {
                 backgroundColor: "#f1c40f",
                 color: "black",
               },
             });
+
+            // Make the API call after successful download
             fetch(`/api/tracker`, {
-              method: "GET",
-              body: {
-                moviename: title,
+              method: "POST", // Changed to POST as you're sending data
+              headers: {
+                "Content-Type": "application/json",
               },
+              body: JSON.stringify({
+                moviename: title,
+              }),
             });
           });
         } else {
-          console.error("No SRT file found in the zip");
+          // Dismiss the loading toast and show error
+          toast.dismiss(toastId);
+          toast.error("No SRT file found in the zip", {
+            style: {
+              backgroundColor: "#f1c40f",
+              color: "black",
+            },
+          });
         }
       })
-      .catch((error) =>
+      .catch((error) => {
+        // Dismiss the loading toast and show error
+        toast.dismiss(toastId);
         toast.error("Oh shoot! try another subtitle file.", {
           style: {
             backgroundColor: "#f1c40f",
             color: "black",
           },
-        })
-      );
+        });
+      });
   }
 
   return (
