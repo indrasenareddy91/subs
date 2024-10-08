@@ -5,6 +5,7 @@ const tracker = async () => {
   const { rows } = await sql`SELECT * FROM movies`;
   return (
     <div>
+      <h1>Movie Tracker</h1>
       {rows.map((row) => (
         <div key={row.id}>
           <p>{row.movie_name}</p>
