@@ -3,7 +3,7 @@ import { sql } from "@vercel/postgres";
 
 const tracker = () => {
   return (
-    <div>
+    <div style={{ color: "black !important" }}>
       <h1>Movie Tracker</h1>
     </div>
   );
