@@ -3,7 +3,7 @@ import { sql } from "@vercel/postgres";
 
 const MovieTable = async () => {
   const { rows } = await sql`SELECT * FROM movies`;
-
+  console.log(rows);
   return (
     <div
       style={{
@@ -12,7 +12,7 @@ const MovieTable = async () => {
         alignItems: "center",
         height: "100dvh",
         background: "black",
-        padding: "20px",
+        padding: "10px",
       }}
     >
       <table
@@ -21,6 +21,7 @@ const MovieTable = async () => {
           borderRadius: "3px",
           width: "80%",
           borderCollapse: "collapse",
+          border: "2px solid white",
         }}
       >
         <thead>
@@ -30,9 +31,36 @@ const MovieTable = async () => {
               color: "black",
             }}
           >
-            <th style={{ padding: "15px", textAlign: "left" }}>Movie No</th>
-            <th style={{ padding: "15px", textAlign: "left" }}>Movie</th>
-            <th style={{ padding: "15px", textAlign: "left" }}>Country</th>
+            <th
+              style={{
+                padding: "15px",
+                textAlign: "left",
+                border: "1px solid #ddd",
+                borderBottom: "2px solid #ddd",
+              }}
+            >
+              Movie No
+            </th>
+            <th
+              style={{
+                padding: "15px",
+                textAlign: "left",
+                border: "1px solid #ddd",
+                borderBottom: "2px solid #ddd",
+              }}
+            >
+              Movie
+            </th>
+            <th
+              style={{
+                padding: "15px",
+                textAlign: "left",
+                border: "1px solid #ddd",
+                borderBottom: "2px solid #ddd",
+              }}
+            >
+              Country
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -44,9 +72,30 @@ const MovieTable = async () => {
                 color: "black",
               }}
             >
-              <td style={{ padding: "10px" }}>{row.id}</td>
-              <td style={{ padding: "10px" }}>{row.movie_name}</td>
-              <td style={{ padding: "10px" }}>{row.country}</td>
+              <td
+                style={{
+                  padding: "10px",
+                  border: "1px solid #ddd",
+                }}
+              >
+                {row.id}
+              </td>
+              <td
+                style={{
+                  padding: "10px",
+                  border: "1px solid #ddd",
+                }}
+              >
+                {row.movie_name}
+              </td>
+              <td
+                style={{
+                  padding: "10px",
+                  border: "1px solid #ddd",
+                }}
+              >
+                {row.country}
+              </td>
             </tr>
           ))}
         </tbody>
