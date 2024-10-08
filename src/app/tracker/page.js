@@ -6,13 +6,30 @@ const tracker = async () => {
   return (
     <div
       style={{
-        color: "black",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100dvh",
+        background: "black",
       }}
     >
       {rows.map((row) => (
-        <div key={row.id}>
-          <p>{row.movie_name}</p>
-          <p>{row.country}</p>
+        <div
+          key={row.id}
+          style={{
+            border: "2px solid white",
+            borderRadius: "5px",
+            background: "white",
+            color: "black",
+          }}
+        >
+          <span
+            style={{
+              borderLeft: "2px solid white",
+            }}
+          >
+            movie : {row.movie_name}
+          </span>
+          <span> user from : {row.country}</span>
         </div>
       ))}
     </div>
