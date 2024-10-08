@@ -1,5 +1,6 @@
 import React from "react";
 import { sql } from "@vercel/postgres";
+export const dynamic = "force-dynamic";
 
 const MovieTable = async () => {
   const { rows } = await sql`SELECT * FROM movies`;
