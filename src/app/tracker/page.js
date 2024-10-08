@@ -1,44 +1,58 @@
 import React from "react";
 import { sql } from "@vercel/postgres";
 
-const tracker = async () => {
+const MovieTable = async () => {
   const { rows } = await sql`SELECT * FROM movies`;
+
   return (
     <div
       style={{
         display: "flex",
-        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         height: "100dvh",
         background: "black",
+        padding: "20px",
       }}
     >
-      {rows.map((row) => (
-        <div
-          key={row.id}
-          style={{
-            border: "2px solid white",
-            borderRadius: "3px",
-            borderBottom: "2px solid black",
-            background: "white",
-            color: "black",
-            padding: "10px",
-          }}
-        >
-          <span>{row.id}</span>
-          <span
+      <table
+        style={{
+          background: "white",
+          borderRadius: "3px",
+          width: "80%",
+          borderCollapse: "collapse",
+        }}
+      >
+        <thead>
+          <tr
             style={{
-              borderRight: "2px solid black",
+              background: "#f4f4f4",
+              color: "black",
             }}
           >
-            {row.movie_name}
-          </span>
-          <span> {row.country}</span>
-        </div>
-      ))}
+            <th style={{ padding: "15px", textAlign: "left" }}>Movie No</th>
+            <th style={{ padding: "15px", textAlign: "left" }}>Movie</th>
+            <th style={{ padding: "15px", textAlign: "left" }}>Country</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr
+              key={row.id}
+              style={{
+                background: "white",
+                color: "black",
+              }}
+            >
+              <td style={{ padding: "10px" }}>{row.id}</td>
+              <td style={{ padding: "10px" }}>{row.movie_name}</td>
+              <td style={{ padding: "10px" }}>{row.country}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
 
-export default tracker;
+export default MovieTable;
