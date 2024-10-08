@@ -5,7 +5,7 @@ import { NextApiRequest, NextApiResponse    } from 'next';
 // Create a connection pool to your PostgreSQL database
 
 
-export default async function POST(req : NextApiRequest, res: NextApiResponse) {
+export default async function handler(req : NextApiRequest, res: NextApiResponse) {
 
   if (req.method === 'POST') {
     const { movieName } = req.body; // Extract movieName from the request body
