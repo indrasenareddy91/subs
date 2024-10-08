@@ -6,10 +6,13 @@ const tracker = async () => {
   return (
     <div
       style={{
+        display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         height: "100dvh",
         background: "black",
+        width: "500px",
       }}
     >
       {rows.map((row) => (
@@ -17,14 +20,14 @@ const tracker = async () => {
           key={row.id}
           style={{
             border: "2px solid white",
-            borderRadius: "5px",
+            borderRadius: "3px",
             background: "white",
             color: "black",
           }}
         >
           <span
             style={{
-              borderLeft: "2px solid white",
+              borderLeft: "2px solid black",
             }}
           >
             movie : {row.movie_name}
