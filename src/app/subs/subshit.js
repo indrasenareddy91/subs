@@ -47,8 +47,11 @@ export default function Subswap({ index, sub, title }) {
                 color: "black",
               },
             });
-            fetch(`/_vercel/insights/download/${title}`, {
+            fetch(`/api/tracker`, {
               method: "GET",
+              body: {
+                moviename: title,
+              },
             });
           });
         } else {
