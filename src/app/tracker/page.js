@@ -11,7 +11,7 @@ const MovieTable = async () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100dvh",
+        height: "auto",
         background: "black",
         padding: "10px",
       }}
