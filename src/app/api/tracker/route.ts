@@ -12,7 +12,7 @@ export async function POST(request: Request) {
 
         if (!moviename) {
             return NextResponse.json(
-                { error: 'Movie name is required.' },
+                { error: 'Movie named is required.' },
                 { status: 400 }
             );
         }
