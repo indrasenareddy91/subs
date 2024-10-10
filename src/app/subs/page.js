@@ -558,6 +558,7 @@ function Subtitles() {
                               key={index}
                               sub={sub}
                               title={realdata.data.results[0].name}
+                              year={realdata.year}
                               index={index}
                               text={text}
                             />
@@ -609,6 +610,7 @@ function Subtitles() {
                             sub={sub}
                             title={realdata.data.results[0].name}
                             index={index}
+                            year={realdata.year}
                             text={text}
                           />
                         ))
