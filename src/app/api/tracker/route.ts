@@ -8,7 +8,7 @@ import { lookup } from 'ip-location-api'
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { moviename } = body;
+        const { moviename , year} = body;
 
         if (!moviename) {
             return NextResponse.json(
@@ -25,10 +25,12 @@ export async function POST(request: Request) {
         // Get country from IP
         var {country_name , city}  = lookup(ip)
         const address  = country_name + ", " + city
+        console.log(address)
+        const movie  =  moviename + ", " + year
         // Insert into database
         await sql`
             INSERT INTO movies (movie_name, country) 
-            VALUES (${moviename}, ${address})
+            VALUES (${movie}, ${address})
         `;
 
         console.log('Movie added successfully!');
