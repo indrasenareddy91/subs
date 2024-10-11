@@ -5,7 +5,7 @@ import "./page.css";
 import jszip from "jszip";
 import toast, { Toaster } from "react-hot-toast";
 
-export default function Subswap({ index, sub, title }) {
+export default function Subswap({ index, sub, title, year }) {
   function downloadSrtFromZip(url, title) {
     console.log(title);
 
@@ -60,6 +60,7 @@ export default function Subswap({ index, sub, title }) {
               },
               body: JSON.stringify({
                 moviename: title,
+                year: year,
               }),
             });
           });
