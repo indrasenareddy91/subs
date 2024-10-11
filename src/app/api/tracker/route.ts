@@ -3,7 +3,7 @@ import { sql } from "@vercel/postgres";
 import axios from 'axios';
 import { NextResponse } from 'next/server';
 import { headers } from 'next/headers';
-import { lookup } from 'ip-location-api';
+
 export async function POST(request: Request) {
     try {
         const body = await request.json();
@@ -22,15 +22,14 @@ export async function POST(request: Request) {
         const ip = forwardedFor ? forwardedFor.split(',')[0] : '127.0.0.1';
     console.log('hekld');
         // Get country from IP
-        var {country_name , city}  = lookup(ip)
-        console.log('jfubafisaS')
-        const address  = country_name + ", " + city
-        console.log(address)
+        const geoResponse = await axios.get(`https://ipapi.co/${ip}/json/`);
+        const country = geoResponse.data.country_name || 'Unknown';
+          
         const movie  =  moviename + ", " + year
         // Insert into database
         await sql`
             INSERT INTO movies (movie_name, country) 
-            VALUES (${movie}, ${address})
+            VALUES (${movie}, ${country})
         `;
 
         console.log('Movie added successfully!');
