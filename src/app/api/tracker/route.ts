@@ -21,9 +21,10 @@ export async function POST(request: Request) {
         const headersList = headers();
         const forwardedFor = headersList.get('x-forwarded-for');
         const ip = forwardedFor ? forwardedFor.split(',')[0] : '127.0.0.1';
-
+    console.log('hekl');
         // Get country from IP
         var {country_name , city}  = lookup(ip)
+        console.log('jfubafisaS')
         const address  = country_name + ", " + city
         console.log(address)
         const movie  =  moviename + ", " + year
