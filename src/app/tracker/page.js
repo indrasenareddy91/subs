@@ -40,7 +40,7 @@ const MovieTable = async () => {
                 borderBottom: "2px solid #ddd",
               }}
             >
-              Movie No
+              id
             </th>
             <th
               style={{
