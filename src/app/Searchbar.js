@@ -4,6 +4,7 @@ import Link from "next/link";
 import { searchMovies } from "../actions/actions"; // Assuming this is a server action
 import "./index.css";
 import "./globals.css";
+import RecentDownloads from "./recent.js";
 const SearchBar = ({ initialRandomMovie }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -219,6 +220,7 @@ const SearchBar = ({ initialRandomMovie }) => {
           ))}
         </div>
       )}
+      <RecentDownloads />
     </div>
   );
 };
