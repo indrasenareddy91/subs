@@ -6,10 +6,10 @@ export const dynamic = "force-dynamic";
 export default async function Home() {
   const initialRandomMovie = await fetchRandomMovie();
   const { rows: recentdownloads } = await sql`
-  SELECT DISTINCT ON (movie_name) movie_id, movie_name, country
-  FROM movies
-  ORDER BY movie_name, movie_id DESC
-  LIMIT 5
+  SELECT movie_id, movie_name, country
+FROM movies
+ORDER BY movie_id DESC
+LIMIT 5;
 `;
   console.log(recentdownloads);
   console.log(initialRandomMovie);
