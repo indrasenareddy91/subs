@@ -7,7 +7,7 @@ export default function RecentDownloads({ downloads }) {
         <div
           className="card-header"
           style={{
-            padding: "1rem",
+            padding: "0rem 1rem 0rem 1rem",
           }}
         >
           <div
@@ -15,6 +15,7 @@ export default function RecentDownloads({ downloads }) {
               backgroundColor: "#fff",
               color: "black",
               borderRadius: "2px",
+              padding: "6px",
               fontSize: "bold",
               textAlign: "center",
             }}
