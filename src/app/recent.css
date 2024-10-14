@@ -3,6 +3,7 @@
       bottom: 1rem;
       right: 1rem;
       width: auto;
+      height: auto;
     }
     @media (max-width: 1024px) {
       .recent-downloads {
