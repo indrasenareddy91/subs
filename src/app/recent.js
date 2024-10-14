@@ -4,9 +4,9 @@ import "./recent.css";
 
 export default async function RecentDownloads() {
   const { rows } = await sql`
-    SELECT DISTINCT ON (movie_name) id, movie_name, country
+    SELECT DISTINCT ON (movie_name) movie_id, movie_name, country
     FROM movies
-    ORDER BY movie_name, id DESC
+    ORDER BY movie_name, movie_id DESC
     LIMIT 5
   `;
   const downloads = rows;
