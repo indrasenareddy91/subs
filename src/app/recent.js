@@ -1,15 +1,6 @@
-"use server";
-import { sql } from "@vercel/postgres";
 import "./recent.css";
 
-export default async function RecentDownloads() {
-  const { rows } = await sql`
-    SELECT DISTINCT ON (movie_name) movie_id, movie_name, country
-    FROM movies
-    ORDER BY movie_name, movie_id DESC
-    LIMIT 5
-  `;
-  const downloads = rows;
+export default async function RecentDownloads({ downloads }) {
   return (
     <div className="recent-downloads">
       <div className="card">

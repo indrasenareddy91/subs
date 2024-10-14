@@ -3,9 +3,9 @@ import React, { useState, useCallback, useRef } from "react";
 import Link from "next/link";
 import { searchMovies } from "../actions/actions"; // Assuming this is a server action
 import "./index.css";
+import RecentDownloads from "./recent";
 import "./globals.css";
-import RecentDownloads from "./recent.js";
-const SearchBar = ({ initialRandomMovie }) => {
+const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -220,7 +220,7 @@ const SearchBar = ({ initialRandomMovie }) => {
           ))}
         </div>
       )}
-      <RecentDownloads />
+      <RecentDownloads downloads={recentdownloads} />
     </div>
   );
 };
