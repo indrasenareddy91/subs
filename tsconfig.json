@@ -20,14 +20,22 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "src/app/api/download/route.js", "src/app/api/tracker/routets", "src/app/download/[id]/page.js", "src/app/api/tracker/route.js"  ],
+    "**/*.tsx",
+    "src/app/api/download/route.js",
+    "src/app/api/tracker/routets",
+    "src/app/download/[id]/page.js",
+    "src/app/api/tracker/route.js"
+  ],
   "exclude": [
     "node_modules"
   ]
