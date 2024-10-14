@@ -1,6 +1,6 @@
 import "./recent.css";
 
-export default async function RecentDownloads({ downloads }) {
+export default function RecentDownloads({ downloads }) {
   return (
     <div className="recent-downloads">
       <div className="card">
