@@ -4,7 +4,7 @@ export default function RecentDownloads({ downloads }) {
   return (
     <div className="recent-downloads">
       <div className="card">
-        <span
+        <div
           className="card-header"
           style={{
             backgroundColor: "#f1c40f",
@@ -14,7 +14,7 @@ export default function RecentDownloads({ downloads }) {
           }}
         >
           Recent Downloads
-        </span>
+        </div>
         <div className="card-content">
           <div className="downloads-list">
             {downloads.map((download) => {
@@ -22,7 +22,7 @@ export default function RecentDownloads({ downloads }) {
               return (
                 <div key={download.id} className="download-item">
                   <span>
-                    {title}({year})
+                    {title}({year.trim()})
                   </span>
                   <span> - {download.country}</span>
                 </div>
