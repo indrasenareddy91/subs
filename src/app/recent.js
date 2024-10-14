@@ -8,10 +8,11 @@ export default function RecentDownloads({ downloads }) {
         style={{
           color: "white",
           background: "black",
+          fontSize: "12px",
         }}
       >
         <div className="card-header">
-          <h2>Recent Downloads</h2>
+          <span fontSize="14px">Recent Downloads</span>
         </div>
         <div className="card-content">
           <div
