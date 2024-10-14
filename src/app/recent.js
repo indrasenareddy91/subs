@@ -1,6 +1,6 @@
 "use server";
 import { sql } from "@vercel/postgres";
-
+export const dynamic = "force-dynamic";
 async function getRecentDownloads() {
   const { rows } = await sql`
     SELECT DISTINCT ON (movie_name) id, movie_name, country
