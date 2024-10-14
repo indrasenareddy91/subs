@@ -4,17 +4,16 @@ export default function RecentDownloads({ downloads }) {
   return (
     <div className="recent-downloads">
       <div className="card">
-        <div className="card-header">
-          <span
-            style={{
-              backgroundColor: "#f1c40f",
-              color: "black",
-              fontSize: "bold",
-              textAlign: "center",
-            }}
-          >
-            Recent Downloads
-          </span>
+        <div
+          className="card-header"
+          style={{
+            backgroundColor: "#f1c40f",
+            color: "black",
+            fontSize: "bold",
+            textAlign: "center",
+          }}
+        >
+          Recent Downloads
         </div>
         <div className="card-content">
           <div className="downloads-list">
