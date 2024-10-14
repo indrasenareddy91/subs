@@ -1,7 +1,7 @@
     .recent-downloads {
       position: fixed;
-      top: 8%;
-      right: 3%;
+      bottom: 1%;
+      left: 2%;
       font-weight: bold;
       font-size: 0.9rem;
       width: auto;
