@@ -220,6 +220,7 @@ const SearchBar = ({ initialRandomMovie }) => {
           ))}
         </div>
       )}
+      <RecentDownloads />
     </div>
   );
 };
