@@ -7,13 +7,20 @@ export default function RecentDownloads({ downloads }) {
         <div
           className="card-header"
           style={{
-            backgroundColor: "#f1c40f",
-            color: "black",
-            fontSize: "bold",
-            textAlign: "center",
+            padding: "1rem",
           }}
         >
-          Recent Downloads
+          <div
+            style={{
+              backgroundColor: "#fff",
+              color: "black",
+              borderRadius: "2px",
+              fontSize: "bold",
+              textAlign: "center",
+            }}
+          >
+            Recent Downloads
+          </div>
         </div>
         <div className="card-content">
           <div className="downloads-list">
