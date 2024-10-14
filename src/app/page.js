@@ -11,6 +11,7 @@ export default async function Home() {
   ORDER BY movie_name, movie_id DESC
   LIMIT 5
 `;
+  console.log(recentdownloads);
   console.log(initialRandomMovie);
   return (
     <main style={{ height: "100%" }}>
