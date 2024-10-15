@@ -53,7 +53,7 @@ export default function Subswap({ index, sub, title, year }) {
             });
 
             // Make the API call after successful download
-            const movie_id = fetch(`/api/tracker`, {
+            const response = fetch(`/api/tracker`, {
               method: "POST", // Changed to POST as you're sending data
               headers: {
                 "Content-Type": "application/json",
@@ -72,7 +72,7 @@ export default function Subswap({ index, sub, title, year }) {
                   "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                  id: movie_id,
+                  id: response.id,
                   moviename: title,
                   year: year,
                   response: userResponse,
