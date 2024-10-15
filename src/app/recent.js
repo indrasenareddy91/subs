@@ -30,7 +30,7 @@ export default function RecentDownloads({ downloads }) {
               return (
                 <div key={download.id} className="download-item">
                   <span>
-                    {title}({year})
+                    {title}({year.trim()})
                   </span>
                   <span> - {download.country}</span>
                 </div>
