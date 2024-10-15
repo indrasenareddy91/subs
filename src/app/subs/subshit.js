@@ -51,12 +51,7 @@ export default function Subswap({ index, sub, title, year }) {
                 color: "black",
               },
             });
-            alert("Can u please tell me how do u know this site?", {
-              style: {
-                backgroundColor: "#f1c40f",
-                color: "black",
-              },
-            });
+
             // Make the API call after successful download
             fetch(`/api/tracker`, {
               method: "POST", // Changed to POST as you're sending data
