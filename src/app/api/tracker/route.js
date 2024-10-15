@@ -28,16 +28,11 @@ export async function POST(request) {
     const movie = moviename + ", " + year;
     // Insert into database
     let rows;
-    if (!response) {
-      rows = await sql`
+
+    rows = await sql`
             INSERT INTO movies (movie_name, country) 
             VALUES (${movie}, ${country}) returning *
         `;
-    } else {
-      rows = await sql`
-            update movies set reply = ${response} where movie_id = ${id} returning *
-        `;
-    }
 
     return NextResponse.json(
       { message: "Movie added successfully!", id: rows[0].movie_id },
