@@ -7,6 +7,26 @@
       width: auto;
       height: auto;
     }
+    .card-header {
+      position: relative;
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #f1c40f;
+      color: #000000;  /* Black text for contrast */
+      font-weight: bold;
+    }
+    
+    .card-header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -20px;
+      width: 0;
+      height: 0;
+      border-left: 20px solid #f1c40f;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+    }
     @media (max-width: 1024px) {
       .recent-downloads {
         display: none;

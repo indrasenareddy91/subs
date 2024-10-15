@@ -51,7 +51,12 @@ export default function Subswap({ index, sub, title, year }) {
                 color: "black",
               },
             });
-
+            alert("Can u please tell me how do u know this site?", {
+              style: {
+                backgroundColor: "#f1c40f",
+                color: "black",
+              },
+            });
             // Make the API call after successful download
             fetch(`/api/tracker`, {
               method: "POST", // Changed to POST as you're sending data
@@ -78,7 +83,7 @@ export default function Subswap({ index, sub, title, year }) {
       .catch((error) => {
         // Dismiss the loading toast and show error
         toast.dismiss(toastId);
-        toast.error("Oh shoot! try another subtitle file.", {
+        toast.error("Oh shit! try another subtitle file.", {
           style: {
             backgroundColor: "#f1c40f",
             color: "black",
