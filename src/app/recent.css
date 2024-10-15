@@ -1,9 +1,9 @@
     .recent-downloads {
       position: fixed;
       bottom: 0%;
-      right: 1%;
+      right: 0%;
       font-weight: bold;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       width: auto;
       height: auto;
     }
