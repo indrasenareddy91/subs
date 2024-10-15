@@ -26,7 +26,16 @@ export default function RecentDownloads({ downloads }) {
         <div className="card-content">
           <div className="downloads-list">
             {downloads.map((download) => {
-              const [title, year] = download.movie_name.split(",");
+              let [title, year] = download.movie_name.split(",");
+              try {
+                if (title.includes("(")) {
+                  title = title.split("(")[0];
+                }
+              } catch (e) {
+                console.log(e);
+              } finally {
+                title = title;
+              }
 
               return (
                 <div key={download.id} className="download-item">
