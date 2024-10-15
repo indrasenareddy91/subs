@@ -33,10 +33,6 @@ export async function POST(request) {
             INSERT INTO movies (movie_name, country) 
             VALUES (${movie}, ${country}) returning *
         `;
-    } else {
-      rows = await sql`
-            update movies set reference = ${response} where movie_id = ${id} returning *
-        `;
     }
 
     return NextResponse.json(
