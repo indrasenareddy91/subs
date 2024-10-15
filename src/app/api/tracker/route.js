@@ -9,6 +9,8 @@ export async function POST(request) {
   try {
     const body = await request.json();
     const { moviename, year, response = null, id = null } = body;
+    console.log("ID value:", id);
+    console.log("Response value:", response);
 
     if (!moviename) {
       return NextResponse.json(
@@ -39,6 +41,15 @@ export async function POST(request) {
         { status: 201 }
       );
     } else {
+      const parsedId = parseInt(id, 10);
+
+      if (isNaN(parsedId)) {
+        return NextResponse.json(
+          { message: "Invalid movie ID provided." },
+          { status: 400 }
+        );
+      }
+
       data = await sql`
             update movies set reference=${response} where movie_id=${id}
             
