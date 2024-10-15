@@ -64,6 +64,7 @@ export default function Subswap({ index, sub, title, year }) {
               }),
             });
             let userResponse = null;
+            console.log(response, response.id);
             userResponse = prompt("Please tell me how do u know this site?");
             if (userResponse) {
               fetch(`/api/tracker`, {
