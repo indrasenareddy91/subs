@@ -61,25 +61,30 @@ export default function Subswap({ index, sub, title, year }) {
               body: JSON.stringify({
                 moviename: title,
                 year: year,
-              }),
-            });
-            let userResponse = null;
-            console.log(response, response.id);
-            userResponse = prompt("Please tell me how do u know this site?");
-            if (userResponse) {
-              fetch(`/api/tracker`, {
-                method: "POST", // Changed to POST as you're sending data
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  id: response.id,
-                  moviename: title,
-                  year: year,
-                  response: userResponse,
+              })
+                .then((response) => response.json())
+                .then((response) => {
+                  let userResponse = null;
+                  console.log(response, response.id);
+                  userResponse = prompt(
+                    "Please tell me how do u know this site?"
+                  );
+                  if (userResponse) {
+                    fetch(`/api/tracker`, {
+                      method: "POST", // Changed to POST as you're sending data
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify({
+                        id: response.id,
+                        moviename: title,
+                        year: year,
+                        response: userResponse,
+                      }),
+                    });
+                  }
                 }),
-              });
-            }
+            });
           });
         } else {
           // Dismiss the loading toast and show error
