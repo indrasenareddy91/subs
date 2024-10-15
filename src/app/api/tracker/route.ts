@@ -27,7 +27,7 @@ export async function POST(request: Request) {
           
         const movie  =  moviename + ", " + year
         // Insert into database
-     const {rows} =    await sql`
+     const rows =    await sql`
             INSERT INTO movies (movie_name, country) 
             VALUES (${movie}, ${country}) returning *
         `;
