@@ -3,6 +3,7 @@ import { sql } from "@vercel/postgres";
 import axios from "axios";
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
+import { Console } from "console";
 
 export async function POST(request) {
   try {
@@ -34,9 +35,9 @@ export async function POST(request) {
             VALUES (${movie}, ${country}) returning *
         `;
     }
-
+    console.log(rows, rows[0]);
     return NextResponse.json(
-      { message: "Movie added successfully!", id: rows[0].id },
+      { message: "Movie added successfully!", id: rows[0] },
       { status: 201 }
     );
   } catch (error) {
