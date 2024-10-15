@@ -64,7 +64,21 @@ export default function Subswap({ index, sub, title, year }) {
               }),
             });
             let userResponse = null;
-            console.log(movie_id);
+            userResponse = prompt("Please tell me how do u know this site?");
+            if (userResponse) {
+              fetch(`/api/tracker`, {
+                method: "POST", // Changed to POST as you're sending data
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  id: movie_id,
+                  moviename: title,
+                  year: year,
+                  response: userResponse,
+                }),
+              });
+            }
           });
         } else {
           // Dismiss the loading toast and show error

@@ -34,11 +34,20 @@ export async function POST(request) {
             INSERT INTO movies (movie_name, country) 
             VALUES (${movie}, ${country}) returning *
         `;
+      return NextResponse.json(
+        { message: "Movie added successfully!", id: data.rows[0].movie_id },
+        { status: 201 }
+      );
+    } else {
+      data = await sql`
+            update movies set reference=${response} where movie_id=${id}
+            
+        `;
+      return NextResponse.json(
+        { message: "Movie upldated successfully!" },
+        { status: 201 }
+      );
     }
-    return NextResponse.json(
-      { message: "Movie added successfully!", id: data.rows[0].movie_id },
-      { status: 201 }
-    );
   } catch (error) {
     console.error("Error getting user location or inserting data:", error);
     return NextResponse.json(
