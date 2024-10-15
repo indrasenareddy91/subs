@@ -28,16 +28,15 @@ export async function POST(request) {
 
     const movie = moviename + ", " + year;
     // Insert into database
-    let rows;
+    let data;
     if (!response) {
-      rows = await sql`
+      data = await sql`
             INSERT INTO movies (movie_name, country) 
             VALUES (${movie}, ${country}) returning *
         `;
     }
-    console.log(rows, rows[0]);
     return NextResponse.json(
-      { message: "Movie added successfully!", id: rows[0] },
+      { message: "Movie added successfully!", id: data.rows[0].movie_id },
       { status: 201 }
     );
   } catch (error) {
