@@ -36,7 +36,7 @@ export async function POST(request) {
     }
 
     return NextResponse.json(
-      { message: "Movie added successfully!", id: rows[0].id },
+      { message: "Movie added successfully!", id: "hello" },
       { status: 201 }
     );
   } catch (error) {
