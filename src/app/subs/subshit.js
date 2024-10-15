@@ -67,9 +67,7 @@ export default function Subswap({ index, sub, title, year }) {
               .then((response) => {
                 let userResponse = null;
                 console.log(response, response.id);
-                userResponse = prompt(
-                  "Please tell me how do you know this site?"
-                );
+                userResponse = prompt("how do you know this site?");
                 if (userResponse) {
                   fetch(`/api/tracker`, {
                     method: "POST", // Using POST to send data
