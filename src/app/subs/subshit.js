@@ -54,37 +54,40 @@ export default function Subswap({ index, sub, title, year }) {
 
             // Make the API call after successful download
             const response = fetch(`/api/tracker`, {
-              method: "POST", // Changed to POST as you're sending data
+              method: "POST", // Using POST to send data
               headers: {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
                 moviename: title,
                 year: year,
+              }),
+            })
+              .then((response) => response.json())
+              .then((response) => {
+                let userResponse = null;
+                console.log(response, response.id);
+                userResponse = prompt(
+                  "Please tell me how do you know this site?"
+                );
+                if (userResponse) {
+                  fetch(`/api/tracker`, {
+                    method: "POST", // Using POST to send data
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                      id: response.id,
+                      moviename: title,
+                      year: year,
+                      response: userResponse,
+                    }),
+                  });
+                }
               })
-                .then((response) => response.json())
-                .then((response) => {
-                  let userResponse = null;
-                  console.log(response, response.id);
-                  userResponse = prompt(
-                    "Please tell me how do u know this site?"
-                  );
-                  if (userResponse) {
-                    fetch(`/api/tracker`, {
-                      method: "POST", // Changed to POST as you're sending data
-                      headers: {
-                        "Content-Type": "application/json",
-                      },
-                      body: JSON.stringify({
-                        id: response.id,
-                        moviename: title,
-                        year: year,
-                        response: userResponse,
-                      }),
-                    });
-                  }
-                }),
-            });
+              .catch((error) => {
+                console.error("Error:", error);
+              });
           });
         } else {
           // Dismiss the loading toast and show error
