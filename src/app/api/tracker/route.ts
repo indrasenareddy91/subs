@@ -27,15 +27,15 @@ export async function POST(request: Request) {
           
         const movie  =  moviename + ", " + year
         // Insert into database
-        await sql`
+     const {rows} =    await sql`
             INSERT INTO movies (movie_name, country) 
             VALUES (${movie}, ${country})
         `;
-
+      console.log(rows)
         console.log('Movie added successfully!');
 
         return NextResponse.json(
-            { message: 'Movie added successfully!' },
+            { message: 'Movie added successfully!'  },
             { status: 201 }
         );
 
