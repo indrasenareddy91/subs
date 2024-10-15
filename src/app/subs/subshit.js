@@ -53,7 +53,7 @@ export default function Subswap({ index, sub, title, year }) {
             });
 
             // Make the API call after successful download
-            fetch(`/api/tracker`, {
+            const movie_id = fetch(`/api/tracker`, {
               method: "POST", // Changed to POST as you're sending data
               headers: {
                 "Content-Type": "application/json",
@@ -63,6 +63,30 @@ export default function Subswap({ index, sub, title, year }) {
                 year: year,
               }),
             });
+            let userResponse = null;
+            try {
+              userResponse = prompt(
+                "Can you please tell me how do you know this site?"
+              );
+              if (userResponse !== null) {
+                // User provided a response, update the tracker
+                console.log(userResponse);
+                fetch(`/api/tracker`, {
+                  method: "POST", // Changed to POST as you're sending data
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    id: movie_id,
+                    response: userResponse,
+                    moviename: title,
+                    year: year,
+                  }),
+                });
+              }
+            } catch (e) {
+              console.error("Error showing prompt:", e);
+            }
           });
         } else {
           // Dismiss the loading toast and show error
