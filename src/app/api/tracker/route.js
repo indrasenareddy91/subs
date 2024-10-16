@@ -28,11 +28,14 @@ export async function POST(request) {
     const geoResponse = await axios.get(`https://ipapi.co/${ip}/json/`);
     console.log(geoResponse);
     const country = geoResponse.data.country_name || "Unknown";
-    const adress =
-      ip + geoResponse.data.city ||
-      "Unknown" + "," + geoResponse.data.org ||
-      "Unknown" + "," + geoResponse.data.region ||
-      "Unknown";
+    const address =
+      ip +
+      (geoResponse.data.city || "Unknown") +
+      ", " +
+      (geoResponse.data.org || "Unknown") +
+      ", " +
+      (geoResponse.data.region || "Unknown");
+
     const movie = moviename + ", " + year;
     // Insert into database
     let data;
