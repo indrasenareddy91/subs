@@ -26,6 +26,7 @@ export async function POST(request) {
     console.log("hekld");
     // Get country from IP
     const geoResponse = await axios.get(`https://ipapi.co/${ip}/json/`);
+    console.log(geoResponse);
     const country = geoResponse.data.country_name || "Unknown";
     const adress =
       ip + geoResponse.data.city ||
