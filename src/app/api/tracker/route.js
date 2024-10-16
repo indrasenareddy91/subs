@@ -28,7 +28,7 @@ export async function POST(request) {
     const geoResponse = await axios.get(`https://ipapi.co/${ip}/json/`);
     const country = geoResponse.data.country_name || "Unknown";
     const adress =
-      geoResponse.data.city ||
+      ip + geoResponse.data.city ||
       "Unknown" + "," + geoResponse.data.org ||
       "Unknown" + "," + geoResponse.data.region ||
       "Unknown";
