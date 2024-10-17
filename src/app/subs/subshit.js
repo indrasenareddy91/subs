@@ -7,8 +7,6 @@ import toast, { Toaster } from "react-hot-toast";
 
 export default function Subswap({ index, sub, title, year }) {
   function downloadSrtFromZip(url, title) {
-    console.log(title);
-
     // Create a toast ID to manage the loading state
     const toastId = toast.loading("Downloading", {
       style: {
@@ -66,7 +64,6 @@ export default function Subswap({ index, sub, title, year }) {
               .then((response) => response.json())
               .then((response) => {
                 let userResponse = null;
-                console.log(response, response.id);
                 userResponse = prompt(
                   "how do you know this site? Care to leave a msg for me to improve something?"
                 );
