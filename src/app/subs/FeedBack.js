@@ -75,7 +75,6 @@ const FeedbackComponent = () => {
           marginBottom: "10px",
           backgroundColor: "white",
           color: "black",
-          border: "1px solid black",
           borderRadius: "3px",
           fontSize: "14px",
         }}
@@ -96,7 +95,7 @@ const FeedbackComponent = () => {
           fontSize: "14px",
         }}
       >
-        {isSending ? "Sending..." : "Send"}
+        {isSending ? "sending..." : "send"}
       </button>
       {message && (
         <p
