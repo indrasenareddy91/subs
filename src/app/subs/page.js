@@ -10,6 +10,7 @@ import SwapLoader from "./SwapLoader";
 import NotAvailable from "./NotAvailable";
 import Subswap from "./subshit";
 import { searchMovies, findSubs } from "../../actions/actions";
+import FeedbackComponent from "./FeedBack";
 
 /******  32c72582-66fc-4b4b-9047-ffde2ed80740  *******/
 function Subtitles() {
@@ -647,6 +648,7 @@ function Subtitles() {
           </div>
         </div>
       )}
+      <FeedbackComponent />
     </div>
   );
 }

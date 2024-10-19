@@ -60,31 +60,11 @@ export default function Subswap({ index, sub, title, year }) {
                 moviename: title,
                 year: year,
               }),
-            })
-              .then((response) => response.json())
-              .then((response) => {
-                let userResponse = null;
-                userResponse = prompt(
-                  "how do you know this site? Care to leave a msg for me to improve something?"
-                );
-                if (userResponse) {
-                  fetch(`/api/tracker`, {
-                    method: "POST", // Using POST to send data
-                    headers: {
-                      "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                      id: response.id,
-                      moviename: title,
-                      year: year,
-                      response: userResponse,
-                    }),
-                  });
-                }
-              })
-              .catch((error) => {
-                console.error("Error:", error);
-              });
+            }).catch((error) => {
+              console.error("Error:", error);
+            });
+
+            localStorage.setItem("id", response.id);
           });
         } else {
           // Dismiss the loading toast and show error
