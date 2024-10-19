@@ -58,7 +58,7 @@ const FeedbackComponent = () => {
       <p
         style={{
           margin: "0 0 10px 0",
-          color: "black",
+          color: "white",
           fontFamily: "Arial, sans-serif",
           fontSize: "14px",
         }}
@@ -73,10 +73,10 @@ const FeedbackComponent = () => {
           width: "200px",
           padding: "5px",
           marginBottom: "10px",
-
           backgroundColor: "white",
           color: "black",
-
+          border: "1px solid black",
+          borderRadius: "3px",
           fontSize: "14px",
         }}
       />
@@ -85,9 +85,9 @@ const FeedbackComponent = () => {
         disabled={isSending}
         style={{
           padding: "5px 10px",
-          backgroundColor: "#000",
+          backgroundColor: "#fff",
           width: "200px",
-          color: "white",
+          color: "black",
           border: "none",
           borderRadius: "3px",
           cursor: "pointer",
