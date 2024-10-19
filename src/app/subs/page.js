@@ -648,7 +648,6 @@ function Subtitles() {
           </div>
         </div>
       )}
-      <FeedbackComponent />
     </div>
   );
 }
