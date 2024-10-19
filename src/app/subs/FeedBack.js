@@ -73,10 +73,10 @@ const FeedbackComponent = () => {
           width: "200px",
           padding: "5px",
           marginBottom: "10px",
-          border: "2px solid #black",
-          borderRadius: "3px",
+
           backgroundColor: "white",
           color: "black",
+
           fontSize: "14px",
         }}
       />
