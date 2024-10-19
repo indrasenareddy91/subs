@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const FeedbackComponent = () => {
-  const [inputValue, setInputValue] = useState("");
+  const [userResponse, setInputValue] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -46,7 +46,7 @@ const FeedbackComponent = () => {
         position: "fixed",
         bottom: "20px",
         right: "20px",
-        backgroundColor: "#f1c40f",
+        backgroundColor: "white",
         padding: "10px",
         fontWeight: "bold",
         borderRadius: "5px",
@@ -67,13 +67,13 @@ const FeedbackComponent = () => {
       </p>
       <input
         type="text"
-        value={inputValue}
+        value={userResponse}
         onChange={(e) => setInputValue(e.target.value)}
         style={{
           width: "200px",
           padding: "5px",
           marginBottom: "10px",
-          border: "1px solid #ccc",
+          border: "2px solid #black",
           borderRadius: "3px",
           backgroundColor: "white",
           color: "black",
@@ -86,7 +86,6 @@ const FeedbackComponent = () => {
         style={{
           padding: "5px 10px",
           backgroundColor: "#000",
-
           width: "200px",
           color: "white",
           border: "none",
