@@ -46,7 +46,6 @@ const FeedbackComponent = () => {
         position: "fixed",
         bottom: "20px",
         right: "20px",
-        backgroundColor: "white",
         padding: "10px",
         fontWeight: "bold",
         borderRadius: "5px",
@@ -68,6 +67,7 @@ const FeedbackComponent = () => {
       <input
         type="text"
         value={userResponse}
+        placeholder="whattowatch?"
         onChange={(e) => setInputValue(e.target.value)}
         style={{
           width: "200px",
@@ -88,6 +88,7 @@ const FeedbackComponent = () => {
           backgroundColor: "#fff",
           width: "200px",
           color: "black",
+          fontWeight: "bold",
           border: "none",
           borderRadius: "3px",
           cursor: "pointer",
