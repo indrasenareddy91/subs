@@ -64,7 +64,9 @@ export default function Subswap({ index, sub, title, year }) {
               .then((response) => response.json())
               .then((data) => {
                 const id = data.id;
-                const userResponse = prompt("how do u know about this site?");
+                const userResponse = prompt(
+                  "Please tell lel mehow do u know about this site?"
+                );
                 if (userResponse) {
                   fetch(`/api/tracker`, {
                     method: "POST", // Using POST to send data

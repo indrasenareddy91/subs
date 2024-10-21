@@ -3,7 +3,7 @@ import { sql } from "@vercel/postgres";
 export const dynamic = "force-dynamic";
 
 const MovieTable = async () => {
-  const { rows } = await sql`SELECT * FROM movies`;
+  const { rows } = await sql`SELECT * , created_at FROM movies`;
   console.log(rows);
   return (
     <div
@@ -95,7 +95,8 @@ const MovieTable = async () => {
                   border: "1px solid #ddd",
                 }}
               >
-                {row.country} , {row.reference} , {row.adress}
+                {row.country} , {row.reference} , {row.adress} ,{" "}
+                {row.created_at}
               </td>
             </tr>
           ))}
