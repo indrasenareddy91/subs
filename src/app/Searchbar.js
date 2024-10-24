@@ -1,5 +1,5 @@
 "use client"; // Needed for client-side interactions
-import React, { useState, useCallback, useRef } from "react";
+import React, { useState, useCallback, useRef, useEffect } from "react";
 import Link from "next/link";
 import { searchMovies } from "../actions/actions"; // Assuming this is a server action
 import "./index.css";
