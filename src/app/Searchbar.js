@@ -24,7 +24,7 @@ const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
         if (e.shiftKey) {
           //FOR REVERSE TAB
           setCurrentFocusIndex((prev) =>
-            prev === 0 ? searchResults.length - 1 : prev - 1
+            prev === -1 ? searchResults.length - 1 : prev - 1
           );
         } else {
           // Tab: Move forwards
