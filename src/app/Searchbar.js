@@ -227,7 +227,7 @@ const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
         >
           {searchResults.map((movie, index) => (
             <Link
-              className="sublinks"
+              className={`sublinks ${index}`}
               ref={(el) => (linkRefs.current[index] = el)}
               style={{
                 width: "580px",
