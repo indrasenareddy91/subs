@@ -212,9 +212,9 @@ const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
               }}
               key={index}
               href={`/subs?q=${movie.id}&bg=${
-                movie.backdrop_path.split("/")[1].split(".jpg")[0]
+                movie.backdrop_path?.split("/")[1]?.split(".jpg")[0] || ""
               }&y=${movie?.release_date?.split("-")[0] || ""}&p=${
-                movie.poster_path.split("/")[1].split(".jpg")[0]
+                movie.poster_path?.split("/")[1]?.split(".jpg")[0] || ""
               }`}
             >
               {movie.title} ({movie?.release_date?.split("-")[0] || ""})
