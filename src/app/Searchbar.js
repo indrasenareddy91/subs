@@ -7,13 +7,40 @@ import RecentDownloads from "./recent";
 import "./globals.css";
 const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentFocusIndex, setCurrentFocusIndex] = useState(0);
+  const linkRefs = useRef([]);
+
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [randomMovie, setRandomMovie] = useState(initialRandomMovie);
   const [dontshowdata, setdontshowdata] = useState(false);
   const abortControllerRef = useRef(null);
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Tab") {
+        e.preventDefault();
 
+        if (e.shiftKey) {
+          //FOR REVERSE TAB
+          setCurrentFocusIndex((prev) =>
+            prev === 0 ? searchResults.length - 1 : prev - 1
+          );
+        } else {
+          // Tab: Move forwards
+          setCurrentFocusIndex((prev) =>
+            prev === searchResults.length - 1 ? 0 : prev + 1
+          );
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [searchResults.length]);
+  useEffect(() => {
+    linkRefs.current[currentFocusIndex]?.focus();
+  }, [currentFocusIndex]);
   const debounce = (func, delay) => {
     let timeoutId;
     return (...args) => {
@@ -201,6 +228,7 @@ const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
           {searchResults.map((movie, index) => (
             <Link
               className="sublinks"
+              ref={(el) => (linkRefs.current[index] = el)}
               style={{
                 width: "580px",
                 padding: "10px",

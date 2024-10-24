@@ -23,7 +23,7 @@ input:focus{
 
   
 
-.sublinks:hover{
+.sublinks:hover, .sublinks:focus{
     color:black!important;
     background: #f1c40f !important;
 }
