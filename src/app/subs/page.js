@@ -233,27 +233,57 @@ function Subtitles() {
     dailogg(text);
   }, []);
 
-  const handleSearch = async (event) => {
-    event.preventDefault();
+  const debounce = (func, delay) => {
+    let timeoutId;
+    return (...args) => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => func(...args), delay);
+    };
+  };
+
+  const handleSearch = useCallback(
+    debounce(async (query) => {
+      if (query) {
+        setIsLoading(true);
+
+        // Cancel the ongoing request if exists
+        if (abortControllerRef.current) {
+          abortControllerRef.current.abort();
+        }
+        // Create a new AbortController for the current request
+        abortControllerRef.current = new AbortController();
+
+        try {
+          const results = await searchMovies(query);
+          setSearchResults(results.slice(0, 5)); // Take only 5 results
+        } catch (error) {
+          if (error.name === "AbortError") {
+            console.log("Request was aborted");
+          } else {
+            console.log(error);
+            setError(error.message);
+          }
+        } finally {
+          setIsLoading(false);
+        }
+      } else {
+        setSearchResults([]);
+      }
+    }, 300),
+    []
+  );
+  const handleInputChange = (event) => {
     const query = event.target.value;
     setSearchQuery(query);
 
-    if (query) {
-      setIsLoading(true);
-      try {
-        const results = await searchMovies(query);
-
-        setSearchResults(results.slice(0, 5));
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    } else {
+    if (query.length === 0) {
       setSearchResults([]);
+      setdontshowdata(true);
+    } else {
+      setdontshowdata(false);
+      handleSearch(query);
     }
   };
-
   const movieId = q;
 
   useEffect(() => {
@@ -399,7 +429,7 @@ function Subtitles() {
                       width: "500px",
                     }}
                     value={searchQuery}
-                    onChange={handleSearch}
+                    onChange={handleInputChange}
                     onKeyDown={(e) => {
                       if (e.key == "Enter") {
                         e.preventDefault();

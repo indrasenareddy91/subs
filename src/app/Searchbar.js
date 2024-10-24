@@ -31,7 +31,6 @@ const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
         if (abortControllerRef.current) {
           abortControllerRef.current.abort();
         }
-
         // Create a new AbortController for the current request
         abortControllerRef.current = new AbortController();
 
