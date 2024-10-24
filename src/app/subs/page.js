@@ -446,8 +446,12 @@ function Subtitles() {
                           target="_blank"
                           href={`/subs?q=${movie.id}&bg=${
                             movie.backdrop_path
+                              ?.split("/")[1]
+                              ?.split(".jpg")[0] || ""
                           }&y=${movie?.release_date?.split("-")[0] || ""}&p=${
                             movie.poster_path
+                              ?.split("/")[1]
+                              ?.split(".jpg")[0] || ""
                           }`}
                         >
                           {" "}
@@ -479,7 +483,7 @@ function Subtitles() {
                 <div
                   className="backdrop"
                   style={{
-                    backgroundImage: `linear-gradient(to bottom, transparent, transparent,rgb(20,24,28)), url(https://image.tmdb.org/t/p/original${realdata.backdrop_path})`,
+                    backgroundImage: `linear-gradient(to bottom, transparent, transparent,rgb(20,24,28)), url(https://image.tmdb.org/t/p/original/${realdata.backdrop_path}.jpg)`,
                     backgroundSize: "cover",
                     height: "55vh",
                   }}
@@ -498,7 +502,7 @@ function Subtitles() {
                 {" "}
                 <img
                   className="poster"
-                  src={`https://image.tmdb.org/t/p/w500${realdata.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w500/${realdata.poster_path}.jpg`}
                   alt="Poster"
                   style={{
                     height: "210px",
