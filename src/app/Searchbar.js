@@ -82,6 +82,7 @@ const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
   );
 
   const handleInputChange = (event) => {
+    setCurrentFocusIndex(-1);
     const query = event.target.value;
     setSearchQuery(query);
 
@@ -249,6 +250,7 @@ const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
           ))}
         </div>
       )}
+      {}
       <RecentDownloads downloads={recentdownloads} />
     </div>
   );
