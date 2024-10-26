@@ -1,10 +1,10 @@
 "use server";
 
 import { cache } from "react";
+import random from "random";
 
 const TMBD_API_KEY = process.env.TMBD_API_KEY;
-const SUBDL_API_KEY = process.env.SUBDL_API_KEY;
-
+const API_KEY = random.choice([process.env.API_KEY1, process.env.API_KEY2]);
 export async function fetchRandomMovie() {
   const url = `https://api.themoviedb.org/3/movie/popular?api_key=${TMBD_API_KEY}&append_to_response=images&page=2`;
 
@@ -61,7 +61,7 @@ export async function searchMovies(query) {
 }
 
 const findSubs = async (movieId, lang) => {
-  const url = `https://api.subdl.com/api/v1/subtitles?api_key=${SUBDL_API_KEY}&type=movie&tmdb_id=${movieId}&subs_per_page=30&languages=${lang.code}`;
+  const url = `https://api.subdl.com/api/v1/subtitles?api_key=${API_KEY}&type=movie&tmdb_id=${movieId}&subs_per_page=30&languages=${lang.code}`;
   try {
     const response = await fetch(url);
     const data = await response.json();

@@ -115,7 +115,7 @@ export default function Subswap({ index, sub, title, year }) {
     <div className="hide-scrollbar">
       <button
         onClick={() =>
-          downloadSrtFromZip(`https://dl.subdl.com${sub.url}`, title)
+          downloadSrtFromZip(`/api/download?url=${sub.url}`, title)
         }
         className="subs"
         key={index}
