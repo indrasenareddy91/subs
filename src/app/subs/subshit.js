@@ -15,7 +15,9 @@ export default function Subswap({ index, sub, title, year }) {
       },
     });
 
-    fetch(url)
+    fetch(url, {
+      method: "POST",
+    })
       .then((response) => {
         return response.blob();
       })
