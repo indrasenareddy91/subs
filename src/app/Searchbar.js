@@ -18,10 +18,10 @@ const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
   const abortControllerRef = useRef(null);
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === "Tab") {
+      if (e.key === "Tab" || e.key === "ArrowDown") {
         e.preventDefault();
 
-        if (e.shiftKey) {
+        if (e.shiftKey || e.key === "ArrowUp") {
           //FOR REVERSE TAB
           setCurrentFocusIndex((prev) =>
             prev === 0 ? searchResults.length - 1 : prev - 1
