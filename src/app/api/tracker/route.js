@@ -41,7 +41,7 @@ export async function POST(request) {
 
     let data = await sql`
             INSERT INTO movies (movie_name, country , adress , reference) 
-            VALUES (${movie}, ${country} , ${adress} ${userAgent}) returning *
+            VALUES (${movie}, ${country} , ${adress} , ${userAgent}) returning *
         `;
     return NextResponse.json(
       { message: "Movie added successfully!", id: data.rows[0].movie_id },
