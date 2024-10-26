@@ -11,7 +11,7 @@ export async function GET(request) {
 
   try {
     const response = await fetch(filePath);
-    const s = "k";
+    const s = "kt";
     // Simply return the response with proper headers
     return new Response(response.body, {
       headers: {
