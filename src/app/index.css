@@ -34,110 +34,33 @@ body{
 .subs:hover{
     color: #f1c40f;
 }
-/* For smaller phones (iPhone SE, Galaxy S5 etc.) */
-@media screen and (max-width: 375px) {
-  .formContainer {
-    width: 100% !important;
-    padding: 0.5rem;
+@media (min-width: 320px) and (max-width: 768px){ 
+     /* CSS for smartphones */
+     .formContainer{
+      width: 100% !important;
+      padding: 10px;
+     }
+     
+     .inputContaineron{
+      height: 40dvh !important;
+     }
+      .inputbar{
+        width: 80% !important;
+        
+      }
+      .btnf{
+        width: 20% !important;
+      }
+      .description{
+        font-size: 18px !important;
+      }
+      .random{
+        top: 5% !important;
+      }
+      .sublinks{
+        width: 100% !important;
+      }
+      .subs{
+        text-align: start !important;
+      }
   }
-  
-  .inputContaineron {
-    height: 35dvh     !important;
-  }
-  
-  .inputbar {
-    width: 75%  !important;
-  }
-  
-  .btnf {
-    width: 25% !important;
-  }
-  
-  .description {
-    font-size: 1rem !important;
-  }
-  
-  .random {
-    top: 3%  !important;
-  }
-  
-  .sublinks {
-    width: 100% !important;
-  }
-  
-  .subs {
-    text-align: left !important;
-  }
-}
-
-/* For medium-sized phones (iPhone X, Pixel etc.) */
-@media screen and (min-width: 376px) and (max-width: 480px) {
-  .formContainer {
-    width: 100% !important;
-    padding: 0.625rem ;
-  }
-  
-  .inputContaineron {
-    height: 40dvh     !important;
-  }
-  
-  .inputbar {
-    width: 80%  !important;
-  }
-  
-  .btnf {
-    width: 20% !important;
-  }
-  
-  .description {
-    font-size: 1.125rem    !important;
-  }
-  
-  .random {
-    top: 5% !important;
-  }
-  
-  .sublinks {
-    width: 100% !important;
-  }
-  
-  .subs {
-    text-align: left !important;
-  }
-}
-
-/* For larger phones and tablets */
-@media screen and (min-width: 481px) and (max-width: 768px) {
-  .formContainer {
-    width: 100% !important;
-    padding: 0.75rem;
-  }
-  
-  .inputContaineron {
-    height: 45dvh     !important;
-  }
-  
-  .inputbar {
-    width: 85%  !important;
-  }
-  
-  .btnf {
-    width: 15% !important;
-  }
-  
-  .description {
-    font-size: 1.25rem !important;
-  }
-  
-  .random {
-    top: 7% !important;
-  }
-  
-  .sublinks {
-    width: 100% !important;
-  }
-  
-  .subs {
-    text-align: left !important;
-  }
-}
