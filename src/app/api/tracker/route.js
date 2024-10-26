@@ -8,9 +8,7 @@ import { Console } from "console";
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { moviename, year, response = null, id = null } = body;
-    console.log("ID value:", id);
-    console.log("Response value:", response);
+    const { moviename, year } = body;
 
     if (!moviename) {
       return NextResponse.json(
@@ -18,9 +16,11 @@ export async function POST(request) {
         { status: 400 }
       );
     }
+    const userAgent = request.headers.get("user-agent") || "";
 
     // Get the IP address from headers
     const headersList = headers();
+
     const forwardedFor = headersList.get("x-forwarded-for");
     const ip = forwardedFor ? forwardedFor.split(",")[0] : "127.0.0.1";
     console.log("hekld");
@@ -38,35 +38,15 @@ export async function POST(request) {
 
     const movie = moviename + ", " + year;
     // Insert into database
-    let data;
-    if (!response) {
-      data = await sql`
-            INSERT INTO movies (movie_name, country , adress ) 
-            VALUES (${movie}, ${country} , ${adress}) returning *
-        `;
-      return NextResponse.json(
-        { message: "Movie added successfully!", id: data.rows[0].movie_id },
-        { status: 201 }
-      );
-    } else {
-      const parsedId = parseInt(id, 10);
 
-      if (isNaN(parsedId)) {
-        return NextResponse.json(
-          { message: "Invalid movie ID provided." },
-          { status: 400 }
-        );
-      }
-
-      data = await sql`
-            update movies set reference=${response} where movie_id=${id}
-            
+    let data = await sql`
+            INSERT INTO movies (movie_name, country , adress , reference) 
+            VALUES (${movie}, ${country} , ${adress} ${userAgent}) returning *
         `;
-      return NextResponse.json(
-        { message: "Movie upldated successfully!" },
-        { status: 201 }
-      );
-    }
+    return NextResponse.json(
+      { message: "Movie added successfully!", id: data.rows[0].movie_id },
+      { status: 201 }
+    );
   } catch (error) {
     console.error("Error getting user location or inserting data:", error);
     return NextResponse.json(
