@@ -126,7 +126,7 @@ const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
               textAlign: "end",
             }}
           >
-            {randomMovie.year.split("-")[0]}
+            {randomMovie.release_date.split("-")[0]}
           </div>
         </div>
       )}
