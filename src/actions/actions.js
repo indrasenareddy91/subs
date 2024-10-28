@@ -21,15 +21,16 @@ export async function fetchRandomMovie() {
         cache: "no-store",
       }
     );
-    console.log("opafhiadfi");
-    console.log(response);
+
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const movieData = await response.json().results;
+    const movieData = await response.json();
+    const data = movieData.results;
+    console.log(data);
     return {
-      movieData,
+      data,
     };
   } catch (error) {
     console.error("Error fetching random movie:", error);
