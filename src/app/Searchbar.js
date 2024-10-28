@@ -7,6 +7,7 @@ import RecentDownloads from "./recent";
 import random from "random";
 import "./globals.css";
 const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
+  console.log(initialRandomMovie);
   const initialRandomMoviee = random.choice([initialRandomMovie]);
   console.log(initialRandomMoviee);
   const [searchQuery, setSearchQuery] = useState("");
