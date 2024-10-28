@@ -9,6 +9,7 @@ export default async function Home() {
   const initialRandomMovie = await fetchRandomMovie();
   unstable_noStore();
   const randomMovie = random.choice([...initialRandomMovie.data]);
+  console.log(randomMovie);
   const { rows: recentdownloads } = await sql`
   SELECT movie_id, movie_name, country
 FROM movies
