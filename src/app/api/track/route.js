@@ -1,8 +1,6 @@
 import { sql } from "@vercel/postgres";
-import axios from "axios";
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
-import { Console } from "console";
 import { lookup } from "ip-location-api/pack";
 export const config = {
   runtime: "edge",
@@ -27,13 +25,13 @@ export async function POST(request) {
     const ip = forwardedFor ? forwardedFor.split(",")[0] : "127.0.0.1";
     console.log("hekld");
     // Get country from IP
-    const geoResponse = lookup(ip);
+    const geoResponse = await fetch(`https://ipapi.co/${ip}/json`);
     const adress =
       ip +
       ", " +
-      (geoResponse.data.country_name || "Unknown") +
+      (geoResponse.country_name || "Unknown") +
       ", " +
-      (geoResponse.data.city || "Unknown");
+      (geoResponse.city || "Unknown");
 
     const movie = moviename + ", " + year;
     // Insert into database
