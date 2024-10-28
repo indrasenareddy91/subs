@@ -1,7 +1,15 @@
 import React from "react";
 import { sql } from "@vercel/postgres";
 export const dynamic = "force-dynamic";
-
+const formatDate = (date) => {
+  return new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+};
 const MovieTable = async () => {
   const { rows } = await sql`SELECT * , created_at FROM movies`;
   console.log(rows);
@@ -95,8 +103,8 @@ const MovieTable = async () => {
                   border: "1px solid #ddd",
                 }}
               >
-                {row.country} , {row.reference} , {row.adress} , ,{" "}
-                {row.created_at}
+                {row.country} , {row.reference} , {row.adress} ,
+                {formatDate(row.created_at)}
               </td>
             </tr>
           ))}
