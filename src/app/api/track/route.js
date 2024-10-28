@@ -25,7 +25,8 @@ export async function POST(request) {
     const ip = forwardedFor ? forwardedFor.split(",")[0] : "127.0.0.1";
     console.log("hekld");
     // Get country from IP
-    const geoResponse = await fetch(`https://ipapi.co/${ip}/json`);
+    const response = await fetch(`https://ipapi.co/${ip}/json`);
+    const geoResponse = await response.json();
     const adress =
       ip +
       ", " +
