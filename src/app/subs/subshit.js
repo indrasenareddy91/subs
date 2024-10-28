@@ -50,9 +50,8 @@ export default function Subswap({ index, sub, title, year }) {
               },
             });
 
-            // Make the API call after successful download
             const response = fetch(`/api/tracker`, {
-              method: "POST", // Using POST to send data
+              method: "POST",
               headers: {
                 "Content-Type": "application/json",
               },
