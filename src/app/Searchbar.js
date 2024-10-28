@@ -1,4 +1,4 @@
-"use client"; // Needed for client-side interactions
+"use client";
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import Link from "next/link";
 import { searchMovies } from "../actions/actions"; // Assuming this is a server action
