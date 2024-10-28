@@ -7,9 +7,7 @@ import RecentDownloads from "./recent";
 import random from "random";
 import "./globals.css";
 const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
-  console.log("data", initialRandomMovie);
-  const initialRandomMoviee = random.choice([...initialRandomMovie.data]);
-  console.log("what is this?", initialRandomMoviee);
+  const randomMovie = random.choice([...initialRandomMovie.data]);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentFocusIndex, setCurrentFocusIndex] = useState(-1);
   const linkRefs = useRef([]);
@@ -17,7 +15,6 @@ const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [randomMovie, setRandomMovie] = useState(initialRandomMoviee);
   const [dontshowdata, setdontshowdata] = useState(false);
   const abortControllerRef = useRef(null);
   useEffect(() => {
@@ -100,7 +97,7 @@ const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
   };
 
   const style = {
-    backgroundImage: `linear-gradient(to right,transparent, transparent,rgb(20,24,28)), url(https://image.tmdb.org/t/p/original${randomMovie?.backdrop_path})`,
+    backgroundImage: `linear-gradient(to right,transparent, transparent,rgb(20,24,28)), url(https://image.tmdb.org/t/p/original${randomMovie.backdrop_path})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     height: "100%",
