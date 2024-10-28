@@ -1,9 +1,8 @@
 "use client";
 import { Suspense } from "react";
-import SubtitlesContent from "./SubtitlesContent";
 import "../index.css";
 import "./page.css";
-
+import SubtitlesContent from "./subs";
 export default function SubtitlesPage() {
   return (
     <Suspense
