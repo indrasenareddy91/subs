@@ -24,6 +24,7 @@ export async function POST(request) {
     // Get country from IP
     const response = await fetch(`https://ipapi.co/${ip}/json`);
     const geoResponse = await response.json();
+    const country = geoResponse.country_name || "Unknown";
     const adress =
       ip +
       ", " +
