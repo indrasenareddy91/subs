@@ -5,9 +5,8 @@ import random from "random";
 
 const TMBD_API_KEY = process.env.TMBD_API_KEY;
 const API_KEY = random.choice([process.env.API_KEY1, process.env.API_KEY2]);
-const urll = `https://api.themoviedb.org/3/movie/popular?api_key=${TMBD_API_KEY}&append_to_response=images&page=2`;
 export async function fetchRandomMovie() {
-  const url = `https://proxy.reddyindra53.workers.dev/?url=${urll}`;
+  const url = `https://api.themoviedb.org/3/movie/popular?api_key=${TMBD_API_KEY}&append_to_response=images&page=2`;
 
   try {
     const response = await fetch(
@@ -44,9 +43,7 @@ export async function fetchRandomMovie() {
 
 export async function searchMovies(query) {
   console.log("hello");
-  const urll = `https://api.themoviedb.org/3/search/movie?api_key=${TMBD_API_KEY}&query=${query}&page=1`;
-
-  const url = `https://proxy.reddyindra53.workers.dev/?url=${urll}`;
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${TMBD_API_KEY}&query=${query}&page=1`;
 
   try {
     const response = await fetch(url);
