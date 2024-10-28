@@ -216,7 +216,7 @@ const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
         </form>
       </div>
       {error && <p>Error: {error}</p>}
-      {searchResults && searchResults.length > 0 && !dontshowdata && (
+      {searchResults.length > 0 && !dontshowdata && (
         <div
           style={{
             display: "flex",
