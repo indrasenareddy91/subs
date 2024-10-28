@@ -216,7 +216,7 @@ const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
         </form>
       </div>
       {error && <p>Error: {error}</p>}
-      {searchResults.length > 0 && !dontshowdata && (
+      {searchResults && searchResults.length > 0 && !dontshowdata ? (
         <div
           style={{
             display: "flex",
@@ -249,7 +249,32 @@ const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
             </Link>
           ))}
         </div>
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+            padding: "10px",
+            boxSizing: "border-box",
+          }}
+        >
+          <div
+            className="sublinks"
+            style={{
+              width: "580px",
+              padding: "10px",
+              boxSizing: "border-box",
+              background: "white",
+              color: "black",
+              margin: "5px",
+            }}
+          >
+            bro make sure the spelling is correct
+          </div>
+        </div>
       )}
+
       {}
       <RecentDownloads downloads={recentdownloads} />
     </div>
