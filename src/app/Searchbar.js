@@ -4,14 +4,10 @@ import Link from "next/link";
 import { searchMovies } from "../actions/actions"; // Assuming this is a server action
 import "./index.css";
 import RecentDownloads from "./recent";
+import random from "random";
 import "./globals.css";
 const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
-  const rand = Math.floor(Math.random() * 19) + 1;
-  const initialRandomMoviee = {
-    poster: initialRandomMovie.results[rand]?.backdrop_path,
-    title: initialRandomMovie.results[rand]?.title,
-    year: initialRandomMovie.results[rand].release_date,
-  };
+  const initialRandomMoviee = random.choice([initialRandomMovie]);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentFocusIndex, setCurrentFocusIndex] = useState(-1);
   const linkRefs = useRef([]);

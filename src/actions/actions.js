@@ -27,13 +27,9 @@ export async function fetchRandomMovie() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const movieData = await response.json();
-    const rand = Math.floor(Math.random() * 19) + 1;
-    console.log(rand);
+    const movieData = await response.json().results;
     return {
-      poster: movieData.results[rand]?.backdrop_path,
-      title: movieData.results[rand]?.title,
-      year: movieData.results[rand].release_date,
+      movieData,
     };
   } catch (error) {
     console.error("Error fetching random movie:", error);
