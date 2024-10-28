@@ -3,6 +3,9 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import { Console } from "console";
+export const config = {
+  runtime: "edge",
+};
 export async function POST(request) {
   try {
     const body = await request.json();
