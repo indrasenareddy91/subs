@@ -49,7 +49,7 @@ export default function Subswap({ index, sub, title, year }) {
                 color: "black",
               },
             });
-
+       const k
             const response = fetch(`/api/track`, {
               method: "POST",
               headers: {
