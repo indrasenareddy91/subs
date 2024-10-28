@@ -9,7 +9,7 @@ export default async function Home() {
   const initialRandomMovie = await fetchRandomMovie();
   unstable_noStore();
   const randomMovie = random.choice([...initialRandomMovie.data]);
-  console.log(randomMovie);
+  console.log("hello", randomMovie);
   const { rows: recentdownloads } = await sql`
   SELECT movie_id, movie_name, country
 FROM movies
@@ -18,10 +18,7 @@ LIMIT 5;
 `;
   return (
     <main style={{ height: "100%" }}>
-      <SearchBar
-        initialRandomMovie={randomMovie}
-        recentdownloads={recentdownloads}
-      />
+      <SearchBar randomMovie={randomMovie} recentdownloads={recentdownloads} />
     </main>
   );
 }
