@@ -3,11 +3,12 @@ import { fetchRandomMovie } from "../actions/actions";
 
 import { sql } from "@vercel/postgres";
 import { unstable_noStore } from "next/cache";
+import random from "random";
+
 export default async function Home() {
   const initialRandomMovie = await fetchRandomMovie();
-  console.log(initialRandomMovie);
   unstable_noStore();
-
+  const randomMovie = random.choice([...initialRandomMovie.data]);
   const { rows: recentdownloads } = await sql`
   SELECT movie_id, movie_name, country
 FROM movies
@@ -17,7 +18,7 @@ LIMIT 5;
   return (
     <main style={{ height: "100%" }}>
       <SearchBar
-        initialRandomMovie={initialRandomMovie}
+        initialRandomMovie={randomMovie}
         recentdownloads={recentdownloads}
       />
     </main>
