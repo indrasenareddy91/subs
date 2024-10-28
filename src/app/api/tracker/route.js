@@ -23,12 +23,17 @@ export async function POST(request) {
 
     const forwardedFor = headersList.get("x-forwarded-for");
     const ip = forwardedFor ? forwardedFor.split(",")[0] : "127.0.0.1";
-    // Get country from IP
+    // Get countr
     console.log(geoResponse);
-    var location = lookup(ip);
+    var location = await fetch(`https://ipapi.co/${ip}/json/`).then((res) =>
+      res.json()
+    );
 
     const adress =
-      ip + (location.city || "Unknown") + (location.country_name || "Unknown");
+      ip +
+      " ," +
+      (location.city || "Unknown") +
+      (location.country_name || "Unknown");
 
     const movie = moviename + ", " + year;
     // Insert into database
