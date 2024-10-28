@@ -177,7 +177,7 @@ const dailog = {
     },
     {
       movie: "The Shawshank Redemption",
-      quote: "Get busy livin', or get busy dyin'.",
+      quote: "Get busy livin, or get busy dyin.",
     },
 
     {
