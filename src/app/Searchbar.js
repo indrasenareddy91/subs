@@ -7,7 +7,6 @@ import RecentDownloads from "./recent";
 import random from "random";
 import "./globals.css";
 const SearchBar = ({ randomMovie, recentdownloads }) => {
-  console.log(randomMovie);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentFocusIndex, setCurrentFocusIndex] = useState(-1);
   const linkRefs = useRef([]);
