@@ -95,7 +95,8 @@ const MovieTable = async () => {
                   border: "1px solid #ddd",
                 }}
               >
-                {row.country} , {row.reference} , {row.adress} ,{" "}
+                {row.country} , {row.reference} , {row.adress} , ,{" "}
+                {row.created_at}
               </td>
             </tr>
           ))}

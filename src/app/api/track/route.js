@@ -3,6 +3,7 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import { Console } from "console";
+import { lookup } from "ip-location-api/pack";
 export const config = {
   runtime: "edge",
 };
@@ -26,16 +27,13 @@ export async function POST(request) {
     const ip = forwardedFor ? forwardedFor.split(",")[0] : "127.0.0.1";
     console.log("hekld");
     // Get country from IP
-    const geoResponse = await axios.get(`https://ipapi.co/${ip}/json/`);
-    console.log(geoResponse);
-    const country = geoResponse.data.country_name || "Unknown";
+    const geoResponse = lookup(ip);
     const adress =
       ip +
-      (geoResponse.data.city || "Unknown") +
       ", " +
-      (geoResponse.data.org || "Unknown") +
+      (geoResponse.data.country_name || "Unknown") +
       ", " +
-      (geoResponse.data.region || "Unknown");
+      (geoResponse.data.city || "Unknown");
 
     const movie = moviename + ", " + year;
     // Insert into database
