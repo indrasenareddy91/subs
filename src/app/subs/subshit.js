@@ -50,7 +50,7 @@ export default function Subswap({ index, sub, title, year }) {
               },
             });
 
-            const response = fetch(`/api/traCk`, {
+            const response = fetch(`/api/track`, {
               method: "POST",
               body: JSON.stringify({
                 moviename: title,
