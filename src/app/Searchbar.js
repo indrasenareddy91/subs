@@ -6,6 +6,12 @@ import "./index.css";
 import RecentDownloads from "./recent";
 import "./globals.css";
 const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
+  const rand = Math.floor(Math.random() * 19) + 1;
+  const initialRandomMoviee = {
+    poster: initialRandomMovie.results[rand]?.backdrop_path,
+    title: initialRandomMovie.results[rand]?.title,
+    year: initialRandomMovie.results[rand].release_date,
+  };
   const [searchQuery, setSearchQuery] = useState("");
   const [currentFocusIndex, setCurrentFocusIndex] = useState(-1);
   const linkRefs = useRef([]);
@@ -13,7 +19,7 @@ const SearchBar = ({ initialRandomMovie, recentdownloads }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [randomMovie, setRandomMovie] = useState(initialRandomMovie);
+  const [randomMovie, setRandomMovie] = useState(initialRandomMoviee);
   const [dontshowdata, setdontshowdata] = useState(false);
   const abortControllerRef = useRef(null);
   useEffect(() => {

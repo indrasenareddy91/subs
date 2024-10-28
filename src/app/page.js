@@ -1,10 +1,13 @@
 import SearchBar from "../app/Searchbar";
 import { fetchRandomMovie } from "../actions/actions";
-import RecentDownloads from "./recent.js";
+
 import { sql } from "@vercel/postgres";
-export const dynamic = "force-dynamic";
+import { unstable_noStore } from "next/cache";
 export default async function Home() {
   const initialRandomMovie = await fetchRandomMovie();
+
+  unstable_noStore();
+
   const { rows: recentdownloads } = await sql`
   SELECT movie_id, movie_name, country
 FROM movies

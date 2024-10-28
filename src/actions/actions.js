@@ -6,7 +6,7 @@ import random from "random";
 const TMBD_API_KEY = process.env.TMBD_API_KEY;
 const API_KEY = random.choice([process.env.API_KEY1, process.env.API_KEY2]);
 export async function fetchRandomMovie() {
-  const url = `https://api.themoviedb.org/3/movie/popular?api_key=${TMBD_API_KEY}&append_to_response=images&page=2`;
+  const url = `https://api.themoviedb.org/3/movie/popular?api_key=${TMBD_API_KEY}&append_to_response=images&page=1`;
 
   try {
     const response = await fetch(
