@@ -2,9 +2,7 @@ import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
 import { lookup } from "ip-location-api/pack";
-export const config = {
-  runtime: "edge",
-};
+
 export async function POST(request) {
   try {
     const body = await request.json();
