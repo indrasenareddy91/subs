@@ -22,7 +22,9 @@ export async function POST(request) {
     const ip = forwardedFor ? forwardedFor.split(",")[0] : "127.0.0.1";
     console.log("hekld");
     // Get country from IP
-    const response = await fetch(`https://api.ipapi.is?q=${ip}`);
+    const response = await fetch(
+      `https://api.ipapi.is?q=${ip}&key=${process.env.IP_API_KEY}`
+    );
     const res = await response.json();
     const country = res.location.country || "Unknown";
     const adress =
