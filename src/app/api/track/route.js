@@ -26,8 +26,6 @@ export async function POST(request) {
     const geoResponse = await response.json();
     const country = geoResponse.country_name || "Unknown";
     const adress =
-      ip +
-      ", " +
       (geoResponse.country_name || "Unknown") +
       ", " +
       (geoResponse.city || "Unknown");
@@ -36,8 +34,8 @@ export async function POST(request) {
     // Insert into database
 
     let data = await sql`
-            INSERT INTO movies (movie_name, country , adress , reference) 
-            VALUES (${movie}, ${country} , ${adress} , ${userAgent}) returning *
+            INSERT INTO movies (movie_name, country , adress , reference , ip) 
+            VALUES (${movie}, ${country} , ${adress} , ${userAgent} , ${ip}) returning *
         `;
     return NextResponse.json(
       { message: "Movie added successfully!", id: data.rows[0].movie_id },
