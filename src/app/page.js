@@ -11,13 +11,15 @@ export default async function Home() {
   const randomMovie = random.choice([...initialRandomMovie.data]);
   console.log("hello", randomMovie);
   const { rows: recentdownloads } = await sql`
- SELECT DISTINCT ON (ip, movie_name) 
-    ip,
-    movie_name,
-    movie_id,
-    country
+ SELECT 
+    movie_name, 
+    MIN(country) AS country,  -- Choose the first country for each (movie_name, ip) pair
+    MIN(movie_id) AS movie_id,  -- Choose the first movie_id for each (movie_name, ip) pair
+    ip
 FROM movies
-ORDER BY ip, movie_name, movie_id DESC
+WHERE ip IS NOT NULL
+GROUP BY movie_name, ip
+ORDER BY movie_id DESC
 LIMIT 5;
 `;
   return (
