@@ -11,10 +11,14 @@ export default async function Home() {
   const randomMovie = random.choice([...initialRandomMovie.data]);
   console.log("hello", randomMovie);
   const { rows: recentdownloads } = await sql`
-  SELECT DISTINCT movie_id, movie_name, country
-FROM movies
-ORDER BY movie_id DESC
-LIMIT 5;
+  SELECT DISTINCT ON(ip)  movie_id, movie_name, country
+FROM (
+    SELECT movie_id, movie_name, country, ip
+    FROM movies
+    ORDER BY movie_id DESC
+    LIMIT 5
+) as recent_movies;
+
 `;
   return (
     <main style={{ height: "100%" }}>
