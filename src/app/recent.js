@@ -42,7 +42,10 @@ export default function RecentDownloads({ downloads }) {
                   <span>
                     {title}({year.trim()})
                   </span>
-                  <span> - {download.country}</span>
+                  <span>
+                    {" "}
+                    - {download == "Unknown" ? "" : download.country}
+                  </span>
                 </div>
               );
             })}

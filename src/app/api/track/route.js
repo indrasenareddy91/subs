@@ -22,13 +22,13 @@ export async function POST(request) {
     const ip = forwardedFor ? forwardedFor.split(",")[0] : "127.0.0.1";
     console.log("hekld");
     // Get country from IP
-    const response = await fetch(`https://ipapi.co/${ip}/json`);
-    const geoResponse = await response.json();
-    const country = geoResponse.country_name || "Unknown";
+    const response = await fetch(`https://api.ipapi.is?q=${ip}`);
+    const res = await response.json();
+    const country = res.location.country || "Unknown";
     const adress =
-      (geoResponse.country_name || "Unknown") +
+      (res.location.country || "Unknown") +
       ", " +
-      (geoResponse.city || "Unknown");
+      (res.location.city || "Unknown");
 
     const movie = moviename + ", " + year;
     // Insert into database
