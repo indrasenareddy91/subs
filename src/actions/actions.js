@@ -63,7 +63,7 @@ export async function trendingtoday() {
     "https://trakt-trending-movies.reddyindra53.workers.dev/api/trending-movies",
     {
       next: {
-        revalidate: 12 * 60 * 60,
+        revalidate: 10 * 60 * 60,
       },
     }
   );
