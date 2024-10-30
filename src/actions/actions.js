@@ -60,7 +60,7 @@ const findSubs = async (movieId, lang) => {
 };
 export async function trendingtoday() {
   const trending = await fetch(
-    "https://trakt-trending-movies.reddyindra53.workers.dev/api/trending-movies",
+    "https://trakt-trending-movies.reddyindra53.workers.dev/api/trending",
     {
       next: {
         revalidate: 10 * 60 * 60,
