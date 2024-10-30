@@ -73,6 +73,6 @@ export async function trendingtoday() {
   );
   const tr = await trending.json();
   console.log(tr);
-  return tr.data;
+  return tr;
 }
 export { findSubs };
