@@ -68,7 +68,7 @@ export async function trendingtoday() {
     }
   );
   const tr = await trending.json();
-  console.log("isnide this ", tr);
+  console.log("isnide fuck thiss ", tr);
   return tr;
 }
 export { findSubs };
