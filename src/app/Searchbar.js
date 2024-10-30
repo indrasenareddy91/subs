@@ -195,7 +195,11 @@ const SearchBar = ({ randomMovie, recentdownloads, trending }) => {
                 }
               }
             }}
-            placeholder={trending ? trending.title +' is tre' : "Search for a movie"}
+            placeholder={
+              trending
+                ? trending.title + " is trending today"
+                : "Search for a movie"
+            }
           />
           <button
             type="submit"
