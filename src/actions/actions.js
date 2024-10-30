@@ -5,23 +5,15 @@ import random from "random";
 const TMBD_API_KEY = process.env.TMBD_API_KEY;
 const API_KEY = random.choice([process.env.API_KEY1, process.env.API_KEY2]);
 
-const url = "https://proxy.reddyindra53.workers.dev/";
 export async function fetchRandomMovie() {
-  const urll = `${url}?url=https://api.themoviedb.org/3/movie/popular?api_key=${TMBD_API_KEY}&append_to_response=images&page=1`;
+  const url = `https://api.themoviedb.org/3/movie/popular?api_key=${TMBD_API_KEY}&append_to_response=images&page=1`;
 
   try {
-    const response = await fetch(
-      urll,
-      {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-        },
+    const response = await fetch(url, {
+      next: {
+        revalidate: 12 * 60 * 60,
       },
-      {
-        cache: "no-store",
-      }
-    );
+    });
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -29,9 +21,8 @@ export async function fetchRandomMovie() {
 
     const movieData = await response.json();
     const data = movieData.results;
-    return {
-      data,
-    };
+
+    return data;
   } catch (error) {
     console.error("Error fetching random movie:", error);
     return null;
@@ -69,7 +60,12 @@ const findSubs = async (movieId, lang) => {
 };
 export async function trendingtoday() {
   const trending = await fetch(
-    "https://trakt-trending-movies.reddyindra53.workers.dev/api/trending-movies"
+    "https://trakt-trending-movies.reddyindra53.workers.dev/api/trending-movies",
+    {
+      next: {
+        revalidate: "12*6*60",
+      },
+    }
   );
   const tr = await trending.json();
   console.log("isnide this ", tr);

@@ -4,11 +4,10 @@ import { connection } from "next/server";
 
 import { sql } from "@vercel/postgres";
 import random from "random";
-export const dynamic = "force-dynamic";
 export default async function Home() {
   const initialRandomMovie = await fetchRandomMovie();
   const trendingmovies = await trendingtoday();
-
+  await connection();
   const trending = random.choice([...trendingmovies]);
   const randomMovie = random.choice([...initialRandomMovie.data]);
   const { rows: recentdownloads } = await sql`
