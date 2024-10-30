@@ -1,5 +1,5 @@
 import SearchBar from "../app/Searchbar";
-import { fetchRandomMovie } from "../actions/actions";
+import { fetchRandomMovie, trending } from "../actions/actions";
 
 import { sql } from "@vercel/postgres";
 import { unstable_noStore } from "next/cache";
@@ -8,17 +8,12 @@ export const revalidate = 43200; // 12 hours
 
 export default async function Home() {
   const initialRandomMovie = await fetchRandomMovie();
-  const trendingshit = await fetch(
-    "https://trakt-trending-movies.reddyindra53.workers.dev/"
-  );
-  const trends = await trendingshit.json();
-  const trending = trends.data;
+  const trendingMovies = await trending();
+  console.log(trendingMovies);
   unstable_noStore();
-  console.log("first trending", trending);
-  const trendingMovies = random.choice([...trending]);
-  console.log("rdandom ", trendingMovies);
+  const trendingnow = random.choice([...trendingMovies]);
+  console.log("teting", trendingnow);
   const randomMovie = random.choice([...initialRandomMovie.data]);
-  console.log("hello", randomMovie);
   const { rows: recentdownloads } = await sql`
  SELECT 
     movie_name, 
@@ -34,7 +29,7 @@ LIMIT 5;
   return (
     <main style={{ height: "100%" }}>
       <SearchBar
-        trending={trendingMovies}
+        trending={trendingnow}
         randomMovie={randomMovie}
         recentdownloads={recentdownloads}
       />

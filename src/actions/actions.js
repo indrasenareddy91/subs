@@ -66,5 +66,11 @@ const findSubs = async (movieId, lang) => {
     throw new Error("Failed to search movies");
   }
 };
-
+export async function trending() {
+  const trending = await fetch(
+    "https://trakt-trending-movies.reddyindra53.workers.dev/"
+  );
+  const tr = await trending.json();
+  return tr.data;
+}
 export { findSubs };
