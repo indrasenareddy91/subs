@@ -72,7 +72,7 @@ export async function trendingtoday() {
     "https://trakt-trending-movies.reddyindra53.workers.dev/api/trending-movies"
   );
   const tr = await trending.json();
-  console.log(tr);
+  console.log("isnide this ", tr);
   return tr;
 }
 export { findSubs };
