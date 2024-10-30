@@ -14,9 +14,9 @@ export default async function Home() {
   const trends = await trendingshit.json();
   const trending = trends.data;
   unstable_noStore();
-  console.log(trending);
+  console.log("first trending", trending);
   const trendingMovies = random.choice([...trending]);
-  console.log(trendingMovies);
+  console.log("rdandom ", trendingMovies);
   const randomMovie = random.choice([...initialRandomMovie.data]);
   console.log("hello", randomMovie);
   const { rows: recentdownloads } = await sql`

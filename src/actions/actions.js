@@ -28,7 +28,6 @@ export async function fetchRandomMovie() {
 
     const movieData = await response.json();
     const data = movieData.results;
-    console.log(data);
     return {
       data,
     };
@@ -39,7 +38,6 @@ export async function fetchRandomMovie() {
 }
 
 export async function searchMovies(query) {
-  console.log("hello");
   const url = `https://api.themoviedb.org/3/search/movie?api_key=${TMBD_API_KEY}&query=${query}&page=1`;
 
   try {
