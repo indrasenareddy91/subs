@@ -34,6 +34,15 @@ body{
 .subs:hover{
     color: #f1c40f;
 }
+::placeholder {
+  font-weight: 14px;
+  opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Edge 12 -18 */
+  font-weight: 14px;
+
+}
 @media (min-width: 320px) and (max-width: 768px){ 
      /* CSS for smartphones */
      .formContainer{
