@@ -4,7 +4,7 @@ import { fetchRandomMovie } from "../actions/actions";
 import { sql } from "@vercel/postgres";
 import { unstable_noStore } from "next/cache";
 import random from "random";
-export const revalidate = 43200 * 2; // 12 hours
+export const revalidate = 43200; // 12 hours
 
 export default async function Home() {
   const initialRandomMovie = await fetchRandomMovie();
