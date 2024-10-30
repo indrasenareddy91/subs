@@ -8,7 +8,13 @@ export const revalidate = 43200; // 12 hours
 
 export default async function Home() {
   const initialRandomMovie = await fetchRandomMovie();
+  const trendingshit = await fetch(
+    "https://trakt-trending-movies.reddyindra53.workers.dev/"
+  );
+  const trends = await trendingshit.json();
+  const trending = trends.data;
   unstable_noStore();
+  const trendingMovies = random.choice([...trending]);
   const randomMovie = random.choice([...initialRandomMovie.data]);
   console.log("hello", randomMovie);
   const { rows: recentdownloads } = await sql`
@@ -25,7 +31,11 @@ LIMIT 5;
 `;
   return (
     <main style={{ height: "100%" }}>
-      <SearchBar randomMovie={randomMovie} recentdownloads={recentdownloads} />
+      <SearchBar
+        trending={trendingMovies}
+        randomMovie={randomMovie}
+        recentdownloads={recentdownloads}
+      />
     </main>
   );
 }
