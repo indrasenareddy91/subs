@@ -9,7 +9,11 @@ export async function fetchRandomMovie() {
   const url = `https://api.themoviedb.org/3/movie/popular?api_key=${TMBD_API_KEY}&append_to_response=images&page=1`;
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      next: {
+        revalidate: 12 * 60 * 60,
+      },
+    });
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -56,12 +60,7 @@ const findSubs = async (movieId, lang) => {
 };
 export async function trendingtoday() {
   const trending = await fetch(
-    "https://trakt-trending-movies.reddyindra53.workers.dev/api/trending-movies",
-    {
-      next: {
-        revalidate: 12 * 60 * 60,
-      },
-    }
+    "https://trakt-trending-movies.reddyindra53.workers.dev/api/trending-movies"
   );
   const tr = await trending.json();
   console.log("isnide this ", tr);
