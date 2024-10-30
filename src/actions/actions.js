@@ -4,12 +4,14 @@ import random from "random";
 
 const TMBD_API_KEY = process.env.TMBD_API_KEY;
 const API_KEY = random.choice([process.env.API_KEY1, process.env.API_KEY2]);
+
+const url = "https://proxy.reddyindra53.workers.dev/";
 export async function fetchRandomMovie() {
-  const url = `https://api.themoviedb.org/3/movie/popular?api_key=${TMBD_API_KEY}&append_to_response=images&page=1`;
+  const urll = `${url}?url=https://api.themoviedb.org/3/movie/popular?api_key=${TMBD_API_KEY}&append_to_response=images&page=1`;
 
   try {
     const response = await fetch(
-      url,
+      urll,
       {
         method: "GET",
         headers: {
@@ -70,6 +72,7 @@ export async function trendingtoday() {
     "https://trakt-trending-movies.reddyindra53.workers.dev/"
   );
   const tr = await trending.json();
+  console.log(tr);
   return tr.data;
 }
 export { findSubs };
