@@ -198,7 +198,7 @@ const SearchBar = ({ randomMovie, recentdownloads, trending }) => {
             placeholder={
               trending
                 ? trending.title +
-                  " is trending today on" +
+                  " is trending on" +
                   trending.platform +
                   " today..."
                 : "Search for a movie"
