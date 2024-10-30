@@ -2,17 +2,13 @@ import SearchBar from "../app/Searchbar";
 import { fetchRandomMovie, trending } from "../actions/actions";
 
 import { sql } from "@vercel/postgres";
-import { unstable_noStore } from "next/cache";
 import random from "random";
 export const revalidate = 43200; // 12 hours
 
 export default async function Home() {
   const initialRandomMovie = await fetchRandomMovie();
-  const trendingMovies = await trending();
-  console.log(trendingMovies);
-  unstable_noStore();
-  const trendingnow = random.choice([...trendingMovies]);
-  console.log("teting", trendingnow);
+  const trendingmovies = await trending();
+  const trendingnow = random.choice([...trendingmovies]);
   const randomMovie = random.choice([...initialRandomMovie.data]);
   const { rows: recentdownloads } = await sql`
  SELECT 
