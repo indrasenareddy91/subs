@@ -4,7 +4,7 @@ import { fetchRandomMovie, trendingtoday } from "../actions/actions";
 import { sql } from "@vercel/postgres";
 import random from "random";
 export const revalidate = 43200; // 12 hours
-
+export const dynamic = "force-dynamic";
 export default async function Home() {
   const initialRandomMovie = await fetchRandomMovie();
   const trendingmovies = await trendingtoday();
