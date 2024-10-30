@@ -1,6 +1,5 @@
 "use server";
 
-import { cache } from "react";
 import random from "random";
 
 const TMBD_API_KEY = process.env.TMBD_API_KEY;
@@ -66,7 +65,7 @@ const findSubs = async (movieId, lang) => {
     throw new Error("Failed to search movies");
   }
 };
-export async function trending() {
+export async function trendingtoday() {
   const trending = await fetch(
     "https://trakt-trending-movies.reddyindra53.workers.dev/"
   );

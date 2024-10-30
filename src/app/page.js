@@ -1,5 +1,5 @@
 import SearchBar from "../app/Searchbar";
-import { fetchRandomMovie, trending } from "../actions/actions";
+import { fetchRandomMovie, trendingtoday } from "../actions/actions";
 
 import { sql } from "@vercel/postgres";
 import random from "random";
@@ -7,8 +7,10 @@ export const revalidate = 43200; // 12 hours
 
 export default async function Home() {
   const initialRandomMovie = await fetchRandomMovie();
-  const trendingmovies = await trending();
-  const trendingnow = random.choice([...trendingmovies]);
+  const trendingmovies = await trendingtoday();
+  console.log("trendingmovies", trendingmovies);
+  const trending = random.choice([...trendingmovies]);
+  console.log("radomtrendingnow", trending);
   const randomMovie = random.choice([...initialRandomMovie.data]);
   const { rows: recentdownloads } = await sql`
  SELECT 
@@ -25,7 +27,7 @@ LIMIT 5;
   return (
     <main style={{ height: "100%" }}>
       <SearchBar
-        trending={trendingnow}
+        trending={trending}
         randomMovie={randomMovie}
         recentdownloads={recentdownloads}
       />
