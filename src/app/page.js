@@ -22,7 +22,7 @@ FROM movies
 WHERE ip IS NOT NULL
 GROUP BY movie_name, ip
 ORDER BY movie_id DESC
-LIMIT 5;
+LIMIT 4;
 `;
   return (
     <main style={{ height: "100%" }}>
