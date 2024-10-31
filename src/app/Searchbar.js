@@ -4,7 +4,6 @@ import Link from "next/link";
 import { searchMovies } from "../actions/actions"; // Assuming this is a server action
 import "./index.css";
 import RecentDownloads from "./recent";
-import random from "random";
 import "./globals.css";
 const SearchBar = ({ randomMovie, recentdownloads, trending }) => {
   const [searchQuery, setSearchQuery] = useState("");
