@@ -10,15 +10,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" style={{ scrollbarWidth: "none" }}>
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-X95MLJGX3W"
-      ></script>
-      <script>
-        window.dataLayer = window.dataLayer || []; function gtag()
-        {dataLayer.push(arguments)}
-        gtag('js', new Date()); gtag('config', 'G-X95MLJGX3W');
-      </script>
       <body
         style={{
           margin: "0px",
