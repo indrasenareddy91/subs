@@ -35,7 +35,7 @@ body{
     color: #f1c40f;
 }
 ::placeholder {
-  font-weight: 0.9 rem;
+  font-weight: 0.87rem;
   opacity: 1; /* Firefox */
 }
 
