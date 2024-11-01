@@ -236,6 +236,7 @@ const SearchBar = ({ randomMovie, recentdownloads, trending }) => {
             <Link
               className={`sublinks ${index}`}
               ref={(el) => (linkRefs.current[index] = el)}
+              prefetch={true}
               style={{
                 width: "580px",
                 padding: "10px",
