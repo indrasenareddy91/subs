@@ -167,6 +167,7 @@ const SearchBar = ({ randomMovie, recentdownloads, trending }) => {
         >
           Find perfect subtitles for any movie{" "}
         </div>
+
         <form className="formContainer" onSubmit={(e) => e.preventDefault()}>
           <input
             className="inputbar"

@@ -36,11 +36,13 @@ body{
 }
 ::placeholder {
   font-weight: 0.87rem;
+  color: #454545;
   opacity: 1; /* Firefox */
 }
 
 ::-ms-input-placeholder { /* Edge 12 -18 */
   font-weight: 14px;
+  color: #454545;
 
 }
 @media (min-width: 320px) and (max-width: 768px){ 
