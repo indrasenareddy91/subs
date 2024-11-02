@@ -201,7 +201,6 @@ const SearchBar = ({ randomMovie, recentdownloads, trending }) => {
                     ? trending.title
                     : trending.title.slice(0, 28) + "...") +
                   " is trending on " +
-                  " is trending on " +
                   trending.platform +
                   " today..."
                 : "Search for a movie"
