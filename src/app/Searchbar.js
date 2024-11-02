@@ -199,7 +199,7 @@ const SearchBar = ({ randomMovie, recentdownloads, trending }) => {
               trending
                 ? (trending.title.length <= 28
                     ? trending.title
-                    : trending.title.slice(0, 28) + "...") +
+                    : trending.title.slice(0, 28).trim() + "...") +
                   " is trending on " +
                   trending.platform +
                   " today..."
