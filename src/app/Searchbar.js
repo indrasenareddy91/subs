@@ -197,7 +197,10 @@ const SearchBar = ({ randomMovie, recentdownloads, trending }) => {
             }}
             placeholder={
               trending
-                ? trending.title +
+                ? (trending.title.length <= 28
+                    ? trending.title
+                    : trending.title.slice(0, 28) + "...") +
+                  " is trending on " +
                   " is trending on " +
                   trending.platform +
                   " today..."
