@@ -26,7 +26,7 @@ export async function POST(request) {
       `https://api.ipapi.is?q=${ip}&key=${process.env.IP_API_KEY}`
     );
     const res = await response.json();
-    const country = res.location.country_code || "Unknown";
+    const country = res.location.country || "Unknown";
     const adress =
       (res.location.country || "Unknown") +
       ", " +
