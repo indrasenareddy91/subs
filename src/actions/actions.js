@@ -30,7 +30,7 @@ export async function fetchRandomMovie() {
 }
 
 export async function searchMovies(query) {
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=${OMDB_API_KEY}&query=${query}&page=1`;
+  const url = `https://api.themoviedb.org/3/search/movie?api_key=${TMBD_API_KEY}&query=${query}&page=1`;
 
   try {
     const response = await fetch(url);
