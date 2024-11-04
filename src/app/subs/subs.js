@@ -640,7 +640,7 @@ function SubtitlesContent() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            flexDirection: "row",
+            flexDirection: "column",
             height: "100vh",
           }}
         >
@@ -651,7 +651,8 @@ function SubtitlesContent() {
               fontSize: "1.2rem",
             }}
           >
-            Sorry subtitles not available for this movie yet!
+            Sorry subtitles not available for this movie yet! and pls wait a sec
+            the for something to load
           </div>
           <div>
             <Script
