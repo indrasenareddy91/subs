@@ -5,6 +5,8 @@ import Link from "next/link";
 import { Toaster } from "react-hot-toast";
 import "../index.css";
 import "./page.css";
+import Script from "next/script";
+
 import SwapLoader from "./SwapLoader";
 import NotAvailable from "./NotAvailable";
 import Subswap from "./subshit";
@@ -650,6 +652,29 @@ function SubtitlesContent() {
           >
             Sorry subtitles not available for this movie yet!
           </div>
+          <Script
+            src="https://tally.so/widgets/embed.js"
+            strategy="lazyOnload"
+            onLoad={() => {
+              // @ts-ignore
+              if (typeof window.Tally !== "undefined") {
+                // @ts-ignore
+                window.Tally.loadEmbeds();
+              }
+            }}
+          />
+
+          <iframe
+            data-tally-src="https://tally.so/embed/3yqpgg?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="202"
+            frameBorder="0"
+            marginHeight="0"
+            marginWidth="0"
+            title="user feedback"
+            style={{ border: "none" }}
+          />
         </div>
       )}
     </div>
