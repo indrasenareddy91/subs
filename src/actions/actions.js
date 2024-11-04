@@ -12,7 +12,7 @@ export async function fetchRandomMovie() {
   try {
     const response = await fetch(url, {
       next: {
-        revalidate: 120,
+        revalidate: 1200,
       },
     });
     if (!response.ok) {
@@ -66,7 +66,7 @@ export async function trendingtoday() {
     "https://trakt-trending-movies.reddyindra53.workers.dev/api/trending",
     {
       next: {
-        revalidate: 120,
+        revalidate: 1200,
       },
     }
   );
