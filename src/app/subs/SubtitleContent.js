@@ -1,8 +1,9 @@
 // SubtitleContent.js
-import { findSubs } from "../actions/actions";
+import { findSubs } from "../../actions/actions";
 import Subswap from "./subshit";
 import SwapLoader from "./SwapLoader";
 import NotAvailable from "./NotAvailable";
+import SearchContainer from "./SearchContainer";
 
 async function getMovieSubtitles(movieId, lang) {
   try {
@@ -65,7 +66,7 @@ export async function SubtitleContent({ movieId }) {
               SUBS
             </span>
           </div>
-
+          <SearchContainer />
           <div
             style={{
               height: "56vh",

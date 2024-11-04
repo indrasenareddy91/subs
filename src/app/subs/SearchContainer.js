@@ -1,8 +1,7 @@
 "use client";
 import { useState, useCallback } from "react";
 import Link from "next/link";
-import { searchMovies } from "../actions/actions";
-
+import { searchMovies } from "../../actions/actions";
 export default function SearchContainer() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);

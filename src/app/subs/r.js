@@ -2,22 +2,20 @@
 import { Suspense } from "react";
 import SearchContainer from "./SearchContainer";
 import { SubtitleContent } from "./SubtitleContent";
-import QuoteLoader from "./QuoteLoader";
-
-export default function Page({ searchParams }) {
+import Q from "./Q";
+export default async function Page({ searchParams }) {
   const q = searchParams?.q;
 
   return (
     <div className="hide-scrollbar">
       {q ? (
         <>
-          <SearchContainer />
-          <Suspense fallback={<QuoteLoader />}>
+          <Suspense fallback={<Q />}>
             <SubtitleContent movieId={q} />
           </Suspense>
         </>
       ) : (
-        <QuoteLoader />
+        <Q />
       )}
     </div>
   );

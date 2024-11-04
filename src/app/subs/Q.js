@@ -1,6 +1,3 @@
-"use client";
-import { useEffect, useState } from "react";
-
 const dailog = {
   quotes: [
     {
@@ -190,14 +187,9 @@ const dailog = {
     },
   ],
 };
-export default function QuoteLoader() {
-  const [text, setText] = useState("");
-
-  useEffect(() => {
-    const randquote = Math.floor(Math.random() * 39) + 1;
-    const data = dailog.quotes[randquote];
-    setText(data);
-  }, []);
+export default function Q() {
+  const randquote = Math.floor(Math.random() * 39) + 1;
+  const data = dailog.quotes[randquote];
 
   return (
     <div
@@ -218,8 +210,8 @@ export default function QuoteLoader() {
         }}
       >
         <div className="spinner"></div>
-        <p className="quote">"{text.quote}"</p>
-        <p className="movie-name">{text.movie}.</p>
+        <p className="quote">"{data.quote}"</p>
+        <p className="movie-name">{data.movie}.</p>
       </div>
     </div>
   );

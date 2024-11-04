@@ -5,8 +5,9 @@ import random from "random";
 const TMBD_API_KEY = process.env.TMBD_API_KEY;
 const API_KEY = random.choice([process.env.API_KEY1, process.env.API_KEY2]);
 
+const urll = `https://proxy.reddyindra53.workers.dev/?url=`;
 export async function fetchRandomMovie() {
-  const url = `https://api.themoviedb.org/3/movie/popular?api_key=${TMBD_API_KEY}&append_to_response=images&page=1`;
+  const url = `${urll}https://api.themoviedb.org/3/movie/popular?api_key=${TMBD_API_KEY}&append_to_response=images&page=1`;
 
   try {
     const response = await fetch(url, {
@@ -14,7 +15,6 @@ export async function fetchRandomMovie() {
         revalidate: 12 * 60 * 60,
       },
     });
-
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -30,10 +30,15 @@ export async function fetchRandomMovie() {
 }
 
 export async function searchMovies(query) {
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=${TMBD_API_KEY}&query=${query}&page=1`;
+  // The way it should be formatted
+  const baseUrl = "https://proxy.reddyindra53.workers.dev/?url=";
+  const tmdbUrl = `https://api.themoviedb.org/3/search/movie?api_key=${TMBD_API_KEY}&query=${encodeURIComponent(
+    query
+  )}&page=1`;
+  const finalUrl = baseUrl + encodeURIComponent(tmdbUrl);
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(finalUrl);
     console.log(response);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -68,7 +73,6 @@ export async function trendingtoday() {
     }
   );
   const tr = await trending.json();
-  console.log("isnide fuck thiss ", tr);
   return tr;
 }
 export { findSubs };
