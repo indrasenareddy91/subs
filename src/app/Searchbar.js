@@ -195,7 +195,7 @@ const SearchBar = ({ randomMovie, recentdownloads, trending }) => {
                 }
               }
             }}
-            placeholder={"3 idiots(2009) is trending all over the world"}
+            placeholder={"Search for a movie..."}
           />
           <button
             type="submit"
