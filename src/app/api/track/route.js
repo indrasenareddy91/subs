@@ -35,10 +35,21 @@ export async function POST(request) {
     const movie = moviename + ", " + year;
     // Insert into database
 
-    let data = await sql`
-            INSERT INTO movies (movie_name, country , adress , reference , ip) 
-            VALUES (${movie}, ${country} , ${adress} , ${userAgent} , ${ip}) returning *
-        `;
+    const [data, latestMoviesResult] = await Promise.all([
+      sql`
+          INSERT INTO movies (movie_name, country, adress, reference, ip)
+          VALUES (${movie}, ${country}, ${adress}, ${userAgent}, ${ip})
+          RETURNING *
+      `,
+      sql`
+          INSERT INTO latest_movies (movie_name, country, movie_id, ip)
+          VALUES (${movie}, ${country}, 
+                  (1), 
+                  ${ip})
+          RETURNING *
+      `,
+    ]);
+
     return NextResponse.json(
       { message: "Movie added successfully!", id: data.rows[0].movie_id },
       { status: 201 }
