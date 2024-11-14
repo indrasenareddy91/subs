@@ -12,17 +12,17 @@ export default async function Home() {
   const trending = random.choice([...trendingmovies]);
   const randomMovie = random.choice([...initialRandomMovie]);
   const { rows: recentdownloads } = await sql`
-  SELECT 
-     movie_name, 
-     MIN(country) AS country,  -- Choose the first country for each (movie_name, ip) pair
-     MIN(movie_id) AS movie_id,  -- Choose the first movie_id for each (movie_name, ip) pair
-     ip
- FROM movies
- WHERE ip IS NOT NULL
- GROUP BY movie_name, ip
- ORDER BY movie_id DESC
- LIMIT 4;
- `;
+ SELECT  
+    movie_name::text AS movie_name,  -- PostgreSQL specific cast
+    MIN(country) AS country,
+    MIN(movie_id) AS movie_id,
+    ip
+FROM movies
+WHERE ip IS NOT NULL
+  AND movie_name ~ '[A-Za-z]'  -- Ensure movie name contains at least one letter
+GROUP BY movie_name, ip
+ORDER BY movie_id DESC
+LIMIT 4;`;
   return (
     <main style={{ height: "100%" }}>
       <SearchBar
