@@ -26,18 +26,20 @@ export async function POST(request) {
       `https://api.ipapi.is?q=${ip}&key=${process.env.IP_API_KEY}`
     );
     const res = await response.json();
-    const country = res.location.country || "Unknown";
+    const country = res.location?.country || "Unknown";
     const adress =
-      (res.location.country || "Unknown") +
+      (res.location?.country || "Unknown") +
       ", " +
-      (res.location.city || "Unknown");
+      (res.location?.city || "Unknown");
 
     const movie = moviename + ", " + year;
     // Insert into database
 
     let data = await sql`
             INSERT INTO movies (movie_name, country , adress , reference , ip) 
-            VALUES (${movie}, ${country} , ${adress} , ${userAgent} , ${ip}) returning *
+            VALUES (${movie}, ${
+      country || null
+    } , ${adress} , ${userAgent} , ${ip}) returning *
         `;
     return NextResponse.json(
       { message: "Movie added successfully!", id: data.rows[0].movie_id },
