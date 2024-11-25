@@ -3,6 +3,7 @@ import { sql } from "@vercel/postgres";
 export const dynamic = "force-dynamic";
 const formatDate = (date) => {
   return new Date(date).toLocaleDateString("en-US", {
+    timeZone: "Asia/Kolkata",
     year: "numeric",
     month: "long",
     day: "numeric",
