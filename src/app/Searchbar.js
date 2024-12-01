@@ -252,7 +252,6 @@ const SearchBar = ({ randomMovie, recentdownloads, trending }) => {
       )}
 
       {}
-      <RecentDownloads downloads={recentdownloads} />
     </div>
   );
 };
