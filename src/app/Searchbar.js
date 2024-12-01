@@ -5,7 +5,7 @@ import { searchMovies } from "../actions/actions"; // Assuming this is a server 
 import "./index.css";
 import RecentDownloads from "./recent";
 import "./globals.css";
-const SearchBar = ({ randomMovie, recentdownloads, trending }) => {
+const SearchBar = ({ randomMovie, trending }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentFocusIndex, setCurrentFocusIndex] = useState(-1);
   const linkRefs = useRef([]);
