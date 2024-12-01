@@ -8,14 +8,12 @@ import random from "random";
 export default async function Home() {
   await connection();
   const initialRandomMovie = await fetchRandomMovie();
-  const trendingmovies = await trendingtoday();
-  const trending = random.choice([...trendingmovies]);
   const randomMovie = random.choice([...initialRandomMovie]);
 
   return (
     <main style={{ height: "100%" }}>
       <SearchBar
-        trending={trending}
+  
         randomMovie={randomMovie}
       />
     </main>
