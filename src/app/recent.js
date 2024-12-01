@@ -39,9 +39,10 @@ export default function RecentDownloads({ downloads }) {
 
               return (
                 <div key={download.id} className="download-item">
-                  <span>
-                    {title}({year.trim()})
-                  </span>
+                    <span>
+    {title.length > 31 ? `${title.slice(0, 31)}...` : title} ({year.trim()})
+  </span>
+
                   <span>
                     {" "}
                     - {download == "Unknown" ? "" : download.country}
