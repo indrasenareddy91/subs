@@ -251,7 +251,7 @@ const SearchBar = ({ randomMovie , recentdownloads }) => {
         </div>
       )}
 
-      {recentdownloads && <RecentDownloads recentdownloads={recentdownloads}/>}
+      {recentdownloads && <RecentDownloads downloads={recentdownloads}/>}
     </div>
   );
 };
