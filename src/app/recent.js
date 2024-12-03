@@ -40,7 +40,7 @@ export default function RecentDownloads({ downloads }) {
               return (
                 <div key={download.id} className="download-item">
                     <span>
-    {title.length > 25 ? `${title.slice(0, 25)}...` : title} ({year.trim()})
+    {title.length > 20 ? `${title.slice(0, 20)}...` : title} ({year.trim()})
   </span>
 
                   <span>
